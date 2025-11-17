@@ -1,7 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
-public class Bulletdelete : MonoBehaviour
+public class Enemystuff : MonoBehaviour
 {
+    public Bullet bullet;
+    public float health;
+    public bool isDead = false;
+    public bool wasHit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,13 +17,5 @@ public class Bulletdelete : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.layer == 3)
-        {
-            Destroy(this.gameObject);
-        }
     }
 }
