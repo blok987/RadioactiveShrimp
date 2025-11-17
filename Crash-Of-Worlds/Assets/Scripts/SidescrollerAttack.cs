@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using static UnityEditor.PlayerSettings;
 using static UnityEngine.UI.Image;
 
@@ -11,14 +13,14 @@ public class GunController : MonoBehaviour
     public float bulletSpeed = 40f; // Speed of the bullet
 
     [Range(0, 1)]
-    public float smoothTime;
+    public float smoothTime; // How fast bullet time takes to get to it's lowest
 
-    public float bTimeSpeed = 0.5f;
+    public float bTimeSpeed; // How slow bullet time is
 
-    public float bulletsLeft;
+    public float bulletsLeft; // How many bullets left in the clip
 
-    public bool isReloading;
-    public bool BulletTime;
+    public bool isReloading; // If player is reloading
+    public bool BulletTime; // If bullet time is active
 
     public LayerMask layerMask;
     public LayerMask worldLayer;

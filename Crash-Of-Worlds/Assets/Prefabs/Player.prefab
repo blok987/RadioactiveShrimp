@@ -580,12 +580,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b942e9901224d48897d5e59cfb45a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6210643989130803384, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
+  bulletPrefab: {fileID: 7873595606463958024, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
   firePoint: {fileID: 1445731474757455901}
   player: {fileID: 7903914364014448208}
   bulletSpeed: 20
+  smoothTime: 0
+  bTimeSpeed: 0
   bulletsLeft: 0
   isReloading: 0
+  BulletTime: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 8
