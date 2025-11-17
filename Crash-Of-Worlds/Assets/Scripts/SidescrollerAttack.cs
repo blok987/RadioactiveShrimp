@@ -1,36 +1,58 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.UI.Image;
 
 public class GunController : MonoBehaviour
 {
     public GameObject bulletPrefab; // Reference to the bullet prefab
     public Transform firePoint;   // Reference to the fire point
-    public float bulletSpeed = 20f; // Speed of the bullet
+    public Transform player;
+    public float bulletSpeed = 40f; // Speed of the bullet
+
+    [Range(0, 1)]
+    public float smoothTime;
+
+    public float bTimeSpeed = 0.5f;
+
+    public float bulletsLeft;
+
+    public bool isReloading;
+    public bool BulletTime;
+
     public LayerMask layerMask;
+    public LayerMask worldLayer;
 
-    private void FixedUpdate()
+    private void Awake()
     {
-        RaycastHit hit;
+        player = GetComponent<Transform>();
+    }
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
-        }
+    private void Start()
+    {
+        BulletTime = false;
+        bulletsLeft = 8;
+        isReloading = false;
     }
 
     void Update()
     {
         AimGun();
 
-        if (Input.GetButtonDown("Fire1")) // Fire when left mouse button is clicked
+        
+        if (Input.GetButtonDown("Fire1") && bulletsLeft > 0 && !isReloading) // Fire when left mouse button is clicked
         {
             Shoot();
+        }
+
+        if (Input.GetButton("Fire2")) // Bullet Time when right mouse button is clicked
+        {
+            bTime();
+        }
+        else
+        {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, smoothTime);
+            BulletTime = false;
         }
     }
 
@@ -45,6 +67,7 @@ public class GunController : MonoBehaviour
 
         // Rotate the gun to face the mouse position
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        Ray ray = new Ray(transform.position, firePoint.position);
     }
 
     void Shoot()
@@ -57,10 +80,32 @@ public class GunController : MonoBehaviour
         // Calculate the shoot direction from the fire point to the mouse position
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Ignore the Z-axis
-        Vector2 shootDirection = (mousePosition - firePoint.position).normalized;
+        Vector2 shootDirection = (mousePosition - transform.position).normalized;
 
         // Set bullet velocity in the direction of the mouse position
         rb.linearVelocity = shootDirection * bulletSpeed;
         Destroy(bullet, 2f); // Destroy bullet after 2 seconds
+
+        bulletsLeft -= 1;
+
+        if (bulletsLeft < 1) 
+        {
+            StartCoroutine(nameof(reload));
+        }
+    }
+
+    public void bTime()
+    {
+        BulletTime = true;
+        Time.timeScale = Mathf.Lerp(Time.timeScale, bTimeSpeed, smoothTime);
+        //Time.timeScale = 0.5f;
+    }
+
+    private IEnumerator reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(3);
+        bulletsLeft = 8;
+        isReloading = false;
     }
 }
