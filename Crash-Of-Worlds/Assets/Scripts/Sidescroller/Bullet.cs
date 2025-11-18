@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -14,7 +15,10 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hitsLeft == 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -23,10 +27,19 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
         if (col.gameObject.CompareTag("Enemy"))
         {
-
+            StartCoroutine(nameof(wait));
         }
+    }
+
+    public IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hitsLeft -= 1;
     }
 }
