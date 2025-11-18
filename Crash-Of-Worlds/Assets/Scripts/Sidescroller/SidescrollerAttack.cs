@@ -12,15 +12,9 @@ public class GunController : MonoBehaviour
     public Transform player;
     public float bulletSpeed = 40f; // Speed of the bullet
 
-    [Range(0, 1)]
-    public float smoothTime; // How fast bullet time takes to get to it's lowest
-
-    public float bTimeSpeed; // How slow bullet time is
-
     public float bulletsLeft; // How many bullets left in the clip
 
     public bool isReloading; // If player is reloading
-    public bool BulletTime; // If bullet time is active
 
     public LayerMask layerMask;
     public LayerMask worldLayer;
@@ -32,7 +26,6 @@ public class GunController : MonoBehaviour
 
     private void Start()
     {
-        BulletTime = false;
         bulletsLeft = 8;
         isReloading = false;
     }
@@ -45,16 +38,6 @@ public class GunController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && bulletsLeft > 0 && !isReloading) // Fire when left mouse button is clicked
         {
             Shoot();
-        }
-
-        if (Input.GetButton("Fire2")) // Bullet Time when right mouse button is clicked
-        {
-            bTime();
-        }
-        else
-        {
-            Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, smoothTime);
-            BulletTime = false;
         }
     }
 
@@ -94,13 +77,6 @@ public class GunController : MonoBehaviour
         {
             StartCoroutine(nameof(reload));
         }
-    }
-
-    public void bTime()
-    {
-        BulletTime = true;
-        Time.timeScale = Mathf.Lerp(Time.timeScale, bTimeSpeed, smoothTime);
-        //Time.timeScale = 0.5f;
     }
 
     private IEnumerator reload()

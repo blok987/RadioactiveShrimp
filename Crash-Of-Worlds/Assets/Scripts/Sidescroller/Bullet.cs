@@ -3,7 +3,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
-    public GunController attack;
     public int hitsLeft; // Amount of hits until the bullet's deleted
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
