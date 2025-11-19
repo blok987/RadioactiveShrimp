@@ -11,7 +11,6 @@ public class Enemystuff : MonoBehaviour
     public float damageTaken = 0;
     public bool isDead = false;
     public bool wasHit = false;
-    public bool justDied = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
