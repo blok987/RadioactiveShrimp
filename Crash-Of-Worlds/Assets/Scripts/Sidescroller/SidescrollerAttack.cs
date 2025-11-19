@@ -11,9 +11,16 @@ public class GunController : MonoBehaviour
     public Transform firePoint;   // Reference to the fire point
     public Transform player;
     public float bulletSpeed = 40f; // Speed of the bullet
+    public float shotGunSpread;
 
-    public float bulletsLeft; // How many bullets left in the clip
+    public bool handGunSelected = true;
+    public bool shotGunSelected = false;
 
+    public int bulletsLeft; // How many bullets left in the clip
+    public int slugsLeft;
+
+    public bool isReloadingHandGun;
+    public bool isReloadingShotGun;
     public bool isReloading; // If player is reloading
 
     public LayerMask layerMask;
@@ -26,7 +33,6 @@ public class GunController : MonoBehaviour
 
     private void Start()
     {
-        bulletsLeft = 8;
         isReloading = false;
     }
 
@@ -34,7 +40,18 @@ public class GunController : MonoBehaviour
     {
         AimGun();
 
-        
+        if (Input.GetKey("1"))
+        {
+            handGunSelected = true;
+            shotGunSelected = false;
+        }
+
+        if (Input.GetKey("2"))
+        {
+            handGunSelected = false;
+            shotGunSelected = true;
+        }
+
         if (Input.GetButtonDown("Fire1") && bulletsLeft > 0 && !isReloading) // Fire when left mouse button is clicked
         {
             Shoot();
@@ -57,21 +74,52 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        // Instantiate the bullet at the fire point
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0; // Disable gravity for the bullet
+        if (handGunSelected)
+        {
+            // Instantiate the bullet at the fire point
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.gravityScale = 0; // Disable gravity for the bullet
 
-        // Calculate the shoot direction from the fire point to the mouse position
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Ignore the Z-axis
-        Vector2 shootDirection = (mousePosition - transform.position).normalized;
 
-        // Set bullet velocity in the direction of the mouse position
-        rb.linearVelocity = shootDirection * bulletSpeed;
-        Destroy(bullet, 2f); // Destroy bullet after 2 seconds
+            // Calculate the shoot direction from the fire point to the mouse position
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0; // Ignore the Z-axis
+            Vector2 shootDirection = (mousePosition - transform.position).normalized;
 
-        bulletsLeft -= 1;
+            // Set bullet velocity in the direction of the mouse position
+            rb.linearVelocity = shootDirection * bulletSpeed;
+            Destroy(bullet, 2f); // Destroy bullet after 2 seconds
+
+            bulletsLeft -= 1;
+        }
+
+        if (shotGunSelected)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                // Instantiate the bullet at the fire point
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.gravityScale = 0; // Disable gravity for the bullet
+
+                // Calculate the shoot direction from the fire point to the mouse position
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0; // Ignore the Z-axis
+                Vector2 shootDirection = (mousePosition - transform.position).normalized;
+
+                // Convert direction (x, y) to an angle, changes the angle, converts back
+                float angle = Mathf.Atan2(shootDirection.y, shootDirection.x);
+                angle += Random.Range(-shotGunSpread, shotGunSpread);
+                shootDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                // Set bullet velocity in the direction of the mouse position
+                rb.linearVelocity = shootDirection * bulletSpeed;
+                Destroy(bullet, 2f); // Destroy bullet after 2 seconds
+
+                slugsLeft -= 1;
+            }
+        }
 
         if (bulletsLeft < 1) 
         {
@@ -81,9 +129,24 @@ public class GunController : MonoBehaviour
 
     private IEnumerator reload()
     {
-        isReloading = true;
-        yield return new WaitForSeconds(3);
-        bulletsLeft = 8;
-        isReloading = false;
+        if (handGunSelected)
+        {
+            isReloading = true;
+            isReloadingHandGun = true;
+            isReloadingShotGun = false;
+            yield return new WaitForSeconds(1.5f);
+            bulletsLeft = 8;
+            isReloading = false;
+        }
+        
+        if (shotGunSelected)
+        {
+            isReloading = true;
+            isReloadingShotGun = true;
+            isReloadingHandGun = false;
+            yield return new WaitForSeconds(3);
+            slugsLeft = 4;
+            isReloading = false;
+        }
     }
 }
