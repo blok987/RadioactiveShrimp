@@ -19,6 +19,8 @@ public class BulletTime : MonoBehaviour
 
     public bool bulletTime; // If bullet time is active
 
+    public bool canUseBTime;
+
     public Color a, b;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,7 +36,7 @@ public class BulletTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2")) // Bullet Time when right mouse button is clicked
+        if (Input.GetButton("Fire2") && canUseBTime) // Bullet Time when right mouse button is clicked
         {
             bTime();
         }
