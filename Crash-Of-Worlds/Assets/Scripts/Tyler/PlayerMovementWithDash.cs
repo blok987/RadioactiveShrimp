@@ -309,7 +309,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 		#endregion
 
 		#region DASH CHECKS
-		if (CanDash() && LastPressedDashTime > 0)
+		if (CanDash() && LastPressedDashTime > 0 && enableDash)
 		{
 			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
 			Sleep(Data.dashSleepTime); 
