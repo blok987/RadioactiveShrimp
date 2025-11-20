@@ -176,8 +176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f58b2966f626924aa3f0010febf978d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attack: {fileID: 0}
   damage: 1
   hitsLeft: 1
+  trail: {fileID: -2305611960604589028}
+  isHandGunBullet: 0
+  isShotGunBullet: 0
 --- !u!96 &-2305611960604589028
 TrailRenderer:
   serializedVersion: 3

@@ -21,6 +21,7 @@ public class GunController : MonoBehaviour
     public bool handGunSelected = true;
     public bool shotGunSelected = false;
     public bool rifleSelected = false;
+    [HideInInspector]public bool shotototoGunSelected = false;
 
     public int pistolAmmoLeft; // How many bullets left in the mag
     public int shellsLeft; // How many shells left in the gun
@@ -62,6 +63,7 @@ public class GunController : MonoBehaviour
             handGunSelected = true;
             shotGunSelected = false;
             rifleSelected = false;
+            shotototoGunSelected = false;
         }
 
         if (Input.GetKey("2"))
@@ -69,6 +71,7 @@ public class GunController : MonoBehaviour
             handGunSelected = false;
             shotGunSelected = true;
             rifleSelected = false;
+            shotototoGunSelected = false;
         }
 
         if (Input.GetKey("3"))
@@ -76,6 +79,15 @@ public class GunController : MonoBehaviour
             handGunSelected = false;
             shotGunSelected = false;
             rifleSelected = true;
+            shotototoGunSelected = false;
+        }
+
+        if (Input.GetKey("4"))
+        {
+            handGunSelected = false;
+            shotGunSelected = false;
+            rifleSelected = false;
+            shotototoGunSelected = true;
         }
 
         if (Input.GetButtonDown("Fire1") && pistolAmmoLeft > 0 && !isReloading || Input.GetButtonDown("Fire1") && shellsLeft > 0 && !isReloading || Input.GetButtonDown("Fire1") && rifleAmmoLeft > 0 && !isReloading) // Fire when left mouse button is clicked
@@ -84,7 +96,7 @@ public class GunController : MonoBehaviour
             fireTime = 0;
             Shoot();
         }
-        else if (Input.GetButtonUp("Fire1"))
+        else if (Input.GetButtonUp("Fire1") && isReloading)
         {
             buttonPressed = false;
         }
@@ -165,18 +177,43 @@ public class GunController : MonoBehaviour
             shellsLeft -= 1;
         }
 
+        if (shotototoGunSelected && lastShellShot > 1 && shellsLeft > 0 && !isReloading)
+        {
+            lastShellShot = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                // Instantiate the bullet at the fire point
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.gravityScale = 0; // Disable gravity for the bullet
+
+                // Calculate the shoot direction from the fire point to the mouse position
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0; // Ignore the Z-axis
+                Vector2 shootDirection = (mousePosition - transform.position).normalized;
+
+                // Convert direction (x, y) to an angle, changes the angle, converts back
+                float angle = Mathf.Atan2(shootDirection.y, shootDirection.x);
+                angle += Random.Range(-shotGunSpread, shotGunSpread);
+                shootDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                // Set bullet velocity in the direction of the mouse position
+                rb.linearVelocity = shootDirection * bulletSpeed;
+                Destroy(bullet, 2f); // Destroy bullet after 2 seconds
+            }
+
+            shellsLeft -= 1;
+        }
+
         if (rifleSelected && rifleAmmoLeft > 0 && !isReloading)
         {
             new WaitForSeconds(rifleFireRate);
             StartCoroutine(nameof(rifleShoot));
         }
 
-        if (pistolAmmoLeft < 1 && handGunSelected || shellsLeft < 1 && shotGunSelected) 
+        if (pistolAmmoLeft < 1 && handGunSelected || shellsLeft < 1 && shotGunSelected || rifleAmmoLeft < 1 && rifleSelected|| shellsLeft < 1 && shotototoGunSelected) 
         {
-            if (shotGunSelected)
             StartCoroutine(nameof(reload));
-            new WaitForSeconds(1.5f);
-            yield return shellsLeft = 4;
         }
     }
 
@@ -193,15 +230,27 @@ public class GunController : MonoBehaviour
             isReloading = false;
         }
         
-        if (shotGunSelected)
+        if (shotGunSelected || shotototoGunSelected)
         {
             isReloading = true;
             isReloadingShotGun = true;
             isReloadingHandGun = false;
             yield return new WaitForSeconds(3);
-            yield return shellsLeft = 4;
-            yield return isReloadingShotGun = false;
-            yield return isReloading = false;
+            shellsLeft = 4;
+            isReloadingShotGun = false;
+            isReloading = false;
+        }
+
+        if (rifleSelected)
+        {
+            isReloading = true;
+            isReloadingHandGun = false;
+            isReloadingShotGun = false;
+            isReloadingRifle = true;
+            yield return new WaitForSeconds(7.5f);
+            rifleAmmoLeft = 60;
+            isReloadingRifle = false;
+            isReloading = false;
         }
     }
 
