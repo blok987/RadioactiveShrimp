@@ -108,7 +108,7 @@ public class GunController : MonoBehaviour
 
         if (buttonPressed)
         {
-            if ((Input.GetButtonDown("Fire1") && handGunSelected) || (Input.GetButtonDown("Fire1") && shotGunSelected) || (Input.GetButtonDown("Fire1") && shotototoGunSelected))
+            if ((buttonPressed && handGunSelected) || (buttonPressed && shotGunSelected) || (buttonPressed && shotototoGunSelected))
             {
                 buttonPressed = true;
                 buttonPressed = false;
@@ -270,7 +270,7 @@ public class GunController : MonoBehaviour
             isReloadingHandGun = false;
             isReloadingShotGun = false;
             isReloadingRifle = true;
-            yield return new WaitForSeconds(7.5f);
+            yield return new WaitForSeconds(5);
             StartCoroutine(nameof(reloadEnd));
         }
     }

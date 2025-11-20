@@ -48,31 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b942e9901224d48897d5e59cfb45a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
-  firePoint: {fileID: 8918767880119706727}
-  player: {fileID: 8236150363551743944}
-  bulletSpeed: 125
-  shotGunSpread: 0.3
-  rifleFireRate: 0.1
-  handGunSelected: 1
-  shotGunSelected: 0
-  rifleSelected: 0
-  pistolAmmoLeft: 8
-  shellsLeft: 4
-  rifleAmmoLeft: 30
-  isReloadingHandGun: 0
-  isReloadingShotGun: 0
-  isReloadingRifle: 0
-  isReloading: 0
-  lastShellShot: 0
-  lastPistolShot: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  worldLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  buttonPressed: 0
 --- !u!50 &5499211989577618960
 Rigidbody2D:
   serializedVersion: 5
