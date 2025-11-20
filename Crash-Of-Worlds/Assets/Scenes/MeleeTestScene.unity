@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1500723682451906035, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6446546266655502150, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -175,20 +179,15 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7505784722236266392, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
     - {fileID: 1392571332830021210, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+    - {fileID: 2944375993884689309, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8236150363551743944, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561480244}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7757214204107637031, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 655808512}
-    - targetCorrespondingSourceObject: {fileID: 7757214204107637031, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       insertIndex: -1
       addedObject: {fileID: 655808507}
-    - targetCorrespondingSourceObject: {fileID: 7757214204107637031, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 655808506}
   m_SourcePrefab: {fileID: 100100000, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
 --- !u!1 &561480243
 GameObject:
@@ -200,6 +199,8 @@ GameObject:
   m_Component:
   - component: {fileID: 561480244}
   - component: {fileID: 561480245}
+  - component: {fileID: 561480247}
+  - component: {fileID: 561480246}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -277,27 +278,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &655808505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7757214204107637031, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
-  m_PrefabInstance: {fileID: 236995680}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &655808506
+--- !u!114 &561480246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655808505}
+  m_GameObject: {fileID: 561480243}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerAttack: 0
-  PlayerContact: 0
-  PlayerSwordDash: 0
-  PlayerSwordDMG: 0
+--- !u!61 &561480247
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561480243}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &655808505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7757214204107637031, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+  m_PrefabInstance: {fileID: 236995680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &655808507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,22 +463,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &655808512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655808505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerAttack: 0
-  PlayerContact: 0
-  PlayerSwordDash: 0
-  PlayerSwordDMG: 0
 --- !u!4 &655808513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8236150363551743944, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
