@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public GameObject bulletPrefab; // Reference to the bullet prefab
     public Transform firePoint;   // Reference to the fire point
     public Transform player;
+    public SpriteRenderer gun { get; private set; }
     public float bulletSpeed = 40f; // Speed of the bullet
     public float shotGunSpread;
 
@@ -43,6 +44,7 @@ public class GunController : MonoBehaviour
 
     private void Awake()
     {
+        gun = GetComponent<SpriteRenderer>();
         player = GetComponent<Transform>();
     }
 
@@ -64,6 +66,7 @@ public class GunController : MonoBehaviour
             shotGunSelected = false;
             rifleSelected = false;
             shotototoGunSelected = false;
+            buttonPressed = false;
         }
 
         if (Input.GetKey("2"))
@@ -72,6 +75,7 @@ public class GunController : MonoBehaviour
             shotGunSelected = true;
             rifleSelected = false;
             shotototoGunSelected = false;
+            buttonPressed = false;
         }
 
         if (Input.GetKey("3"))
@@ -80,35 +84,56 @@ public class GunController : MonoBehaviour
             shotGunSelected = false;
             rifleSelected = true;
             shotototoGunSelected = false;
+            buttonPressed = false;
         }
 
-        if (Input.GetKey("4"))
+        if (Input.GetKey("="))
         {
             handGunSelected = false;
             shotGunSelected = false;
             rifleSelected = false;
             shotototoGunSelected = true;
+            buttonPressed = false;
         }
 
-        if (Input.GetButtonDown("Fire1") && pistolAmmoLeft > 0 && !isReloading || Input.GetButtonDown("Fire1") && shellsLeft > 0 && !isReloading || Input.GetButtonDown("Fire1") && rifleAmmoLeft > 0 && !isReloading) // Fire when left mouse button is clicked
+        if ((Input.GetButtonDown("Fire1") && pistolAmmoLeft > 0) || (Input.GetButtonDown("Fire1") && shellsLeft > 0) || (Input.GetButtonDown("Fire1") && rifleAmmoLeft > 0)) // Fire when left mouse button is clicked
         {
             buttonPressed = true;
             fireTime = 0;
-            Shoot();
         }
-        else if (Input.GetButtonUp("Fire1") && isReloading)
+        else if ((Input.GetButtonUp("Fire1") && handGunSelected) || (Input.GetButtonUp("Fire1") && shotGunSelected) || (Input.GetButtonUp("Fire1") && rifleSelected) || (Input.GetButtonUp("Fire1") && shotototoGunSelected) || isReloading)
         {
             buttonPressed = false;
         }
 
         if (buttonPressed)
         {
+            if ((Input.GetButtonDown("Fire1") && handGunSelected) || (Input.GetButtonDown("Fire1") && shotGunSelected) || (Input.GetButtonDown("Fire1") && shotototoGunSelected))
+            {
+                buttonPressed = true;
+                buttonPressed = false;
+            }
+
             fireTime -= Time.deltaTime;
             if (fireTime < 0)
             {
                 fireTime = rifleFireRate;
                 Shoot();
             }
+        }
+
+        if (handGunSelected && isReloadingRifle || rifleSelected && isReloadingHandGun || shotGunSelected && isReloadingHandGun || shotototoGunSelected && isReloadingHandGun || shotototoGunSelected && isReloadingRifle || shotGunSelected && isReloadingRifle || handGunSelected && isReloadingShotGun || rifleSelected && isReloadingShotGun)
+        {
+            isReloading = false;
+            isReloadingShotGun = false;
+            isReloadingRifle = false;
+            isReloadingHandGun = false;
+            StopCoroutine(nameof(reload));
+        }
+
+        if (Input.GetKeyDown("r") && pistolAmmoLeft != 8 || Input.GetKeyDown("r") && rifleAmmoLeft != 60 || Input.GetKeyDown("r") && shellsLeft != 4)
+        {
+            StartCoroutine(nameof(reload));
         }
     }
 
@@ -211,7 +236,7 @@ public class GunController : MonoBehaviour
             StartCoroutine(nameof(rifleShoot));
         }
 
-        if (pistolAmmoLeft < 1 && handGunSelected || shellsLeft < 1 && shotGunSelected || rifleAmmoLeft < 1 && rifleSelected|| shellsLeft < 1 && shotototoGunSelected) 
+        if ((pistolAmmoLeft < 1 && handGunSelected) || (shellsLeft < 1 && shotGunSelected) || (rifleAmmoLeft < 1 && rifleSelected) || (shellsLeft < 1 && shotototoGunSelected)) 
         {
             StartCoroutine(nameof(reload));
         }
@@ -224,10 +249,9 @@ public class GunController : MonoBehaviour
             isReloading = true;
             isReloadingHandGun = true;
             isReloadingShotGun = false;
+            isReloadingRifle = false;
             yield return new WaitForSeconds(1.5f);
-            pistolAmmoLeft = 8;
-            isReloadingHandGun = false;
-            isReloading = false;
+            StartCoroutine(nameof(reloadEnd));
         }
         
         if (shotGunSelected || shotototoGunSelected)
@@ -235,10 +259,9 @@ public class GunController : MonoBehaviour
             isReloading = true;
             isReloadingShotGun = true;
             isReloadingHandGun = false;
+            isReloadingRifle = false;
             yield return new WaitForSeconds(3);
-            shellsLeft = 4;
-            isReloadingShotGun = false;
-            isReloading = false;
+            StartCoroutine(nameof(reloadEnd));
         }
 
         if (rifleSelected)
@@ -248,7 +271,32 @@ public class GunController : MonoBehaviour
             isReloadingShotGun = false;
             isReloadingRifle = true;
             yield return new WaitForSeconds(7.5f);
+            StartCoroutine(nameof(reloadEnd));
+        }
+    }
+
+    private IEnumerator reloadEnd()
+    {
+        if (isReloadingHandGun)
+        {
+            pistolAmmoLeft = 8;
+            yield return new WaitForSeconds(0.1f);
+            isReloadingHandGun = false;
+            isReloading = false;
+        }
+
+        if (isReloadingShotGun)
+        {
+            shellsLeft = 4;
+            yield return new WaitForSeconds(0.1f);
+            isReloadingShotGun = false;
+            isReloading = false;
+        }
+        
+        if (isReloadingRifle)
+        {
             rifleAmmoLeft = 60;
+            yield return new WaitForSeconds(0.1f);
             isReloadingRifle = false;
             isReloading = false;
         }
