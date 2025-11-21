@@ -17,6 +17,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerDataWithDash Data;
+
+	public DialogueManager DialManager;
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -116,13 +118,20 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
-		#endregion
+        #endregion
 
 		#region INPUT HANDLER
-         _moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		if (DialogueManager.instance.isDialogueActive)
+		{
+			_moveInput.x = 0; _moveInput.y = 0;
+		}
+		else
+		{
+            _moveInput.x = Input.GetAxisRaw("Horizontal");
+            _moveInput.y = Input.GetAxisRaw("Vertical");
+        }
 
-		if (_moveInput.x != 0)
+        if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
 		if (Input.GetButtonDown("Jump"))
