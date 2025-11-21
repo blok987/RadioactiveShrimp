@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 public class Enemystuff : MonoBehaviour
 {
     public GameObject damagePrefab;
+    public GameObject meleePrefab;
     public AudioSource SFX;
     public AudioClip DeathPHolder;
     public float health;
@@ -34,6 +35,12 @@ public class Enemystuff : MonoBehaviour
         {
             health -= damagePrefab.GetComponent<Bullet>().damage;
             damageTaken += damagePrefab.GetComponent<Bullet>().damage;
+        }
+
+        if (col.gameObject.CompareTag("Melee"))
+        {
+            health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
+            damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
         }
     }
 

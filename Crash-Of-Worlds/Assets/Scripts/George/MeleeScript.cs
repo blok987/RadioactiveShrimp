@@ -27,6 +27,11 @@ public class MeleeScript : MonoBehaviour
             }
             else PlayerSwordDMG = 0;
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            PlayerAttack = false;
+        }
     }
 
     // Update is called once per frame
