@@ -4,8 +4,8 @@ using UnityEngine.Audio;
 
 public class Enemystuff : MonoBehaviour
 {
-    public GameObject rangedDamagePrefab;
-    public GameObject meleeDamagePrefab;
+    public GameObject damagePrefab;
+    public GameObject meleePrefab;
     public AudioSource SFX;
     public AudioClip DeathPHolder;
     public float health;
@@ -33,14 +33,14 @@ public class Enemystuff : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Bullets"))
         {
-            health -= rangedDamagePrefab.GetComponent<Bullet>().damage;
-            damageTaken += rangedDamagePrefab.GetComponent<Bullet>().damage;
+            health -= damagePrefab.GetComponent<Bullet>().damage;
+            damageTaken += damagePrefab.GetComponent<Bullet>().damage;
         }
 
         if (col.gameObject.CompareTag("Melee"))
         {
-            health -= meleeDamagePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
-            damageTaken += meleeDamagePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
+            health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
+            damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
         }
     }
 

@@ -17,6 +17,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerDataWithDash Data;
+
+	public DialogueManager DialManager;
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -59,6 +61,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	private int _lastWallJumpDir;
 
 	//Dash
+	public bool enableDash;
 	private int _dashesLeft;
 	private bool _dashRefilling;
 	private Vector2 _lastDashDir;
@@ -115,13 +118,20 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
-		#endregion
+        #endregion
 
 		#region INPUT HANDLER
-         _moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		if (DialogueManager.instance.isDialogueActive)
+		{
+			_moveInput.x = 0; _moveInput.y = 0;
+		}
+		else
+		{
+            _moveInput.x = Input.GetAxisRaw("Horizontal");
+            _moveInput.y = Input.GetAxisRaw("Vertical");
+        }
 
-		if (_moveInput.x != 0)
+        if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
 		if (Input.GetButtonDown("Jump"))
@@ -139,10 +149,10 @@ public class PlayerMovementWithDash : MonoBehaviour
 			OnDashInput();
 		}
 
-        //if (Input.GetButtonDown("Dash"))
-        //{
-        //    OnDashInput();
-        //}
+        if (Input.GetKeyDown(KeyCode.LeftShift) && enableDash)
+        {
+            OnDashInput();
+        }
 
 		//if (Input.GetButtonDown("Slide") && !Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
 		//{
@@ -308,27 +318,27 @@ public class PlayerMovementWithDash : MonoBehaviour
 		#endregion
 
 		#region DASH CHECKS
-		//if (CanDash() && LastPressedDashTime > 0)
-		//{
+		if (CanDash() && LastPressedDashTime > 0 && enableDash)
+		{
 			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
-			//Sleep(Data.dashSleepTime); 
+			Sleep(Data.dashSleepTime); 
 
 			//If not direction pressed, dash forward
-			//if (_moveInput != Vector2.zero)
-			//{
-            //    _lastDashDir = _moveInput;
-            //}
-			//else
-			//{
-            //    _lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
-            //}
+			if (_moveInput != Vector2.zero)
+			{
+                _lastDashDir = _moveInput;
+            }
+			else
+			{
+                _lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
+            }
 			
-            //IsDashing = true;
-            //IsWallJumping = false;
-			//_isJumpCut = false;
+            IsDashing = true;
+            IsWallJumping = false;
+			_isJumpCut = false;
 
-			//StartCoroutine(nameof(StartDash), _lastDashDir);
-		//}
+			StartCoroutine(nameof(StartDash), _lastDashDir);
+		}
         #endregion
 
         if (CanGroundSlide() && LastPressedSlideTime > 0)

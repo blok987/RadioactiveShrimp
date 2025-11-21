@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 29586871948937256}
   - component: {fileID: 6781827503844666224}
   - component: {fileID: 1615662464988508126}
-  - component: {fileID: 1666283169481818894}
   - component: {fileID: -2305611960604589028}
+  - component: {fileID: 2658917627326426674}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullets
@@ -164,24 +164,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1666283169481818894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261250000719469755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f58b2966f626924aa3f0010febf978d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attack: {fileID: 0}
-  damage: 1
-  hitsLeft: 1
-  trail: {fileID: -2305611960604589028}
-  isHandGunBullet: 0
-  isShotGunBullet: 0
 --- !u!96 &-2305611960604589028
 TrailRenderer:
   serializedVersion: 3
@@ -298,3 +280,21 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &2658917627326426674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261250000719469755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f58b2966f626924aa3f0010febf978d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: {fileID: 0}
+  damage: 1
+  hitsLeft: 1
+  trail: {fileID: -2305611960604589028}
+  isHandGunBullet: 0
+  isShotGunBullet: 0
