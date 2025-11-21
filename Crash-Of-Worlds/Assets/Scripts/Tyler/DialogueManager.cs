@@ -16,16 +16,22 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
 
-    public float typingSpeed;
+    public float typingSpeed = 0.2f;
 
     public Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         if (instance == null)
-        {
             instance = this;
+    }
+
+    private void Update()
+    {
+        if (!isDialogueActive)
+        {
+            anim.Play("hide");
         }
     }
 
@@ -76,6 +82,5 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
-        anim.Play("hide");
     }
 }

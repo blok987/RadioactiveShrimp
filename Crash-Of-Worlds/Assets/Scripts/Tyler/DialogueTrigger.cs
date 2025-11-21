@@ -34,7 +34,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKey("e") && !DialogueManager.instance.isDialogueActive)
             {
                 TriggerDialogue();
             }
