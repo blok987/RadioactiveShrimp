@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
 
     public Camera m_OrthographicCamera;
 
-    public PlayerMovementWithDash playerMove;
+    public TopDownMovement playerMove;
     private Animation cam;
 
     public void Update()
