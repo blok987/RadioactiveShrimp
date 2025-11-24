@@ -9,6 +9,7 @@ public class MeleeScript : MonoBehaviour
     public bool PlayerContact;
     public bool PlayerSwordDash;
     public int PlayerSwordDMG;
+    public float AtkDMG = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,8 +23,8 @@ public class MeleeScript : MonoBehaviour
             PlayerAttack = true;
             if (PlayerContact == true)
             {
-                PlayerSwordDMG = 5;
-                // make enemy take damage
+                PlayerSwordDMG = (int)AtkDMG;
+                // causes enemy take damage
             }
             else PlayerSwordDMG = 0;
         }
