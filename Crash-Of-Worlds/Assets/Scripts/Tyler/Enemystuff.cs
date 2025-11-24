@@ -36,7 +36,10 @@ public class Enemystuff : MonoBehaviour
             health -= damagePrefab.GetComponent<Bullet>().damage;
             damageTaken += damagePrefab.GetComponent<Bullet>().damage;
         }
+    }
 
+    public void OnTriggerStay2D(Collider2D col)
+    {
         if (col.gameObject.CompareTag("Melee"))
         {
             health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;

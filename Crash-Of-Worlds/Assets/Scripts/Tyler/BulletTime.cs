@@ -19,6 +19,11 @@ public class BulletTime : MonoBehaviour
 
     public bool bulletTime; // If bullet time is active
 
+    [Range(3, 7)]
+    public float maxBTimeLength;
+
+    public float bTimeLength;
+
     public bool canUseBTime;
 
     public Color a, b;
@@ -36,6 +41,8 @@ public class BulletTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bTimeLength = Time.deltaTime;
+
         if (Input.GetButton("Fire2") && canUseBTime) // Bullet Time when right mouse button is clicked
         {
             bTime();
@@ -47,6 +54,11 @@ public class BulletTime : MonoBehaviour
             bulletTime = false;
 
             bTimeTint.color = Color.Lerp(bTimeTint.color, a, smoothTime);
+        }
+
+        if (bTimeLength > maxBTimeLength)
+        {
+            bTimeLength = maxBTimeLength;
         }
     }
 
