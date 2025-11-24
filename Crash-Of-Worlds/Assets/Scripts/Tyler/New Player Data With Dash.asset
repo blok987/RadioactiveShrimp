@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed32b302db767f4b9cc83c558ccdee8, type: 3}
   m_Name: New Player Data With Dash
   m_EditorClassIdentifier: 
-  gravityStrength: -24
-  gravityScale: 2.4464831
+  gravityStrength: -27.999998
+  gravityScale: 2.8542302
   fallGravityMult: 1
   maxFallSpeed: 60
   fastFallGravityMult: 1.5
@@ -26,9 +26,9 @@ MonoBehaviour:
   accelInAir: 0.5
   deccelInAir: 0.5
   doConserveMomentum: 1
-  jumpHeight: 3
-  jumpTimeToApex: 0.5
-  jumpForce: 12
+  jumpHeight: 5.04
+  jumpTimeToApex: 0.6
+  jumpForce: 16.8
   jumpCutGravityMult: 1
   jumpHangGravityMult: 0.05
   jumpHangTimeThreshold: 0.1
