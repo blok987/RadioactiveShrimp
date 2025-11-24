@@ -42,8 +42,8 @@ public class Enemystuff : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Melee"))
         {
-            health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
-            damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG;
+            health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
+            damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
         }
     }
 

@@ -300,6 +300,7 @@ MonoBehaviour:
   PlayerContact: 0
   PlayerSwordDash: 0
   PlayerSwordDMG: 0
+  AtkDMG: 5
 --- !u!61 &561480247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -540,6 +541,10 @@ PrefabInstance:
     - target: {fileID: 6407754288646423824, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: health
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: meleePrefab

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,13 +27,21 @@ public class MeleeScript : MonoBehaviour
                 PlayerSwordDMG = (int)AtkDMG;
                 // causes enemy take damage
             }
-            else PlayerSwordDMG = 0;
+
+            StartCoroutine(Timer());
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             PlayerAttack = false;
+            PlayerSwordDMG = 0;
         }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1f);
+        
     }
 
     // Update is called once per frame
