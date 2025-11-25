@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class BulletTime : MonoBehaviour
 {
     public Camera m_OrthographicCamera;
@@ -8,6 +9,10 @@ public class BulletTime : MonoBehaviour
     float m_ViewPositionX, m_ViewPositionY, m_ViewWidth, m_ViewHeight;
 
     public Image bTimeTint;
+
+    public Image bTimeBar;
+
+    public Image bTimeBarFill;
 
     [Range(0, 1)]
     public float smoothTime; // How fast bullet time takes to get to it's lowest
@@ -19,7 +24,16 @@ public class BulletTime : MonoBehaviour
 
     public bool bulletTime; // If bullet time is active
 
+    [Range(3, 7)]
+    public float maxBTimeLength;
+
+    public float bTimeLength;
+
+    public float minBTimeLength;
+
     public bool canUseBTime;
+
+    private bool isHolding;
 
     public Color a, b;
 
@@ -36,17 +50,34 @@ public class BulletTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2") && canUseBTime) // Bullet Time when right mouse button is clicked
+        GetCurrentFill();
+
+        if (Input.GetButtonDown("Fire2") && canUseBTime && bTimeLength > 0)
+        {
+            isHolding = true;
+        }
+        else if (Input.GetButtonUp("Fire2") || !canUseBTime || bTimeLength <= 0)
+        {
+            isHolding = false;
+        }
+
+        if (isHolding) // Bullet Time when right mouse button is clicked
         {
             bTime();
         }
         else
         {
+            bTimeLength += Time.deltaTime;
             Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, smoothTime);
             m_OrthographicCamera.orthographicSize = Mathf.Lerp(m_OrthographicCamera.orthographicSize, 7, smoothTime);
             bulletTime = false;
 
             bTimeTint.color = Color.Lerp(bTimeTint.color, a, smoothTime);
+        }
+
+        if (bTimeLength > maxBTimeLength)
+        {
+            bTimeLength = maxBTimeLength;
         }
     }
 
@@ -58,5 +89,17 @@ public class BulletTime : MonoBehaviour
         Color c = bTimeTint.color;
         c.a = 0.2f;
         bTimeTint.color = Color.Lerp(bTimeTint.color, b, smoothTime);
+
+        bTimeLength -= Time.deltaTime / Time.timeScale;
+    }
+
+    [ExecuteInEditMode()]
+    void GetCurrentFill()
+    {
+        float currentOffset = bTimeLength - minBTimeLength;
+        float maxOffset = maxBTimeLength - minBTimeLength;
+
+        float fillamount = (float)bTimeLength/(float)maxBTimeLength;
+        bTimeBarFill.fillAmount = fillamount;
     }
 }

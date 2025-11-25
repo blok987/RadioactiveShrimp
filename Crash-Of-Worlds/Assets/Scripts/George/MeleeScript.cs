@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class MeleeScript : MonoBehaviour
     public bool PlayerContact;
     public bool PlayerSwordDash;
     public int PlayerSwordDMG;
+    public float AtkDMG = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,16 +24,24 @@ public class MeleeScript : MonoBehaviour
             PlayerAttack = true;
             if (PlayerContact == true)
             {
-                PlayerSwordDMG = 5;
-                // make enemy take damage
+                PlayerSwordDMG = (int)AtkDMG;
+                // causes enemy take damage
             }
-            else PlayerSwordDMG = 0;
+
+            StartCoroutine(Timer());
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             PlayerAttack = false;
+            PlayerSwordDMG = 0;
         }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1f);
+        
     }
 
     // Update is called once per frame

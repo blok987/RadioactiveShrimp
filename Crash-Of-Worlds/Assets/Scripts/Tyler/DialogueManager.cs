@@ -12,11 +12,12 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
 
-    private Queue<DialogueLine> lines;
+    private Queue<DialogueLine> lines = new();
 
     public bool isDialogueActive = false;
 
-    public float typingSpeed = 0.2f;
+    [Range(0.1f, 1f)] public float typingSpeed;
+    
 
     public Animator anim;
 
@@ -25,14 +26,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-    }
-
-    private void Update()
-    {
-        if (!isDialogueActive)
-        {
-            anim.Play("hide");
-        }
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -82,5 +75,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
+        anim.Play("hide");
     }
 }

@@ -123,7 +123,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 		#region INPUT HANDLER
 		if (DialogueManager.instance.isDialogueActive)
 		{
-			_moveInput.x = 0; _moveInput.y = 0;
+			_moveInput.x = 0f;
 		}
 		else
 		{
