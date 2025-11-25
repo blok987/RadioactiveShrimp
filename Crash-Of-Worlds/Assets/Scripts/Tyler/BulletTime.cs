@@ -31,15 +31,25 @@ public class BulletTime : MonoBehaviour
 
     public float minBTimeLength;
 
+    public float fillamount;
+
     public bool canUseBTime;
 
-    private bool isHolding;
+    public bool canUseDash;
+
+    public bool isHolding;
+
+    public bool justDashed;
 
     public Color a, b;
+
+    public PlayerMovementWithDash player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canUseDash = player.enableDash;
+
         Color c = bTimeTint.color;
         c.a = 0;
         bTimeTint.color = c;
@@ -50,19 +60,21 @@ public class BulletTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         GetCurrentFill();
 
-        if (Input.GetButtonDown("Fire2") && canUseBTime && bTimeLength > 0)
+        if (Input.GetButtonDown("Fire2") && canUseBTime || Input.GetButtonDown("Fire2") && canUseDash)
         {
             isHolding = true;
         }
-        else if (Input.GetButtonUp("Fire2") || !canUseBTime || bTimeLength <= 0)
+        else if (Input.GetButtonUp("Fire2") && canUseBTime || Input.GetButtonUp("Fire2") && canUseDash)
         {
             isHolding = false;
         }
 
-        if (isHolding) // Bullet Time when right mouse button is clicked
+        if (isHolding && canUseBTime && bTimeLength > 0) // Bullet Time when right mouse button is clicked
         {
+            bulletTime = true;
             bTime();
         }
         else
@@ -79,27 +91,39 @@ public class BulletTime : MonoBehaviour
         {
             bTimeLength = maxBTimeLength;
         }
+
+        if ((bTimeLength <= minBTimeLength) && isHolding)
+        {
+            bulletTime = false;
+            isHolding = false;
+            bTimeLength = minBTimeLength;
+        }
+
+        if ((bTimeLength > 0.3f) && canUseDash && isHolding)
+        {
+        }
     }
 
     public void bTime()
     {
-        bulletTime = true;
-        m_OrthographicCamera.orthographicSize = Mathf.Lerp(m_OrthographicCamera.orthographicSize, btimecamsize, smoothTime);
-        Time.timeScale = Mathf.Lerp(Time.timeScale, bTimeSpeed, smoothTime);
-        Color c = bTimeTint.color;
-        c.a = 0.2f;
-        bTimeTint.color = Color.Lerp(bTimeTint.color, b, smoothTime);
+        if (bulletTime)
+        {
+            m_OrthographicCamera.orthographicSize = Mathf.Lerp(m_OrthographicCamera.orthographicSize, btimecamsize, smoothTime);
+            Time.timeScale = Mathf.Lerp(Time.timeScale, bTimeSpeed, smoothTime);
+            Color c = bTimeTint.color;
+            c.a = 0.2f;
+            bTimeTint.color = Color.Lerp(bTimeTint.color, b, smoothTime);
 
-        bTimeLength -= Time.deltaTime / Time.timeScale;
+            bTimeLength -= Time.deltaTime / Time.timeScale;
+        }
     }
-
     [ExecuteInEditMode()]
     void GetCurrentFill()
     {
         float currentOffset = bTimeLength - minBTimeLength;
         float maxOffset = maxBTimeLength - minBTimeLength;
 
-        float fillamount = (float)bTimeLength/(float)maxBTimeLength;
+        fillamount = (float)bTimeLength / (float)maxBTimeLength;
         bTimeBarFill.fillAmount = fillamount;
     }
 }

@@ -44,8 +44,10 @@ public class PlayerMovementWithDash : MonoBehaviour
     public bool IsSlideAttacking { get; private set; }
 	public bool IsDead { get; private set; }
 
+	public bool canMove { get; private set; }
+
     //Timers (also all fields, could be private and a method returning a bool could be used)
-    public float LastOnGroundTime { get; private set; }
+    public float LastOnGroundTime { get; set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
@@ -75,7 +77,7 @@ public class PlayerMovementWithDash : MonoBehaviour
     private Vector2 _moveInput;
 
 	public float LastPressedJumpTime { get; private set; }
-	public float LastPressedDashTime { get; private set; }
+	public float LastPressedDashTime { get; set; }
 	#endregion
 
 	#region CHECK PARAMETERS
@@ -121,20 +123,23 @@ public class PlayerMovementWithDash : MonoBehaviour
         #endregion
 
 		#region INPUT HANDLER
-		if (DialogueManager.instance.isDialogueActive)
+		if (DialManager.isDialogueActive)
 		{
-			_moveInput.x = 0f;
-		}
+			canMove = false;
+			_moveInput.x = 0;
+            _moveInput.y = 0;
+        }
 		else
 		{
+			canMove = true;
             _moveInput.x = Input.GetAxisRaw("Horizontal");
             _moveInput.y = Input.GetAxisRaw("Vertical");
         }
 
-        if (_moveInput.x != 0)
+        if (_moveInput.x != 0 && canMove)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Jump") && canMove)
 		{
 			OnJumpInput();
 		}
@@ -144,12 +149,12 @@ public class PlayerMovementWithDash : MonoBehaviour
 			OnJumpUpInput();
 		}
 
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
+		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K) && canMove)
 		{
 			OnDashInput();
 		}
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && enableDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && enableDash && canMove)
         {
             OnDashInput();
         }
@@ -489,7 +494,10 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	public void OnDashInput()
 	{
-		LastPressedDashTime = Data.dashInputBufferTime;
+		if (canMove)
+		{
+            LastPressedDashTime = Data.dashInputBufferTime;
+        }
 	}
     #endregion
 
@@ -835,7 +843,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 		return IsWallJumping && RB.linearVelocity.y > 0;
 	}
 
-	private bool CanDash()
+	public bool CanDash()
 	{
 		if (!IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
 		{
