@@ -33,6 +33,8 @@ public class BulletTime : MonoBehaviour
 
     public bool canUseBTime;
 
+    private bool isHolding;
+
     public Color a, b;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,7 +52,16 @@ public class BulletTime : MonoBehaviour
     {
         GetCurrentFill();
 
-        if (Input.GetButton("Fire2") && canUseBTime && bTimeLength > 0) // Bullet Time when right mouse button is clicked
+        if (Input.GetButtonDown("Fire2") && canUseBTime && bTimeLength > 0)
+        {
+            isHolding = true;
+        }
+        else if (Input.GetButtonUp("Fire2") || !canUseBTime || bTimeLength <= 0)
+        {
+            isHolding = false;
+        }
+
+        if (isHolding) // Bullet Time when right mouse button is clicked
         {
             bTime();
         }
@@ -89,6 +100,6 @@ public class BulletTime : MonoBehaviour
         float maxOffset = maxBTimeLength - minBTimeLength;
 
         float fillamount = (float)bTimeLength/(float)maxBTimeLength;
-        bTimeBar.fillAmount = fillamount;
+        bTimeBarFill.fillAmount = fillamount;
     }
 }
