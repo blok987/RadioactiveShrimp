@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fae70551da6a18549ab4b19415aa9ce6
+guid: 0dbe0d3a1efdbad45af531265c823ab7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8198065932836221079
-    second: clashofworlds_scifibg-pixilart_0
+      213: -4586428514890812713
+    second: pixilart-drawing (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clashofworlds_scifibg-pixilart_0
+      name: pixilart-drawing (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 250
-        height: 100
+        x: 40
+        y: 43
+        width: 53
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7903febd78165c170800000000000000
-      internalID: 8198065932836221079
+      spriteID: 7d2f53ec09bb950c0800000000000000
+      internalID: -4586428514890812713
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      clashofworlds_scifibg-pixilart_0: 8198065932836221079
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

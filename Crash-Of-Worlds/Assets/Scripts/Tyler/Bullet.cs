@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     public bool isHandGunBullet;
     public bool isShotGunBullet;
+    public bool hitGround = false;
 
     private void Awake()
     {
@@ -35,8 +36,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == 3)
+        if (col.gameObject.layer == 0)
         {
+            hitGround = true;
+            StartCoroutine(nameof(wait));
             Destroy(this.gameObject);
         }
     }
