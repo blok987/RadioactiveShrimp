@@ -11,6 +11,7 @@ public class MeleeScript : MonoBehaviour
     public bool PlayerSwordDash;
     public int PlayerSwordDMG;
     public float AtkDMG = 5;
+    public float AtkSpeed = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +29,7 @@ public class MeleeScript : MonoBehaviour
                 // causes enemy take damage
             }
 
-            StartCoroutine(Timer());
+            
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -37,14 +38,14 @@ public class MeleeScript : MonoBehaviour
             PlayerSwordDMG = 0;
         }
     }
-
+    //Timer for 
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(1f);
         
     }
 
-    // Update is called once per frame
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
