@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 3f7dc01167d710948917205dff5a417d
-=======
-guid: a219e5fffea78c84e9bb980e2f1fb975
->>>>>>> 551cdd17de1a1397b6c5355c6f402f50003a86b4
+guid: 0dbe0d3a1efdbad45af531265c823ab7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5202260447986747282
-    second: clashofworlds_sidescroller-pixilart_0
+      213: -4586428514890812713
+    second: pixilart-drawing (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clashofworlds_sidescroller-pixilart_0
+      name: pixilart-drawing (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 250
-        height: 100
+        x: 40
+        y: 43
+        width: 53
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e687fa07fabddc7b0800000000000000
-      internalID: -5202260447986747282
+      spriteID: 7d2f53ec09bb950c0800000000000000
+      internalID: -4586428514890812713
       vertices: []
       indices: 
       edges: []

@@ -4,7 +4,6 @@ public class GameManagerScript : MonoBehaviour
 {
     public PlayerMovementWithDash playerMove;
     public DialogueManager dialManager;
-    public DialogueTrigger dialTrigger;
     public Bullet bullet;
     public Enemystuff enemy;
 
