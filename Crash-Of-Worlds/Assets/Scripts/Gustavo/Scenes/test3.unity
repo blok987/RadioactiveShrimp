@@ -614,8 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7094e95c9f2bdfd418baa19e3ec6fd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashCooldown: 1
-  dashSpeed: 20.68
+  dashingVelocity: 14
+  dashingTime: 0.5
 --- !u!1 &474513721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1064,10 @@ PrefabInstance:
       propertyPath: avatar2
       value: 
       objectReference: {fileID: 449350696}
+    - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+      propertyPath: player1Active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
       propertyPath: playerController
       value: 
