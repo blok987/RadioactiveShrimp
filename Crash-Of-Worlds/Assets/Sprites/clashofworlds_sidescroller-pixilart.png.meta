@@ -164,7 +164,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clashofworlds_sidescroller-pixilart_0: -5202260447986747282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

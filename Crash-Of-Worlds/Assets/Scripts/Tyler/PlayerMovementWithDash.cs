@@ -42,7 +42,6 @@ public class PlayerMovementWithDash : MonoBehaviour
     public bool IsRunning { get; private set; }
     public bool IsSlamming { get; private set; }
     public bool IsSlideAttacking { get; private set; }
-	public bool IsDead { get; private set; }
 
 	public bool canMove { get; private set; }
 
@@ -875,7 +874,6 @@ public class PlayerMovementWithDash : MonoBehaviour
     {
         if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, DeathLayer))
         {
-            IsDead = true;
             //DeathSFX.Play();
             //anim.SetFloat("Jumping", 0f);
             //anim.SetFloat("DashJumping", 0f);

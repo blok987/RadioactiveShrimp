@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8941596065594263769}
   - component: {fileID: 6407754288646423824}
   - component: {fileID: 3309574947065920901}
+  - component: {fileID: 2056664685483488217}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -102,14 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e27daa9f25c7e40ac022a5a67e6eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
+  damagePrefab: {fileID: 0}
+  meleePrefab: {fileID: 0}
   SFX: {fileID: 3309574947065920901}
   DeathPHolder: {fileID: 8300000, guid: 6789e42ec9b88a14eaf853a70dca1563, type: 3}
   health: 1
   damageTaken: 0
   isDead: 0
   wasHit: 0
-  justDied: 0
 --- !u!61 &6407754288646423824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -253,3 +254,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &2056664685483488217
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640813076811909856}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

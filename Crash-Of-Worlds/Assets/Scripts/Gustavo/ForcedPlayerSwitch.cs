@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ForcedPlayerSwitch : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
 
     void Start()
     {
+     
         // Ensure avatar GameObjects and controllers are in a consistent initial state
         if (avatar1 != null) avatar1.SetActive(true);
         if (avatar2 != null) avatar2.SetActive(false);
@@ -26,10 +28,9 @@ public class ForcedPlayerSwitch : MonoBehaviour
         player1Active = true;
         whichAvatarIsOn = 1;
     }
-    // Update is called once per frame
+    
    
 
-    // Only changed this method: activate switch only when colliding with GameObject tagged "Player"
     private void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -56,6 +57,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
             if (player2Controller != null) player2Controller.enabled = true;
             if (playerController != null) playerController.enabled = false;
 
+            
             player1Active = false;
             whichAvatarIsOn = 2;
         }
@@ -68,6 +70,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
             if (playerController != null) playerController.enabled = true;
             if (player2Controller != null) player2Controller.enabled = false;
 
+           
             player1Active = true;
             whichAvatarIsOn = 1;
         }
