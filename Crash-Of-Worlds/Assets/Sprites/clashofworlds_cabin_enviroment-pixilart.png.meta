@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clashofworlds_cabin_enviroment-pixilart_0: -29482481886377535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
