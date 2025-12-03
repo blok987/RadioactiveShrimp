@@ -28,7 +28,7 @@ public class EnemyManagerScript : MonoBehaviour
     {
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
-            enemiesLeft -= 1;
+            enemiesLeft += 1;
         }
     }
 }

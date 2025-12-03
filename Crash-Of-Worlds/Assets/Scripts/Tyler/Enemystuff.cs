@@ -10,6 +10,7 @@ public class Enemystuff : MonoBehaviour
     public AudioClip DeathPHolder; // Enemy death sound effect
     public float health; // Current enemy health
     public float damageTaken = 0; // Amount of damage inflicted on the enemy
+    public float atkDamage; // Amount of damage the enemy deals to the player
     public bool isDead = false; // If the enemy is dead
     public bool wasHit = false; // If the enemy was just hit
 
