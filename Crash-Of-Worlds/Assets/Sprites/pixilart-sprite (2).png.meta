@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: ef0a340cb91c49e4888bebbdfa220e30
-=======
-guid: 3b801ed89288e9940b58b6648ca69016
->>>>>>> 3f77018dd4f062e6c96305d8c6399823d8e5be45
+guid: b2ac9e22c21951c41b0af495a7e149f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -790721166649634894
-    second: menuscreen-pixilart_0
+      213: -923994315097029292
+    second: pixilart-sprite (2)_0
+  - first:
+      213: -229995298867008772
+    second: pixilart-sprite (2)_1
+  - first:
+      213: -1783533796186425835
+    second: pixilart-sprite (2)_2
+  - first:
+      213: 1889098082387582969
+    second: pixilart-sprite (2)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menuscreen-pixilart_0
+      name: pixilart-sprite (2)_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 92
-        height: 91
+        x: 8
+        y: 18
+        width: 121
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf4771d94bc605f0800000000000000
-      internalID: -790721166649634894
+      spriteID: 4554922e0105d23f0800000000000000
+      internalID: -923994315097029292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (2)_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 54
+        width: 106
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfaa5078e74eeccf0800000000000000
+      internalID: -229995298867008772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (2)_2
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 18
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5167761467d9f37e0800000000000000
+      internalID: -1783533796186425835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixilart-sprite (2)_3
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 18
+        width: 131
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff559272bc673a10800000000000000
+      internalID: 1889098082387582969
       vertices: []
       indices: 
       edges: []
