@@ -8,6 +8,7 @@ public class EnemyManagerScript : MonoBehaviour
     private void Start()
     {
         TotalEnemiesMethod();
+        enemiesLeft = totalEnemies;
     }
 
     void Update()
@@ -19,7 +20,7 @@ public class EnemyManagerScript : MonoBehaviour
     {
         foreach (var abc in GetComponentsInChildren<Enemystuff>())
         {
-            totalEnemies += 1;
+            totalEnemies -= 1;
         }
     }
 
@@ -27,7 +28,7 @@ public class EnemyManagerScript : MonoBehaviour
     {
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
-            enemiesLeft += 1;
+            enemiesLeft -= 1;
         }
     }
 }

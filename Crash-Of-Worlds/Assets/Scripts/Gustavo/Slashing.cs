@@ -4,9 +4,13 @@ public class Slashing : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
+  // Adjustable dash force
+    private Rigidbody2D rb;
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,5 +23,8 @@ public class Slashing : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        
+        
+
     }
 }
