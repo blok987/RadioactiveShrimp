@@ -17,7 +17,7 @@ public class MeleeScript : MonoBehaviour
     {
 
     }
-
+    #region PLAYER SWING
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,7 +26,7 @@ public class MeleeScript : MonoBehaviour
             if (PlayerContact == true)
             {
                 PlayerSwordDMG = (int)AtkDMG;
-                // causes enemy take damage
+                //boolean that allows enemy take damage
             }
 
             
@@ -38,6 +38,8 @@ public class MeleeScript : MonoBehaviour
             PlayerSwordDMG = 0;
         }
     }
+    #endregion
+
     //Timer for 
     IEnumerator Timer()
     {

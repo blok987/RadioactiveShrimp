@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5981e211c233db244bd37f5c414e7600
+guid: c0ad74e3deacbce45ae8431ed472b3bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5612934868330986728
-    second: 640x427-Shrimp-Pink-NOAAFisheries_0
+      213: -7990188137998044630
+    second: Top LEFT ARM_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 640x427-Shrimp-Pink-NOAAFisheries_0
+      name: Top LEFT ARM_0
       rect:
         serializedVersion: 2
-        x: 91
-        y: 72
-        width: 605
-        height: 397
+        x: 28
+        y: 39
+        width: 20
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ecb54e268625ed40800000000000000
-      internalID: 5612934868330986728
+      spriteID: a22361ae8362d1190800000000000000
+      internalID: -7990188137998044630
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      640x427-Shrimp-Pink-NOAAFisheries_0: 5612934868330986728
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
