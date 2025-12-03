@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5981e211c233db244bd37f5c414e7600
+guid: b1a7227a20124a343950b3d02c0cca5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5612934868330986728
-    second: 640x427-Shrimp-Pink-NOAAFisheries_0
+      213: 7265813586516431896
+    second: Bridge_0
+  - first:
+      213: 5603878991505542241
+    second: Bridge_1
+  - first:
+      213: -3516929179030731211
+    second: Bridge_2
+  - first:
+      213: 1991381244642994305
+    second: Bridge_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 640x427-Shrimp-Pink-NOAAFisheries_0
+      name: Bridge_0
       rect:
         serializedVersion: 2
-        x: 91
-        y: 72
-        width: 605
-        height: 397
+        x: 8
+        y: 54
+        width: 109
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ecb54e268625ed40800000000000000
-      internalID: 5612934868330986728
+      spriteID: 814d48406fa55d460800000000000000
+      internalID: 7265813586516431896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 54
+        width: 106
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c46fc804af4cd40800000000000000
+      internalID: 5603878991505542241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 55
+        width: 111
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 536caaf8b8b513fc0800000000000000
+      internalID: -3516929179030731211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bridge_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 54
+        width: 118
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1882253f0bec2ab10800000000000000
+      internalID: 1991381244642994305
       vertices: []
       indices: 
       edges: []
@@ -151,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f383f80f26701a74a8725a97ae7fc9ef
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      640x427-Shrimp-Pink-NOAAFisheries_0: 5612934868330986728
+      Bridge_0: 7265813586516431896
+      Bridge_1: 5603878991505542241
+      Bridge_2: -3516929179030731211
+      Bridge_3: 1991381244642994305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

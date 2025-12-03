@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5981e211c233db244bd37f5c414e7600
+guid: 80deeb2ebcc71c041b0cbb1fa5de904f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5612934868330986728
-    second: 640x427-Shrimp-Pink-NOAAFisheries_0
+      213: -7490549210145418512
+    second: Boulder_0
+  - first:
+      213: -8471095213289756079
+    second: Boulder_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 640x427-Shrimp-Pink-NOAAFisheries_0
+      name: Boulder_0
       rect:
         serializedVersion: 2
-        x: 91
-        y: 72
-        width: 605
-        height: 397
+        x: 10
+        y: 2
+        width: 75
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ecb54e268625ed40800000000000000
-      internalID: 5612934868330986728
+      spriteID: 0f213b41e293c0890800000000000000
+      internalID: -7490549210145418512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boulder_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a2a5909cf907a80800000000000000
+      internalID: -8471095213289756079
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      640x427-Shrimp-Pink-NOAAFisheries_0: 5612934868330986728
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

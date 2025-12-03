@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 5981e211c233db244bd37f5c414e7600
+guid: 56a9f2d03eadf5a4bb34362da237c7f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5612934868330986728
-    second: 640x427-Shrimp-Pink-NOAAFisheries_0
+      213: 3070833167237525939
+    second: Untitled-2 1_0
+  - first:
+      213: -8836378633827946573
+    second: Untitled-2 1_1
+  - first:
+      213: -1396287068166021233
+    second: Untitled-2 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 640x427-Shrimp-Pink-NOAAFisheries_0
+      name: Untitled-2 1_0
       rect:
         serializedVersion: 2
-        x: 91
-        y: 72
-        width: 605
-        height: 397
+        x: 40
+        y: 89
+        width: 73
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ecb54e268625ed40800000000000000
-      internalID: 5612934868330986728
+      spriteID: 3b13ea1ee7acd9a20800000000000000
+      internalID: 3070833167237525939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled-2 1_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 81
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf65dd1370ee5580800000000000000
+      internalID: -8836378633827946573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled-2 1_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 72
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f1e713f446f9ce0800000000000000
+      internalID: -1396287068166021233
       vertices: []
       indices: 
       edges: []
@@ -160,8 +210,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      640x427-Shrimp-Pink-NOAAFisheries_0: 5612934868330986728
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
