@@ -46,15 +46,15 @@ public class Enemystuff : MonoBehaviour
     #endregion
 
     #region MELEE DAMAGE TRIGGER
-    public void OnTriggerStay2D(Collider2D col)
-    {
-        // If a melee weapon collides with the enemy, health equals itself minus melee damage multiplied by fixedDeltaTime, and damageTaken equals itself plus melee damage multiplied by fixedDeltaTime
-        if (col.gameObject.CompareTag("Melee"))
-        {
-            health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
-            damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
-        }
-    }
+    //public void OnTriggerStay2D(Collider2D col)
+    //{
+    //    // If a melee weapon collides with the enemy, health equals itself minus melee damage multiplied by fixedDeltaTime, and damageTaken equals itself plus melee damage multiplied by fixedDeltaTime
+    //    if (col.gameObject.CompareTag("Melee"))
+    //    {
+    //        health -= meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
+    //        damageTaken += meleePrefab.GetComponent<MeleeScript>().PlayerSwordDMG * Time.fixedDeltaTime;
+    //    }
+    //}
     #endregion
 
     #region DEATH METHOD
