@@ -41,6 +41,13 @@ public class GunController : MonoBehaviour
 
     public bool buttonPressed;
 
+    public AudioSource SFX; // Gun sfx audio source
+    public AudioClip RifleReload; // Rifle reload sound effect
+    public AudioClip RifleFire; // Rifle fire sound effect
+    public AudioClip HandGunReload; // HandGun reload sound effect
+    public AudioClip HandGunFire; // HandGun fire sound effect
+    public AudioClip ShotGunReload; // ShotGun reload sound effect
+    public AudioClip ShotGunFire; // ShotGun fire sound effect
 
     private void Awake()
     {
@@ -155,6 +162,7 @@ public class GunController : MonoBehaviour
     {
         if (handGunSelected && pistolAmmoLeft > 0 && lastPistolShot > 0.5f && !isReloading)
         {
+            SFX.PlayOneShot(HandGunFire, 0.7F);
             lastPistolShot = 0;
             // Instantiate the bullet at the fire point
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -176,6 +184,7 @@ public class GunController : MonoBehaviour
 
         if (shotGunSelected && lastShellShot > 1 && shellsLeft > 0 && !isReloading)
         {
+            SFX.PlayOneShot(ShotGunFire, 0.7F);
             lastShellShot = 0;
             for (int i = 0; i < 6; i++)
             {
@@ -205,6 +214,11 @@ public class GunController : MonoBehaviour
         if (shotototoGunSelected && lastShellShot > 1 && shellsLeft > 0 && !isReloading)
         {
             lastShellShot = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                SFX.PlayOneShot(ShotGunFire, 0.7F);
+            }
+
             for (int i = 0; i < 100; i++)
             {
                 // Instantiate the bullet at the fire point
@@ -244,18 +258,22 @@ public class GunController : MonoBehaviour
 
     private IEnumerator reload()
     {
-        if (handGunSelected)
+        if (handGunSelected && !isReloading)
         {
             isReloading = true;
             isReloadingHandGun = true;
             isReloadingShotGun = false;
             isReloadingRifle = false;
+            yield return new WaitForSeconds(0.5f);
+            SFX.PlayOneShot(HandGunReload, 0.7F);
             yield return new WaitForSeconds(1.5f);
             StartCoroutine(nameof(reloadEnd));
         }
         
-        if (shotGunSelected || shotototoGunSelected)
+        if (shotGunSelected && !isReloading || shotototoGunSelected && !isReloading)
         {
+            yield return new WaitForSeconds(1);
+            SFX.PlayOneShot(ShotGunReload, 0.7F);
             isReloading = true;
             isReloadingShotGun = true;
             isReloadingHandGun = false;
@@ -264,8 +282,9 @@ public class GunController : MonoBehaviour
             StartCoroutine(nameof(reloadEnd));
         }
 
-        if (rifleSelected)
+        if (rifleSelected && !isReloading)
         {
+            SFX.PlayOneShot(RifleReload, 0.7F);
             isReloading = true;
             isReloadingHandGun = false;
             isReloadingShotGun = false;
@@ -304,6 +323,9 @@ public class GunController : MonoBehaviour
 
     private IEnumerator rifleShoot()
     {
+        // Play fire sfx
+        SFX.PlayOneShot(RifleFire, 0.7F);
+
         // Instantiate the bullet at the fire point
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
