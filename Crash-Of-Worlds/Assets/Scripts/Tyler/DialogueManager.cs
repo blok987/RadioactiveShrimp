@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
+    public DialogueCharacter DC;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
+    public AudioSource VoiceSFX;
 
     private Queue<DialogueLine> lines = new();
 
@@ -61,11 +63,12 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(currentLine));
     }
 
-    IEnumerator TypeSentence(DialogueLine dialogurLine)
+    IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
         dialogueArea.text = "";
-        foreach (char letter in dialogurLine.line.ToCharArray())
+        foreach (char letter in dialogueLine.line.ToCharArray())
         {
+            VoiceSFX.PlayOneShot(dialogueLine.character.CharacterVoice, 0.7f);
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
