@@ -43,59 +43,59 @@ public class PlayerMovement2 : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    private void OnDash()
-    {
-        if (timer >= dashCooldown)
-        {
-            // determine mouse world position and set dash direction
-            Vector3 mouseWorld = Camera.main != null ? Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector3.zero;
-            Vector2 toMouse = mouseWorld - transform.position;
+    // private void OnDash()
+    //  {
+    //    if (timer >= dashCooldown)
+    //    {
+    // determine mouse world position and set dash direction
+    //      Vector3 mouseWorld = Camera.main != null ? Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector3.zero;
+    //      Vector2 toMouse = mouseWorld - transform.position;
 
-            // fallback to facing direction if mouse is exactly on player
-            if (toMouse.sqrMagnitude < 0.001f)
-            {
-                toMouse = new Vector2(transform.localScale.x >= 0 ? 1f : -1f, 0f);
-            }
+    // fallback to facing direction if mouse is exactly on player
+    //     if (toMouse.sqrMagnitude < 0.001f)
+    //     {
+    //         toMouse = new Vector2(transform.localScale.x >= 0 ? 1f : -1f, 0f);
+    //     }
 
-            dashDirection = toMouse.normalized;
-            canDash = true;
-            timer = 0;
-        }
-    }
+    //    dashDirection = toMouse.normalized;
+    //    canDash = true;
+    //    timer = 0;
+    //  }
+    // }
 
-    private IEnumerator PlayerDash()
-    {
-        float playerGravity = rb.gravityScale;
-        rb.gravityScale = 0;
+    // private IEnumerator PlayerDash()
+    // {
+    //     float playerGravity = rb.gravityScale;
+    //     rb.gravityScale = 0;
 
-        if (trailRenderer != null)
-        {
-            trailRenderer.enabled = true;
-        }
+    //     if (trailRenderer != null)
+    //     {
+    //        trailRenderer.enabled = true;
+    //    }
 
-        // dash toward the mouse direction (full 2D vector)
-        rb.linearVelocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
+    // dash toward the mouse direction (full 2D vector)
+    //   rb.linearVelocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
 
-        yield return new WaitForSeconds(0.5f);
+    //    yield return new WaitForSeconds(0.5f);
 
-        if (trailRenderer != null)
-        {
-            trailRenderer.enabled = false;
-        }
+    //    if (trailRenderer != null)
+    //    {
+    //        trailRenderer.enabled = false;
+    ///    }
 
-        rb.gravityScale = playerGravity;
-    }
+    //   rb.gravityScale = playerGravity;
+    // }
 
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-
-        if (canDash)
-        {
-            StartCoroutine(PlayerDash());
-            canDash = false;
-        }
     }
+     //   if (canDash)
+     //   {
+     //       StartCoroutine(PlayerDash());
+     //       canDash = false;
+     //   }
+   // }
 
     //void FlipSprite()
     //{
