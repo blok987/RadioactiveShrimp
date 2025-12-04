@@ -22,6 +22,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+
+    public GunController GUN;
     //public Animator anim { get; private set; }
     #endregion
 
@@ -121,19 +123,28 @@ public class PlayerMovementWithDash : MonoBehaviour
 		LastPressedDashTime -= Time.deltaTime;
         #endregion
 
+		if (GUN.aimdirection.x > 0)
+		{
+			IsFacingRight = true;
+		}
+		else if (GUN.aimdirection.x < 0)
+		{
+			IsFacingRight = false;
+		}
+
 		#region INPUT HANDLER
 		if (DialManager.isDialogueActive)
 		{
 			canMove = false;
 			_moveInput.x = 0;
-            _moveInput.y = 0;
-        }
+			_moveInput.y = 0;
+		}
 		else
 		{
 			canMove = true;
-            _moveInput.x = Input.GetAxisRaw("Horizontal");
-            _moveInput.y = Input.GetAxisRaw("Vertical");
-        }
+			_moveInput.x = Input.GetAxisRaw("Horizontal");
+			_moveInput.y = Input.GetAxisRaw("Vertical");
+		}
 
         if (_moveInput.x != 0 && canMove)
 			CheckDirectionToFace(_moveInput.x > 0);

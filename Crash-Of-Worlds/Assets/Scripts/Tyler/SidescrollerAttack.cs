@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public GameObject bulletPrefab; // Reference to the bullet prefab
     public Transform firePoint;   // Reference to the fire point
     public Transform player;
+    public PlayerMovementWithDash playerMove;
     public SpriteRenderer gun { get; private set; }
     public float bulletSpeed = 40f; // Speed of the bullet
     public float shotGunSpread;
@@ -22,11 +23,22 @@ public class GunController : MonoBehaviour
     public bool handGunSelected = true;
     public bool shotGunSelected = false;
     public bool rifleSelected = false;
-    [HideInInspector]public bool shotototoGunSelected = false;
+    public bool shotototoGunSelected = false;
 
     public int pistolAmmoLeft; // How many bullets left in the mag
+    public int maxLoadedPistolAmmo; // The max amount of ammo the pistol can have loaded
+    public int currentPistolStorage; // How much pistol ammo the player has in storage
+    public int maxPistolAmmo; // The max amount of pistol ammo the player can hold
+
     public int shellsLeft; // How many shells left in the gun
+    public int maxLoadedShells; // The max amount of shells the shotgun can have loaded
+    public int currentShellStorage; // How many shells the player has in storage
+    public int maxShells; // The max amount of shells the player can hold
+
     public int rifleAmmoLeft; // How many bullets left in the mag
+    public int maxLoadedRifleAmmo; // The max amount of ammo the rifle can have loaded
+    public int currentRifleStorage; // How much rifle ammo the player has in storage
+    public int maxRifleAmmo; // The max amount of rifle ammo the player can hold
 
     public bool isReloadingHandGun; // If handgun is reloading
     public bool isReloadingShotGun; // If shotgun is reloading
@@ -35,6 +47,8 @@ public class GunController : MonoBehaviour
 
     public float lastShellShot;
     public float lastPistolShot;
+
+    public Vector3 aimdirection;
 
     public LayerMask layerMask;
     public LayerMask worldLayer;
@@ -67,6 +81,11 @@ public class GunController : MonoBehaviour
 
         AimGun();
 
+        if (playerMove.IsFacingRight)
+        {
+            
+        }
+
         if (Input.GetKey("1") || Input.GetButton("Mouse ScrollWheel"))
         {
             handGunSelected = true;
@@ -94,7 +113,7 @@ public class GunController : MonoBehaviour
             buttonPressed = false;
         }
 
-        if (Input.GetKey("="))
+        if (Input.GetKey("4"))
         {
             handGunSelected = false;
             shotGunSelected = false;
@@ -138,7 +157,7 @@ public class GunController : MonoBehaviour
             StopCoroutine(nameof(reload));
         }
 
-        if (Input.GetKeyDown("r") && pistolAmmoLeft != 8 || Input.GetKeyDown("r") && rifleAmmoLeft != 60 || Input.GetKeyDown("r") && shellsLeft != 4)
+        if (Input.GetKeyDown("r") && pistolAmmoLeft != 8 && currentPistolStorage != 0 || Input.GetKeyDown("r") && rifleAmmoLeft != 60 && currentRifleStorage != 0 || Input.GetKeyDown("r") && shellsLeft != 4 && currentPistolStorage !=0)
         {
             StartCoroutine(nameof(reload));
         }
@@ -156,6 +175,8 @@ public class GunController : MonoBehaviour
         // Rotate the gun to face the mouse position
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         Ray ray = new Ray(transform.position, firePoint.position);
+
+        aimdirection = direction;
     }
 
     void Shoot()
@@ -298,7 +319,16 @@ public class GunController : MonoBehaviour
     {
         if (isReloadingHandGun)
         {
-            pistolAmmoLeft = 8;
+            if (currentPistolStorage >= maxLoadedPistolAmmo)
+            {
+                currentPistolStorage -= maxLoadedPistolAmmo;
+                pistolAmmoLeft = maxLoadedPistolAmmo;
+            }
+            else if (currentPistolStorage < maxLoadedPistolAmmo)
+            {
+                currentPistolStorage = 0;
+                pistolAmmoLeft = currentPistolStorage;
+            }
             yield return new WaitForSeconds(0.1f);
             isReloadingHandGun = false;
             isReloading = false;
@@ -306,7 +336,16 @@ public class GunController : MonoBehaviour
 
         if (isReloadingShotGun)
         {
-            shellsLeft = 4;
+            if (currentShellStorage >= maxLoadedShells)
+            {
+                currentShellStorage -= maxLoadedShells;
+                shellsLeft = maxLoadedShells;
+            }
+            else if (currentShellStorage < maxLoadedShells)
+            {
+                currentShellStorage = 0;
+                shellsLeft = currentShellStorage;
+            }
             yield return new WaitForSeconds(0.1f);
             isReloadingShotGun = false;
             isReloading = false;
@@ -314,7 +353,16 @@ public class GunController : MonoBehaviour
         
         if (isReloadingRifle)
         {
-            rifleAmmoLeft = 60;
+            if (currentRifleStorage >= maxLoadedRifleAmmo)
+            {
+                currentRifleStorage -= maxLoadedRifleAmmo;
+                rifleAmmoLeft = maxLoadedRifleAmmo;
+            }
+            else if (currentRifleStorage < maxLoadedRifleAmmo)
+            {
+                currentRifleStorage = 0;
+                rifleAmmoLeft = currentRifleStorage;
+            }
             yield return new WaitForSeconds(0.1f);
             isReloadingRifle = false;
             isReloading = false;

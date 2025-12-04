@@ -7,6 +7,8 @@ public class DialogueCharacter
     public string name;
     public Sprite icon;
     public AudioClip CharacterVoice;
+
+    //[Range(0.1f, 1f)] public float typingSpeed;
 }
 
 [System.Serializable]
