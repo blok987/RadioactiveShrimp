@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: d3f2809c73aec5943a0ab010e30ac936
-=======
-guid: 3b801ed89288e9940b58b6648ca69016
->>>>>>> cb2dc3e2f2210f187f40c295511b2c17c048f534
+guid: ce319252aaa438c44b9207f5e08e6dd4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -790721166649634894
-    second: menuscreen-pixilart_0
+      213: -4460775637939006895
+    second: fantasymenu-pixilart (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menuscreen-pixilart_0
+      name: fantasymenu-pixilart (1)_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 92
-        height: 91
+        x: 6
+        y: 18
+        width: 94
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf4771d94bc605f0800000000000000
-      internalID: -790721166649634894
+      spriteID: 152dde501342812c0800000000000000
+      internalID: -4460775637939006895
       vertices: []
       indices: 
       edges: []
