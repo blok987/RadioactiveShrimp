@@ -20,6 +20,10 @@ public class GunController : MonoBehaviour
     public float rifleFireRate = 1;
     private float fireTime;
 
+    public bool hasShotGun = false;
+    public bool hasRifle = false;
+    public bool hasShotototoGun = false;
+
     public bool handGunSelected = true;
     public bool shotGunSelected = false;
     public bool rifleSelected = false;
@@ -63,6 +67,8 @@ public class GunController : MonoBehaviour
     public AudioClip ShotGunReload; // ShotGun reload sound effect
     public AudioClip ShotGunFire; // ShotGun fire sound effect
 
+    public float weaponSelected = 1;
+
     private void Awake()
     {
         gun = GetComponent<SpriteRenderer>();
@@ -76,6 +82,27 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetAxis("Mouse ScrollWheel") == 0.1f)
+        {
+            weaponSelected += 1;
+        }
+        
+        if (Input.GetAxis("Mouse ScrollWheel") == -0.1f)
+        {
+            weaponSelected -= 1;
+        }
+
+        if (weaponSelected < 1)
+        {
+            weaponSelected = 4;
+        }
+
+        if (weaponSelected > 4)
+        {
+            weaponSelected = 1;
+        }
+
+
         lastShellShot += Time.deltaTime;
         lastPistolShot += Time.deltaTime;
 
@@ -86,8 +113,9 @@ public class GunController : MonoBehaviour
             
         }
 
-        if (Input.GetKey("1") || Input.GetButton("Mouse ScrollWheel"))
+        if (Input.GetKey("1"))
         {
+            weaponSelected = 1;
             handGunSelected = true;
             shotGunSelected = false;
             rifleSelected = false;
@@ -95,8 +123,18 @@ public class GunController : MonoBehaviour
             buttonPressed = false;
         }
 
+        if (weaponSelected == 1)
+        {
+            weaponSelected = 1;
+            handGunSelected = true;
+            shotGunSelected = false;
+            rifleSelected = false;
+            shotototoGunSelected = false;
+        }
+
         if (Input.GetKey("2"))
         {
+            weaponSelected = 2;
             handGunSelected = false;
             shotGunSelected = true;
             rifleSelected = false;
@@ -104,8 +142,18 @@ public class GunController : MonoBehaviour
             buttonPressed = false;
         }
 
+        if (weaponSelected == 2)
+        {
+            weaponSelected = 2;
+            handGunSelected = false;
+            shotGunSelected = true;
+            rifleSelected = false;
+            shotototoGunSelected = false;
+        }
+
         if (Input.GetKey("3"))
         {
+            weaponSelected = 3;
             handGunSelected = false;
             shotGunSelected = false;
             rifleSelected = true;
@@ -113,13 +161,31 @@ public class GunController : MonoBehaviour
             buttonPressed = false;
         }
 
+        if (weaponSelected == 3)
+        {
+            weaponSelected = 3;
+            handGunSelected = false;
+            shotGunSelected = false;
+            rifleSelected = true;
+            shotototoGunSelected = false;
+        }
+
         if (Input.GetKey("4"))
         {
+            weaponSelected = 4;
             handGunSelected = false;
             shotGunSelected = false;
             rifleSelected = false;
             shotototoGunSelected = true;
             buttonPressed = false;
+        }
+
+        if (weaponSelected == 4)
+        {
+            handGunSelected = false;
+            shotGunSelected = false;
+            rifleSelected = false;
+            shotototoGunSelected = true;
         }
 
         if ((Input.GetButtonDown("Fire1") && pistolAmmoLeft > 0) || (Input.GetButtonDown("Fire1") && shellsLeft > 0) || (Input.GetButtonDown("Fire1") && rifleAmmoLeft > 0)) // Fire when left mouse button is clicked
@@ -157,7 +223,7 @@ public class GunController : MonoBehaviour
             StopCoroutine(nameof(reload));
         }
 
-        if (Input.GetKeyDown("r") && pistolAmmoLeft != 8 && currentPistolStorage != 0 || Input.GetKeyDown("r") && rifleAmmoLeft != 60 && currentRifleStorage != 0 || Input.GetKeyDown("r") && shellsLeft != 4 && currentPistolStorage !=0)
+        if (Input.GetKeyDown("r") && pistolAmmoLeft != 8 && currentPistolStorage != 0 || Input.GetKeyDown("r") && rifleAmmoLeft != 60 && currentRifleStorage != 0 || Input.GetKeyDown("r") && shellsLeft != 4 && currentShellStorage !=0)
         {
             StartCoroutine(nameof(reload));
         }
@@ -271,9 +337,14 @@ public class GunController : MonoBehaviour
             StartCoroutine(nameof(rifleShoot));
         }
 
-        if ((pistolAmmoLeft < 1 && handGunSelected) || (shellsLeft < 1 && shotGunSelected) || (rifleAmmoLeft < 1 && rifleSelected) || (shellsLeft < 1 && shotototoGunSelected)) 
+        if ((pistolAmmoLeft < 1 && handGunSelected && currentPistolStorage != 0) || (shellsLeft < 1 && shotGunSelected && currentShellStorage != 0) || (rifleAmmoLeft < 1 && rifleSelected && currentRifleStorage != 0) || (shellsLeft < 1 && shotototoGunSelected && currentShellStorage != 0)) 
         {
             StartCoroutine(nameof(reload));
+        }
+
+        if ((handGunSelected && currentPistolStorage == 0 && pistolAmmoLeft == 0) || (shotGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (shotototoGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (rifleSelected && currentRifleStorage == 0 && rifleAmmoLeft == 0))
+        {
+
         }
     }
 

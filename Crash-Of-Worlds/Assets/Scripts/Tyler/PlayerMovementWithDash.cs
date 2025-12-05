@@ -151,6 +151,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump") && canMove)
 		{
+			print(Input.inputString);
 			OnJumpInput();
 		}
 
