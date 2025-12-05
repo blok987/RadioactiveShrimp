@@ -8,7 +8,6 @@ TagManager:
   - Bullets
   - Melee
   - EnemyBullets
-  - Player2
   layers:
   - Default
   - TransparentFX
@@ -16,8 +15,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -48,9 +47,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2125626039
-    locked: 0
-  - name: Player2
-    uniqueID: 38197235
     locked: 0
   m_RenderingLayers:
   - Default
