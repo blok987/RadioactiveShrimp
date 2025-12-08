@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
-    public DialogueCharacter DC;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
@@ -18,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
 
-    [Range(0.1f, 1f)] public float typingSpeed;
+    //[Range(0.1f, 1f)] public float typingSpeed;
     
 
     public Animator anim;
@@ -70,7 +69,7 @@ public class DialogueManager : MonoBehaviour
         {
             VoiceSFX.PlayOneShot(dialogueLine.character.CharacterVoice, 0.7f);
             dialogueArea.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(dialogueLine.character.typingSpeed);
         }
     }
 

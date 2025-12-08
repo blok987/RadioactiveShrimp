@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 public class Enemystuff : MonoBehaviour
 {
+    public GameManagerScript gameManager;
     public GameObject damagePrefab; // Ranged weapons
     public GameObject meleePrefab; // Melee weapons
     public AudioSource SFX; // Enemy sfx audio source
@@ -13,6 +14,9 @@ public class Enemystuff : MonoBehaviour
     public float atkDamage; // Amount of damage the enemy deals to the player
     public bool isDead = false; // If the enemy is dead
     public bool wasHit = false; // If the enemy was just hit
+    public bool fantasyenemy;
+    public bool scifienemy;
+    public bool canMove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +27,15 @@ public class Enemystuff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (scifienemy && gameManager.scifiworld || fantasyenemy && gameManager.fantasyworld)
+        {
+            canMove = true;
+        }
+        else if (scifienemy && gameManager.fantasyworld || fantasyenemy && gameManager.scifiworld)
+        {
+            canMove = false;
+        }
+
         // If the enemies health is 0 and isn't dead, start the death coroutine and set isDead to true
         if (health <= 0 && isDead == false)
         {

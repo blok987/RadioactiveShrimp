@@ -172,6 +172,14 @@ PrefabInstance:
       value: Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: scifienemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: damagePrefab
       value: 
       objectReference: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
@@ -323,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 276110595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071239, w: 0.7070898}
-  m_LocalPosition: {x: -0.018305838, y: -0.10001786, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.02021785, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -623,7 +631,7 @@ Transform:
   m_GameObject: {fileID: 377277934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.94175, y: -0.02, z: -108.607704}
+  m_LocalPosition: {x: 0.95005584, y: 0.059800006, z: -108.607704}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -949,7 +957,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 54
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -1075,7 +1083,7 @@ MonoBehaviour:
   playerPos: {x: 0, y: 0, z: 0}
   player: {fileID: 5116141948239455239}
   rb: {fileID: 697708624}
-  isHandGunAmmo: 0
+  isHandGunAmmo: 1
   isShells: 0
   isRifleAmmo: 0
   isBeingCollected: 0
@@ -1399,7 +1407,7 @@ Transform:
   m_GameObject: {fileID: 1485385946}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.2814, y: -0.1402, z: 0}
+  m_LocalPosition: {x: 0.28970584, y: -0.0604, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1794,6 +1802,14 @@ PrefabInstance:
       value: Enemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: scifienemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: damagePrefab
       value: 
       objectReference: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
@@ -1840,6 +1856,8 @@ MonoBehaviour:
   dialManager: {fileID: 1768439583}
   bullet: {fileID: 0}
   enemy: {fileID: 0}
+  scifiworld: 1
+  fantasyworld: 0
 --- !u!4 &1900186618
 Transform:
   m_ObjectHideFlags: 0
@@ -1869,11 +1887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2878127054037994470, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.91
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2878127054037994470, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.66
+      value: -14.03
       objectReference: {fileID: 0}
     - target: {fileID: 2878127054037994470, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2022,6 +2040,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
+      propertyPath: scifiNPC
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
+      propertyPath: fantasyNPC
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
+    - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[0].line
       value: asdasdafasfasfsaf
       objectReference: {fileID: 0}
@@ -2046,13 +2076,21 @@ PrefabInstance:
       value: Sign
       objectReference: {fileID: 0}
     - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[0].character.typingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[1].character.typingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[0].character.CharacterVoice
       value: 
-      objectReference: {fileID: 8300000, guid: cef38bfd7bdc9944da0ce907f920c947, type: 3}
+      objectReference: {fileID: 8300000, guid: 818fa1e69aaf69740a4c75f41c216912, type: 3}
     - target: {fileID: 5405550407692069980, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[1].character.CharacterVoice
       value: 
-      objectReference: {fileID: 8300000, guid: cef38bfd7bdc9944da0ce907f920c947, type: 3}
+      objectReference: {fileID: 8300000, guid: 818fa1e69aaf69740a4c75f41c216912, type: 3}
     - target: {fileID: 6193667891593279818, guid: 16d35c84bbb160d429b77340e1c6dc2e, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -2188,6 +2226,14 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: scifienemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
+    - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: damagePrefab
       value: 
       objectReference: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
@@ -2236,14 +2282,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1121467309778424728, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
     - target: {fileID: 2465371089720528704, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: GUN
       value: 
       objectReference: {fileID: 6622574895292158841}
+    - target: {fileID: 2465371089720528704, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: scifiGuy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465371089720528704, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
+    - target: {fileID: 5932632410331696362, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5932632410331696362, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: playerMove
       value: 
       objectReference: {fileID: 5116141948239455235}
+    - target: {fileID: 5932632410331696362, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: dialManager
+      value: 
+      objectReference: {fileID: 1768439583}
+    - target: {fileID: 5932632410331696362, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1900186617}
     - target: {fileID: 5932632410331696362, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: maxPistolAmmo
       value: 120
@@ -2312,7 +2382,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6904280035995596324, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 80216549}
     - targetCorrespondingSourceObject: {fileID: 3262933673176688510, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       insertIndex: 0

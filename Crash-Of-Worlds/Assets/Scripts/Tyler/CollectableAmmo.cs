@@ -26,13 +26,13 @@ public class CollectableAmmo : MonoBehaviour
         playerPos = player.position;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        //if (collision.gameObject.CompareTag("AmmoCollector"))
-        //{
-        //    isBeingCollected = true;
-        //    rb.linearVelocityX = playerPos.x - transform.position.x;
-        //}
+        if (col.gameObject.CompareTag("AmmoCollector"))
+        {
+            isBeingCollected = true;
+            rb.linearVelocityX = playerPos.x - transform.position.x;
+        }
     }
 
 }
