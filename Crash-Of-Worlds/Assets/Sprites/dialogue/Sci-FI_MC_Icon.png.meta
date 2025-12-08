@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ce319252aaa438c44b9207f5e08e6dd4
+guid: 40a9cd0bfbeb0c342b6b7538d0bbed7a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4460775637939006895
-    second: fantasymenu-pixilart (1)_0
+      213: -1301824953102288896
+    second: Sci-FI_MC_Icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fantasymenu-pixilart (1)_0
+      name: Sci-FI_MC_Icon_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 18
-        width: 94
-        height: 66
+        x: 3
+        y: 0
+        width: 95
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 152dde501342812c0800000000000000
-      internalID: -4460775637939006895
+      spriteID: 008399e3a1dfeede0800000000000000
+      internalID: -1301824953102288896
       vertices: []
       indices: 
       edges: []

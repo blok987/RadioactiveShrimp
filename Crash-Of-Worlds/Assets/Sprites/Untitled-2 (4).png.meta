@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ce319252aaa438c44b9207f5e08e6dd4
+guid: 8ccf647f883b4184bbc7878cb36ecdef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4460775637939006895
-    second: fantasymenu-pixilart (1)_0
+      213: -1222524245930206360
+    second: Untitled-2 (4)_0
+  - first:
+      213: -3422656574152963444
+    second: Untitled-2 (4)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 53
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fantasymenu-pixilart (1)_0
+      name: Untitled-2 (4)_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 18
-        width: 94
-        height: 66
+        x: 0
+        y: 12
+        width: 53
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 152dde501342812c0800000000000000
-      internalID: -4460775637939006895
+      spriteID: 86b1700fca8b80fe0800000000000000
+      internalID: -1222524245930206360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled-2 (4)_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 4
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a0575daf74080d0800000000000000
+      internalID: -3422656574152963444
       vertices: []
       indices: 
       edges: []
@@ -160,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Untitled-2 (4)_0: -1222524245930206360
+      Untitled-2 (4)_1: -3422656574152963444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

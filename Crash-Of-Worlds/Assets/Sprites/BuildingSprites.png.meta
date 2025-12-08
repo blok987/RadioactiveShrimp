@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ce319252aaa438c44b9207f5e08e6dd4
+<<<<<<<< HEAD:Crash-Of-Worlds/Assets/Sprites/MenuScreen Stuff/fantasymenu-pixilart (1).png.meta
+guid: eabbf6807c571ec4ea6a71ad18ab8569
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4460775637939006895
     second: fantasymenu-pixilart (1)_0
+========
+guid: f42d9df23a3c89a4e9b4f51ed5504ca0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8117479566272641674
+    second: BuildingSprites_0
+>>>>>>>> 4581e9a3f4e63e841c6b112057b4ffb9e42dcb10:Crash-Of-Worlds/Assets/Sprites/BuildingSprites.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,6 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:Crash-Of-Worlds/Assets/Sprites/MenuScreen Stuff/fantasymenu-pixilart (1).png.meta
       name: fantasymenu-pixilart (1)_0
       rect:
         serializedVersion: 2
@@ -133,6 +143,15 @@ TextureImporter:
         y: 18
         width: 94
         height: 66
+========
+      name: BuildingSprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 150
+        height: 190
+>>>>>>>> 4581e9a3f4e63e841c6b112057b4ffb9e42dcb10:Crash-Of-Worlds/Assets/Sprites/BuildingSprites.png.meta
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:Crash-Of-Worlds/Assets/Sprites/MenuScreen Stuff/fantasymenu-pixilart (1).png.meta
       spriteID: 152dde501342812c0800000000000000
       internalID: -4460775637939006895
+========
+      spriteID: a8a3c2348a417a070800000000000000
+      internalID: 8117479566272641674
+>>>>>>>> 4581e9a3f4e63e841c6b112057b4ffb9e42dcb10:Crash-Of-Worlds/Assets/Sprites/BuildingSprites.png.meta
       vertices: []
       indices: 
       edges: []
