@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 80deeb2ebcc71c041b0cbb1fa5de904f
+guid: 8ccf647f883b4184bbc7878cb36ecdef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7490549210145418512
-    second: Boulder_0
+      213: -1222524245930206360
+    second: Untitled-2 (4)_0
   - first:
-      213: -8471095213289756079
-    second: Boulder_1
+      213: -3422656574152963444
+    second: Untitled-2 (4)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 53
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,70 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boulder_0
+      name: Untitled-2 (4)_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2
-        width: 75
-        height: 98
+        x: 0
+        y: 12
+        width: 53
+        height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: -23.5, y: 22}
-        - {x: -23.5, y: 17}
-        - {x: -23.5, y: 11}
-        - {x: -22.440035, y: 7.2901154}
-        - {x: -21.5, y: 4}
-        - {x: -18.5, y: 1}
-        - {x: -14.5, y: -2}
-        - {x: -7.5, y: -6}
-        - {x: -2.5, y: -7}
-        - {x: 0.5, y: -7}
-        - {x: 7.5, y: -6}
-        - {x: 22.5, y: 0}
-        - {x: 32.5, y: 10}
-        - {x: 34.5, y: 13}
-        - {x: 36.5, y: 18}
-        - {x: 36.5, y: 27}
-        - {x: 35.5, y: 30}
-        - {x: 29.5, y: 41}
-        - {x: 27.5, y: 42}
-        - {x: 24.5, y: 43}
-        - {x: -0.5, y: 43}
-        - {x: -4.5, y: 42}
-        - {x: -9.5, y: 40}
-        - {x: -20.5, y: 29}
-        - {x: -22.5, y: 26}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0f213b41e293c0890800000000000000
-      internalID: -7490549210145418512
+      spriteID: 86b1700fca8b80fe0800000000000000
+      internalID: -1222524245930206360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boulder_1
+      name: Untitled-2 (4)_1
       rect:
         serializedVersion: 2
-        x: 111
-        y: 0
-        width: 17
-        height: 6
+        x: 56
+        y: 4
+        width: 56
+        height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 15a2a5909cf907a80800000000000000
-      internalID: -8471095213289756079
+      spriteID: c8a0575daf74080d0800000000000000
+      internalID: -3422656574152963444
       vertices: []
       indices: 
       edges: []
@@ -201,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7ac44b60306e27b429949917a636dc0e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -211,8 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boulder_0: -7490549210145418512
-      Boulder_1: -8471095213289756079
+      Untitled-2 (4)_0: -1222524245930206360
+      Untitled-2 (4)_1: -3422656574152963444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
