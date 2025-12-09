@@ -127,9 +127,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 715747824740791776, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1500723682451906035, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510772588523408086, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700157931407426412, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591105934713832863, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581467590772054776, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6446546266655502150, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,9 +199,21 @@ PrefabInstance:
       propertyPath: DialManager
       value: 
       objectReference: {fileID: 1308504972}
+    - target: {fileID: 7316854287567877030, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7497066552180885367, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652115349495763428, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272540638390545298, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -193,7 +225,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3251735415423750418, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561480244}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7652115349495763428, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 814868043}
   m_SourcePrefab: {fileID: 100100000, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
 --- !u!1 &561480243
 GameObject:
@@ -206,14 +241,13 @@ GameObject:
   - component: {fileID: 561480244}
   - component: {fileID: 561480245}
   - component: {fileID: 561480247}
-  - component: {fileID: 561480246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeWeapon
   m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &561480244
 Transform:
   m_ObjectHideFlags: 0
@@ -284,23 +318,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &561480246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561480243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerAttack: 0
-  PlayerContact: 0
-  PlayerSwordDash: 0
-  PlayerSwordDMG: 0
-  AtkDMG: 5
 --- !u!61 &561480247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -486,6 +503,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &814868038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7652115349495763428, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+  m_PrefabInstance: {fileID: 236995680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &814868043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814868038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSwordDMG: 0
+  AtkDMG: 5
+  WeaponType: {x: 2, y: 1}
+  WeaponLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &831426202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -538,9 +578,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4640813076811909856, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6407754288646423824, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8941596065594263769, guid: ce695dbb453ed9940aca0ae861590912, type: 3}
       propertyPath: health

@@ -6,11 +6,9 @@ using UnityEngine.UIElements;
 
 public class MeleeScript : MonoBehaviour
 {
-    public bool PlayerAttack;
-    public bool PlayerContact;
-    public bool PlayerSwordDash;
-    public int PlayerSwordDMG;
     public float AtkDMG = 5;
+    public Vector2 WeaponType;
+    public LayerMask WeaponLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,57 +19,80 @@ public class MeleeScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PlayerAttack = true;
-            if (PlayerContact == true)
+            var box = Physics2D.BoxCast(transform.position, WeaponType, 0, Vector2.zero, 0, WeaponLayer);
+            if (box)
             {
-                PlayerSwordDMG = (int)AtkDMG;
-                // causes enemy take damage
+                Debug.Log(box.collider.gameObject.name);
+                if (box.collider.gameObject.TryGetComponent(out Enemystuff enemy))
+                {
+                    enemy.health -= AtkDMG;
+                    enemy.damageTaken += AtkDMG;
+                }
             }
-
-            StartCoroutine(Timer());
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            PlayerAttack = false;
-            PlayerSwordDMG = 0;
         }
     }
-
-    IEnumerator Timer()
+    private void OnDrawGizmos()
     {
-        yield return new WaitForSeconds(1f);
-        
+        Gizmos.DrawWireCube(transform.position, WeaponType);
     }
-
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            PlayerContact = true;
-        }
-
-    }
-
-    //Determines whether player is in contact with enemy 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            PlayerContact = false;
-        }
-
-    }
+    //#region PLAYER SWING
+    //private void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        PlayerAttack = true;
+    //        if (PlayerContact == true)
+    //        {
+    //            PlayerSwordDMG = (int)AtkDMG;
+    //            //boolean that allows enemy take damage
+    //        }
 
 
+    //    }
+
+    //    if (Input.GetMouseButtonUp(0))
+    //    {
+    //        PlayerAttack = false;
+    //        PlayerSwordDMG = 0;
+    //    }
+    //}
+    //#endregion
+
+    ////Timer for 
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(1f);
+
+    //}
 
 
-    // Determines the Damage the player deals on Mouse Down
-    private void OnMouseDown()
-    {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Enemy"))
+    //    {
+    //        PlayerContact = true;
+    //    }
 
-    }
+    //}
+
+    ////Determines whether player is in contact with enemy 
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Enemy"))
+    //    {
+    //        PlayerContact = false;
+    //    }
+
+    //}
+
+
+
+
+    //// Determines the Damage the player deals on Mouse Down
+    //private void OnMouseDown()
+    //{
+
+    //}
 }
 
 

@@ -6,6 +6,7 @@ public class DialogueCharacter
 {
     public string name;
     public Sprite icon;
+    public AudioClip CharacterVoice;
 }
 
 [System.Serializable]
