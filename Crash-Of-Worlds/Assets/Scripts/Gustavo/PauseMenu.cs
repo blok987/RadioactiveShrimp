@@ -1,16 +1,21 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PauseMen : MonoBehaviour
+
+public class PauseMenu : MonoBehaviour
 
 {
     [SerializeField] GameObject pauseMenu;
 
-    public void Pause()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        pauseMenu.SetActive(false);
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            pauseMenu.SetActive(true);
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
             Time.timeScale = 0;
         }
        
@@ -28,10 +33,9 @@ public class PauseMen : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Restart()
+    public void Credits()
     {
-        //SceneManager.LoadScene(SceneM
-        Time.timeScale = 1;
+        
     }
 
 

@@ -12,10 +12,7 @@ public class StartGame : MonoBehaviour
 
     public void OnStartClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("FromScratch");
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Test3");
-        SceneManager.UnloadSceneAsync("StartMenu");
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("FromScratch"));
+        SceneManager.LoadScene("FromScratch");
     }
 
 }

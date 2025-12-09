@@ -28,36 +28,11 @@ public class ForcedPlayerSwitch : MonoBehaviour
         player1Active = true;
         whichAvatarIsOn = 1;
 
-        // Ensure initial scenes: make "FromScratch" active and unload "test3" if present.
-        StartCoroutine(EnsureInitialScenes());
+       
+        
     }
 
-    private IEnumerator EnsureInitialScenes()
-    {
-        const string fromScene = "FromScratch";
-        const string testScene = "test3";
-
-        // Load FromScratch if not loaded
-        Scene from = SceneManager.GetSceneByName(fromScene);
-        if (!from.isLoaded)
-        {
-            var loadOp = SceneManager.LoadSceneAsync(fromScene, LoadSceneMode.Additive);
-            while (!loadOp.isDone) yield return null;
-            from = SceneManager.GetSceneByName(fromScene);
-        }
-
-        // Set FromScratch as active scene
-        SceneManager.SetActiveScene(from);
-
-        // Unload test3 if loaded
-        Scene test = SceneManager.GetSceneByName(testScene);
-        if (test.isLoaded)
-        {
-            var unloadOp = SceneManager.UnloadSceneAsync(testScene);
-            while (!unloadOp.isDone) yield return null;
-        }
-    }
-
+   
     private void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -66,31 +41,38 @@ public class ForcedPlayerSwitch : MonoBehaviour
             {
                 // Trigger the player switch (use coroutine so we can wait for the scene load)
                 if (player1Active)
-                    StartCoroutine(SwitchPlayerCoroutine(true, "test3", "FromScratch"));
+                    StartCoroutine(SwitchPlayerCoroutine(true));
                 else
-                    StartCoroutine(SwitchPlayerCoroutine(false, "FromScratch", "test3"));
-
+                    StartCoroutine(SwitchPlayerCoroutine(false));
+                avatar2.transform.position = avatar1.transform.position;
                 // Set the next trigger time
                 nextTriggerTime = Time.time + cooldownTime;
             }
         }
+        if (other.CompareTag("Player2"))
+        {
+            if (Time.time >= nextTriggerTime)
+            {
+                // Trigger the player switch (use coroutine so we can wait for the scene load)
+                if (player1Active)
+                    StartCoroutine(SwitchPlayerCoroutine(true));
+                else
+                    StartCoroutine(SwitchPlayerCoroutine(false));
+                avatar1.transform.position = avatar2.transform.position;
+                // Set the next trigger time
+                nextTriggerTime = Time.time + cooldownTime;
+            }
+        }
+
     }
 
     // Coroutine that ensures the target scene is loaded & active before toggling avatars/controllers,
     // then unloads the old scene.
-    private IEnumerator SwitchPlayerCoroutine(bool switchToAvatar2, string loadSceneName, string unloadSceneName)
+    private IEnumerator SwitchPlayerCoroutine(bool switchToAvatar2)
     {
-        // Load target scene if not already loaded
-        Scene loadScene = SceneManager.GetSceneByName(loadSceneName);
-        if (!loadScene.isLoaded)
-        {
-            var loadOp = SceneManager.LoadSceneAsync(loadSceneName, LoadSceneMode.Additive);
-            while (!loadOp.isDone) yield return null;
-            loadScene = SceneManager.GetSceneByName(loadSceneName);
-        }
+        
 
-        // Make the newly loaded scene the active scene
-        SceneManager.SetActiveScene(loadScene);
+        
 
         // Now toggle avatars and controllers after scene is active
         if (switchToAvatar2)
@@ -116,12 +98,6 @@ public class ForcedPlayerSwitch : MonoBehaviour
             whichAvatarIsOn = 1;
         }
 
-        // Unload the previous scene if it's loaded
-        Scene unloadScene = SceneManager.GetSceneByName(unloadSceneName);
-        if (unloadScene.isLoaded)
-        {
-            var unloadOp = SceneManager.UnloadSceneAsync(unloadSceneName);
-            while (!unloadOp.isDone) yield return null;
-        }
+        yield break;
     }
 }

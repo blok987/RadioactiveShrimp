@@ -9,6 +9,8 @@ public class PlayerSwitch : MonoBehaviour
     public bool player1Active = true;
     public GameObject avatar1, avatar2;
     private int whichAvatarIsOn = 1;
+    
+    
 
 
     void Start()
@@ -47,6 +49,7 @@ public class PlayerSwitch : MonoBehaviour
 
             player1Active = false;
             whichAvatarIsOn = 2;
+            avatar2.transform.position = avatar1.transform.position;
         }
         else
         {
@@ -59,6 +62,7 @@ public class PlayerSwitch : MonoBehaviour
 
             player1Active = true;
             whichAvatarIsOn = 1;
+            avatar1.transform.position = avatar2.transform.position;
         }
     }
 }
