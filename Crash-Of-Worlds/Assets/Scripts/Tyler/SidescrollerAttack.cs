@@ -71,6 +71,8 @@ public class GunController : MonoBehaviour
     public AudioClip ShotGunReload; // ShotGun reload sound effect
     public AudioClip ShotGunFire; // ShotGun fire sound effect
 
+
+    public float maxWeapon = 1;
     public float weaponSelected = 1;
 
     private void Awake()
@@ -107,14 +109,14 @@ public class GunController : MonoBehaviour
                 weaponSelected -= 1;
             }
 
-            if (weaponSelected < 1)
-            {
-                weaponSelected = 4;
-            }
-
-            if (weaponSelected > 4)
+            if (weaponSelected > maxWeapon)
             {
                 weaponSelected = 1;
+            }
+
+            if (weaponSelected < 1)
+            {
+                weaponSelected = maxWeapon;
             }
 
 
@@ -151,7 +153,7 @@ public class GunController : MonoBehaviour
                 shotototoGunSelected = false;
             }
 
-            if (Input.GetKey("2"))
+            if (Input.GetKey("2") && hasShotGun)
             {
                 weaponSelected = 2;
                 handGunSelected = false;
@@ -161,7 +163,7 @@ public class GunController : MonoBehaviour
                 buttonPressed = false;
             }
 
-            if (weaponSelected == 2)
+            if (weaponSelected == 2 && hasShotGun)
             {
                 weaponSelected = 2;
                 handGunSelected = false;
@@ -170,7 +172,7 @@ public class GunController : MonoBehaviour
                 shotototoGunSelected = false;
             }
 
-            if (Input.GetKey("3"))
+            if (Input.GetKey("3") && hasRifle)
             {
                 weaponSelected = 3;
                 handGunSelected = false;
@@ -180,7 +182,7 @@ public class GunController : MonoBehaviour
                 buttonPressed = false;
             }
 
-            if (weaponSelected == 3)
+            if (weaponSelected == 3 && hasRifle)
             {
                 weaponSelected = 3;
                 handGunSelected = false;
@@ -189,7 +191,7 @@ public class GunController : MonoBehaviour
                 shotototoGunSelected = false;
             }
 
-            if (Input.GetKey("4"))
+            if (Input.GetKey("4") && hasShotototoGun)
             {
                 weaponSelected = 4;
                 handGunSelected = false;
@@ -199,7 +201,7 @@ public class GunController : MonoBehaviour
                 buttonPressed = false;
             }
 
-            if (weaponSelected == 4)
+            if (weaponSelected == 4 && hasShotototoGun)
             {
                 handGunSelected = false;
                 shotGunSelected = false;
@@ -424,14 +426,17 @@ public class GunController : MonoBehaviour
                 if (currentPistolStorage >= maxLoadedPistolAmmo)
                 {
                     currentPistolStorage -= maxLoadedPistolAmmo;
-                    pistolAmmoLeft = maxLoadedPistolAmmo;
+                    pistolAmmoLeft += maxLoadedPistolAmmo;
                 }
                 else if (currentPistolStorage < maxLoadedPistolAmmo)
                 {
-                    currentPistolStorage = 0;
                     pistolAmmoLeft = currentPistolStorage;
                 }
                 yield return new WaitForSeconds(0.1f);
+                if (isReloading && pistolAmmoLeft == currentPistolStorage)
+                {
+                    currentPistolStorage = 0;
+                }
                 isReloadingHandGun = false;
                 isReloading = false;
             }
@@ -441,14 +446,17 @@ public class GunController : MonoBehaviour
                 if (currentShellStorage >= maxLoadedShells)
                 {
                     currentShellStorage -= maxLoadedShells;
-                    shellsLeft = maxLoadedShells;
+                    shellsLeft += maxLoadedShells;
                 }
                 else if (currentShellStorage < maxLoadedShells)
                 {
-                    currentShellStorage = 0;
                     shellsLeft = currentShellStorage;
                 }
                 yield return new WaitForSeconds(0.1f);
+                if (isReloading && shellsLeft == currentShellStorage)
+                {
+                    currentShellStorage = 0;
+                }
                 isReloadingShotGun = false;
                 isReloading = false;
             }
@@ -458,14 +466,17 @@ public class GunController : MonoBehaviour
                 if (currentRifleStorage >= maxLoadedRifleAmmo)
                 {
                     currentRifleStorage -= maxLoadedRifleAmmo;
-                    rifleAmmoLeft = maxLoadedRifleAmmo;
+                    rifleAmmoLeft += maxLoadedRifleAmmo;
                 }
                 else if (currentRifleStorage < maxLoadedRifleAmmo)
                 {
-                    currentRifleStorage = 0;
                     rifleAmmoLeft = currentRifleStorage;
                 }
                 yield return new WaitForSeconds(0.1f);
+                if (isReloading && rifleAmmoLeft == currentRifleStorage)
+                {
+                    currentRifleStorage = 0;
+                }
                 isReloadingRifle = false;
                 isReloading = false;
             }

@@ -21,6 +21,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	public GameManagerScript gameManager;
 
 	public DialogueManager DialManager;
+
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
