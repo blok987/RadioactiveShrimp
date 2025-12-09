@@ -139,7 +139,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cd8def9f73f65f7479f5371866acbc11
-      internalID: -786419250
+      internalID: -6021866153178135721
       vertices: []
       indices: 
       edges: []
@@ -158,11 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-<<<<<<< HEAD
       Bottom LEFT ARM_0: -6021866153178135721
-=======
-      Bottom LEFT ARM_0: -786419250
->>>>>>> ef1b4bda47e4dbc47f2de935e062e8017f1f453a
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
