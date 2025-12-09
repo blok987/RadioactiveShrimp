@@ -1,5 +1,14 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class collision
+{
+    public GameObject Collision;
+}
+
+
 
 public class Button : MonoBehaviour
 {
@@ -8,7 +17,9 @@ public class Button : MonoBehaviour
     public bool enableTimer; // If the timer is enabled
 
     public bool timerStarted = false; // If the timer has been started
-    
+
+    public List<collision> Collisions = new List<collision>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,11 +36,11 @@ public class Button : MonoBehaviour
     {
         #region BUTTON
         // If the button is shot, not already pressed, and doesn't have a timer, the button is pressed
-        if (col.gameObject.CompareTag("Bullets") && !pressed && !enableTimer)
+        if (col.gameObject.CompareTag("Bullets") && !pressed && !enableTimer || col.gameObject.CompareTag("Player") && !pressed && !enableTimer)
         {
             pressed = true;
         }
-        else if (col.gameObject.CompareTag("Bullets") && pressed && !enableTimer) // If the button is shot, already pressed down, and doesn't have a timer, the button isn't pressed
+        else if (col.gameObject.CompareTag("Bullets") && pressed && !enableTimer || col.gameObject.CompareTag("Player") && pressed && !enableTimer) // If the button is shot, already pressed down, and doesn't have a timer, the button isn't pressed
         {
             pressed = false;
         }
@@ -37,11 +48,11 @@ public class Button : MonoBehaviour
 
         #region TIMER BUTTON
         // If the button is shot, not already pressed, and has a timer, the button starts the timer
-        if (col.gameObject.CompareTag("Bullets") && !pressed && enableTimer)
+        if (col.gameObject.CompareTag("Bullets") && !pressed && enableTimer || col.gameObject.CompareTag("Player") && !pressed && enableTimer)
         {
             StartCoroutine(buttonTimer());
         }
-        else if (col.gameObject.CompareTag("Bullets") && pressed && enableTimer) // If the button is shot, already pressed down, and has a timer, the timer is stopped, and the button isn't pressed
+        else if (col.gameObject.CompareTag("Bullets") && pressed && enableTimer || col.gameObject.CompareTag("Player") && pressed && enableTimer) // If the button is shot, already pressed down, and has a timer, the timer is stopped, and the button isn't pressed
         {
             StopAllCoroutines();
             timerStarted = false;
