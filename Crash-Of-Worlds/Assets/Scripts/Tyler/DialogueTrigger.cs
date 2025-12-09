@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+
 [System.Serializable]
 public class DialogueCharacter
 {
     public string name;
     public Sprite icon;
     public AudioClip CharacterVoice;
+
+    [UnityEngine.Range(0.1f, 1f)] public float typingSpeed;
 }
 
 [System.Serializable]
@@ -24,6 +27,10 @@ public class Dialogue
 }
 public class DialogueTrigger : MonoBehaviour
 {
+    public GameManagerScript gameManager;
+    public bool scifiNPC;
+    public bool fantasyNPC;
+
     public Dialogue dialogue;
 
     public void TriggerDialogue()
@@ -35,9 +42,12 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            if (Input.GetKey("e") && !DialogueManager.instance.isDialogueActive)
+            if (scifiNPC && gameManager.scifiworld || fantasyNPC && gameManager.fantasyworld)
             {
-                TriggerDialogue();
+                if (Input.GetKey("e") && !DialogueManager.instance.isDialogueActive)
+                {
+                    TriggerDialogue();
+                }
             }
         }
     }
