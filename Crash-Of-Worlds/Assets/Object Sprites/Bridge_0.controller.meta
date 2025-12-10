@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6859df8d1fc9bde4d8e77747303a1659
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
+=======
+guid: dbeb576da47e06944a60104e7d454c5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>> parent of ecba8a0 (Merge branch 'main' of https://github.com/blok987/RadioactiveShrimp)
   userData: 
   assetBundleName: 
   assetBundleVariant: 
