@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
+    public DialogueCharacter DC;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
@@ -17,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
 
-    //[Range(0.1f, 1f)] public float typingSpeed;
+    [Range(0.1f, 1f)] public float typingSpeed;
     
 
     public Animator anim;
@@ -62,14 +63,14 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(currentLine));
     }
 
-    IEnumerator TypeSentence(DialogueLine dialogueLine)
+    public IEnumerator TypeSentence(DialogueLine dialogurLine)
     {
         dialogueArea.text = "";
-        foreach (char letter in dialogueLine.line.ToCharArray())
+        foreach (char letter in dialogurLine.line.ToCharArray())
         {
-            VoiceSFX.PlayOneShot(dialogueLine.character.CharacterVoice, 0.7f);
+            //VoiceSFX.PlayOneShot(DC.CharacterVoice, 0.7F);
             dialogueArea.text += letter;
-            yield return new WaitForSeconds(dialogueLine.character.typingSpeed);
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 

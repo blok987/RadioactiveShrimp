@@ -14,8 +14,6 @@ public class BulletTime : MonoBehaviour
 
     public Image bTimeBarFill; // The fill to the ability bar
 
-    public GameManagerScript gameManager;
-
     [Range(0, 1)]
     public float smoothTime; // How fast bullet time takes to get to it's lowest values
 
@@ -62,18 +60,8 @@ public class BulletTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.scifiworld)
-        {
-            canUseBTime = true;
-            canUseDash = false;
-        }
-        else if (gameManager.fantasyworld)
-        {
-            canUseBTime = false;
-            canUseDash = true;
-        }
 
-            GetCurrentFill();
+        GetCurrentFill();
 
         #region BUTTON CHECK
         // If ability button is held down, isHolding is true. If not, it's false

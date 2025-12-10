@@ -152,10 +152,8 @@ MonoBehaviour:
     - character:
         name: Test
         icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-        CharacterVoice: {fileID: 0}
-      line: asdsa
+      line: AAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHH
     - character:
         name: Test
         icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-        CharacterVoice: {fileID: 0}
       line: adfdsfsaffa

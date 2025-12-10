@@ -7,8 +7,7 @@ TagManager:
   - Enemy
   - Bullets
   - Melee
-  - AmmoCollector
-  - PistolAmmo
+  - EnemyBullets
   layers:
   - Default
   - TransparentFX
@@ -16,12 +15,8 @@ TagManager:
   - Ground
   - Water
   - UI
-<<<<<<< HEAD
-  - Weapon
-=======
-  - 
->>>>>>> 83a4ce61e86229bac3b30600c16580ef85a39caf
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gotz-fantasty-icon-pixilart (2)_0: -2113025261045601906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

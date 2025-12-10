@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c835d818992ea174eaf6bcf819ba3c39
+guid: 07e58822547cdf24ab6d4b19a42cea8c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1189571202468076651
-    second: clashofworlds_cabin_enviroment1-pixilart_0
+      213: 7172493938439384584
+    second: destroyed-buildings-pixilart_0
+  - first:
+      213: -1717211679219834323
+    second: destroyed-buildings-pixilart_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clashofworlds_cabin_enviroment1-pixilart_0
+      name: destroyed-buildings-pixilart_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 200
-        height: 100
+        width: 76
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5932bd14b4bcd7fe0800000000000000
-      internalID: -1189571202468076651
+      spriteID: 80e625a4c31d98360800000000000000
+      internalID: 7172493938439384584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed-buildings-pixilart_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 71
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2223ff631d3b28e0800000000000000
+      internalID: -1717211679219834323
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      clashofworlds_cabin_enviroment1-pixilart_0: -1189571202468076651
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
