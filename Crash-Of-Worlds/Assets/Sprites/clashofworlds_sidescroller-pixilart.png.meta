@@ -55,7 +55,11 @@ TextureImporter:
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
+<<<<<<< HEAD
+  textureShape: 1
+=======
   textureShape: 2
+>>>>>>> 27e8484f016618a596287465908fd962639fe5ad
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8bd2d713f8f77524387457101d837a83
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8117479566272641674
     second: BuildingSprites_0
+=======
+guid: 9fd58015eedd15347a6c1588d86269e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2945720319605607180
+    second: BuildingSprites 1_0
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +88,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
+=======
+    textureCompression: 1
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,6 +143,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<< HEAD
       name: BuildingSprites_0
       rect:
         serializedVersion: 2
@@ -135,12 +153,24 @@ TextureImporter:
         height: 188
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+=======
+      name: BuildingSprites 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 150
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<< HEAD
       spriteID: a8a3c2348a417a070800000000000000
       internalID: 8117479566272641674
       vertices: []
@@ -649,6 +679,10 @@ TextureImporter:
       bones: []
       spriteID: 386f375fdaab0d745bd772ceb8bb5621
       internalID: -396816320
+=======
+      spriteID: 4f4f146f9f2be17d0800000000000000
+      internalID: -2945720319605607180
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
       vertices: []
       indices: 
       edges: []
@@ -657,7 +691,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: 217deb6fa7978b647af6f6e2a56b0f13
+=======
+    spriteID: 
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     internalID: 0
     vertices: []
     indices: 
@@ -666,6 +704,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       BuildingSprites_0: 8117479566272641674
       BuildingSprites_1: -545229343
@@ -691,6 +730,9 @@ TextureImporter:
       BuildingSprites_7: -1319271043
       BuildingSprites_8: -1464081458
       BuildingSprites_9: -737867021
+=======
+    nameFileIdTable: {}
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
