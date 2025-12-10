@@ -4,15 +4,14 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Melee
   - Enemy
   - Bullets
-<<<<<<< HEAD
-  - AmmoCollector
-=======
   - Melee
+  - AmmoCollector
+  - PistolAmmo
   - EnemyBullets
->>>>>>> e73238f53bb0b6a77c0f0cd485714bbead2ab430
+  - Shell
+  - RifleAmmo
   layers:
   - Default
   - TransparentFX
@@ -20,13 +19,8 @@ TagManager:
   - Ground
   - Water
   - UI
-<<<<<<< HEAD
+  - Ammo
   - Enemy
-  - 
-=======
-  - Player
-  - Enemy
->>>>>>> e73238f53bb0b6a77c0f0cd485714bbead2ab430
   - 
   - 
   - 
@@ -54,6 +48,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2125626039
     locked: 0
   m_RenderingLayers:
   - Default
