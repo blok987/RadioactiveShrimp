@@ -128,14 +128,14 @@ public class PlayerMovementWithDash : MonoBehaviour
 		LastPressedDashTime -= Time.deltaTime;
         #endregion
 
-		if (GUN.aimdirection.x > 0)
-		{
-			IsFacingRight = true;
-		}
-		else if (GUN.aimdirection.x < 0)
-		{
-			IsFacingRight = false;
-		}
+		//if (GUN.aimdirection.x > 0 && scifiGuy)
+		//{
+		//	IsFacingRight = true;
+		//}
+		//else if (GUN.aimdirection.x < 0 && scifiGuy)
+		//{
+		//	IsFacingRight = false;
+		//}
 
 		#region INPUT HANDLER
 		if (DialManager.isDialogueActive || scifiGuy && gameManager.fantasyworld || fantasyGuy && gameManager.scifiworld)
