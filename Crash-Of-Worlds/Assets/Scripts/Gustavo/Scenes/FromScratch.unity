@@ -1833,7 +1833,7 @@ PrefabInstance:
       addedObject: {fileID: 449350697}
     - targetCorrespondingSourceObject: {fileID: 4070806120645744036, guid: dc8291c7fce364f4abaf824c8d54b819, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 845980493}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: dc8291c7fce364f4abaf824c8d54b819, type: 3}
 --- !u!1 &724543521
 GameObject:
@@ -2506,8 +2506,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845980492}
-  - component: {fileID: 845980493}
-  - component: {fileID: 845980494}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -2531,35 +2529,6 @@ Transform:
   - {fileID: 1113309702}
   m_Father: {fileID: 449350703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &845980493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845980491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AtkDMG: 5
-  WeaponType: {x: 0, y: 0}
-  WeaponLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &845980494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845980491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2cb6dd5da7535845944555ce484077d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &896109160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,8 +2791,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1406153521}
-  - component: {fileID: 1406153522}
-  - component: {fileID: 1406153523}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -2847,35 +2814,6 @@ Transform:
   - {fileID: 622597858}
   m_Father: {fileID: 40136244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1406153522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406153520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad156efe7714ae14a85dc81e7768ca54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AtkDMG: 5
-  WeaponType: {x: 0, y: 0}
-  WeaponLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &1406153523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406153520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2cb6dd5da7535845944555ce484077d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1615723466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,7 +3363,7 @@ PrefabInstance:
       addedObject: {fileID: 837130376}
     - targetCorrespondingSourceObject: {fileID: 4070806120645744036, guid: dc8291c7fce364f4abaf824c8d54b819, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1406153522}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: dc8291c7fce364f4abaf824c8d54b819, type: 3}
 --- !u!1001 &6597821427600071731
 PrefabInstance:

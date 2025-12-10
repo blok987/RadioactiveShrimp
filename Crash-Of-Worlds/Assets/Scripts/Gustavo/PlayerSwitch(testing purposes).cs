@@ -8,7 +8,7 @@ public class PlayerSwitch : MonoBehaviour
     public PlayerMovement2 player2Controller;
     public bool player1Active = true;
     public GameObject avatar1, avatar2;
-    private int whichAvatarIsOn = 1;
+    
     
     
 
@@ -24,7 +24,7 @@ public class PlayerSwitch : MonoBehaviour
         if (player2Controller != null) player2Controller.enabled = false;
 
         player1Active = true;
-        whichAvatarIsOn = 1;
+       
     }
     // Update is called once per frame
     void Update()
@@ -48,7 +48,7 @@ public class PlayerSwitch : MonoBehaviour
             if (playerController != null) playerController.enabled = false;
 
             player1Active = false;
-            whichAvatarIsOn = 2;
+           
             avatar2.transform.position = avatar1.transform.position;
         }
         else
@@ -61,7 +61,7 @@ public class PlayerSwitch : MonoBehaviour
             if (player2Controller != null) player2Controller.enabled = false;
 
             player1Active = true;
-            whichAvatarIsOn = 1;
+           
             avatar1.transform.position = avatar2.transform.position;
         }
     }

@@ -17,6 +17,7 @@ public class PauseMenu1 : MonoBehaviour
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             Time.timeScale = 0;
+
         }
 
     }
@@ -33,10 +34,7 @@ public class PauseMenu1 : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Credits()
-    {
-
-    }
+    
 
 
 

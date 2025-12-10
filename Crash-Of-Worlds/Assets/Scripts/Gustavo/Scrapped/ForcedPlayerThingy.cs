@@ -9,7 +9,7 @@ public class ForcedPlayerThingy : MonoBehaviour
     public GameObject avatar1, avatar2;
     public float cooldownTime = 10f;
     private float nextTriggerTime = 0f;
-    private int whichAvatarIsOn = 1;
+    
     public bool player1Active = true;
 
     void Start()
@@ -23,7 +23,7 @@ public class ForcedPlayerThingy : MonoBehaviour
         if (player2Controller != null) player2Controller.enabled = false;
 
         player1Active = true;
-        whichAvatarIsOn = 1;
+       
     }
 
     private void OnTriggerEnter2D(Collider2D other)

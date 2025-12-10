@@ -11,7 +11,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
     public PlayerMovement2 player2Controller;
     public bool player1Active = true;
     public GameObject avatar1, avatar2;
-    private int whichAvatarIsOn = 1;
+  
     public float cooldownTime = 10f;
     private float nextTriggerTime = 0f;
 
@@ -26,7 +26,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
         if (player2Controller != null) player2Controller.enabled = false;
 
         player1Active = true;
-        whichAvatarIsOn = 1;
+       
 
        
         
@@ -84,7 +84,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
             if (playerController != null) playerController.enabled = false;
 
             player1Active = false;
-            whichAvatarIsOn = 2;
+            
         }
         else
         {
@@ -95,7 +95,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
             if (player2Controller != null) player2Controller.enabled = false;
 
             player1Active = true;
-            whichAvatarIsOn = 1;
+            
         }
 
         yield break;

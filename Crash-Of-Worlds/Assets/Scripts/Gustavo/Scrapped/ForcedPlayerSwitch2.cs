@@ -11,7 +11,7 @@ public class ForcedPlayerSwitch2 : MonoBehaviour
     public PlayerMovement2 player2Controller;
     public bool player1Active = true;
     public GameObject avatar1, avatar2;
-    private int whichAvatarIsOn = 1;
+    
     public float cooldownTime = 10f;
     private float nextTriggerTime = 0f;
 
@@ -26,7 +26,7 @@ public class ForcedPlayerSwitch2 : MonoBehaviour
         if (player2Controller != null) player2Controller.enabled = true;
 
         player1Active = false;
-        whichAvatarIsOn = 2;
+        
 
         // Ensure initial scenes: make "FromScratch" active and unload "Test3" if present.
         StartCoroutine(EnsureInitialScenes());
@@ -88,7 +88,7 @@ public class ForcedPlayerSwitch2 : MonoBehaviour
             StartCoroutine(SwitchScenes("test3", "FromScratch"));
 
             player1Active = false;
-            whichAvatarIsOn = 2;
+            
         }
         else
         {
@@ -103,7 +103,7 @@ public class ForcedPlayerSwitch2 : MonoBehaviour
             StartCoroutine(SwitchScenes("FromScratch", "test3"));
 
             player1Active = true;
-            whichAvatarIsOn = 1;
+         
         }
     }
 
