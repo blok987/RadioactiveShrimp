@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,12 +129,12 @@ TextureImporter:
       name: menubuttons-pixilart_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 61
-        width: 100
-        height: 24
+        x: 7
+        y: 12
+        width: 83
+        height: 77
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,55 +147,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: menubuttons-pixilart_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 37
-        width: 100
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7516ce17790621b47b63e16ed3de2a24
-      internalID: 1213824770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menubuttons-pixilart_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 13
-        width: 100
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4437efdecd204d14e8effc5c173d1dbb
-      internalID: -51480001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 495d046965747ab428faa4386c2bd27a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -206,8 +162,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       menubuttons-pixilart_0: -2604050540338264086
-      menubuttons-pixilart_1: 1213824770
-      menubuttons-pixilart_2: -51480001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

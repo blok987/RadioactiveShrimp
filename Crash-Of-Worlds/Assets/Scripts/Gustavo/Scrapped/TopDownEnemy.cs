@@ -7,7 +7,7 @@ public class TopDownEnemy : MonoBehaviour
     Transform target;
     Vector2 moveDirection;
 
-    
+    float health, maxHealth = 3f;
 
     private void Awake()
     {
