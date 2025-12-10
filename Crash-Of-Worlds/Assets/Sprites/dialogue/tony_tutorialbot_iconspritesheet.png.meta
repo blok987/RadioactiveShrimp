@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tony_tutorialbot_iconspritesheet_0: -5485131012735168357
+      tony_tutorialbot_iconspritesheet_1: 5716154935441410401
+      tony_tutorialbot_iconspritesheet_2: -1711232736903882926
+      tony_tutorialbot_iconspritesheet_3: 4632358808395514514
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40a9cd0bfbeb0c342b6b7538d0bbed7a
+guid: 32e3502ae9d9460468c0c123bec273b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1301824953102288896
-    second: Sci-FI_MC_Icon_0
+      213: 8117479566272641674
+    second: BuildingSprites_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sci-FI_MC_Icon_0
+      name: BuildingSprites_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 95
-        height: 94
+        x: 0
+        y: 8
+        width: 150
+        height: 190
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 008399e3a1dfeede0800000000000000
-      internalID: -1301824953102288896
+      spriteID: a8a3c2348a417a070800000000000000
+      internalID: 8117479566272641674
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Sci-FI_MC_Icon_0: -1301824953102288896
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
