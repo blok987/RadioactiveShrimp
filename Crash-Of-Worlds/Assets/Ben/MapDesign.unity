@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 1302130369}
   - component: {fileID: 1302130368}
   m_Layer: 0
-  m_Name: MainCollision
+  m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,7 +567,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 29aad2cb6d3a06348a5d6857c9bbb3ac, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -587,9 +587,9 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0.009433985, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -5628,10 +5628,7 @@ Transform:
   m_Children:
   - {fileID: 1314177772}
   - {fileID: 1559992739}
-<<<<<<< HEAD
-=======
   - {fileID: 1302130367}
->>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559992738
@@ -10515,7 +10512,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1504558459}
   - {fileID: 2092485108}
-<<<<<<< HEAD
-=======
   - {fileID: 424138871}
->>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061

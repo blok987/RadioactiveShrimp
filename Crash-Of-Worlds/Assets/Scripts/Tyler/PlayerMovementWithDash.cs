@@ -18,24 +18,17 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerDataWithDash Data;
 
-	public GameManagerScript gameManager;
-
 	public DialogueManager DialManager;
-
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+    //public Animator anim { get; private set; }
+    #endregion
 
-    public GunController GUN;
-	//public Animator anim { get; private set; }
-	#endregion
-
-	#region STATE PARAMETERS
-	//Variables control the various actions the player can perform at any time.
-	//These are fields which can are public allowing for other sctipts to read them
-	//but can only be privately written to.
-	public bool scifiGuy;
-	public bool fantasyGuy;
+    #region STATE PARAMETERS
+    //Variables control the various actions the player can perform at any time.
+    //These are fields which can are public allowing for other sctipts to read them
+    //but can only be privately written to.
     public bool IsFacingRight { get; private set; }
     public bool IsJumping { get; private set; }
 	public bool IsWallJumping { get; private set; }
@@ -128,35 +121,37 @@ public class PlayerMovementWithDash : MonoBehaviour
 		LastPressedDashTime -= Time.deltaTime;
         #endregion
 
-		if (GUN.aimdirection.x > 0)
-		{
-			IsFacingRight = true;
-		}
-		else if (GUN.aimdirection.x < 0)
-		{
-			IsFacingRight = false;
-		}
+<<<<<<< HEAD
+		//if (GUN.aimdirection.x > 0 && scifiGuy)
+		//{
+		//	IsFacingRight = true;
+		//}
+		//else if (GUN.aimdirection.x < 0 && scifiGuy)
+		//{
+		//	IsFacingRight = false;
+		//}
 
+=======
+>>>>>>> e73238f53bb0b6a77c0f0cd485714bbead2ab430
 		#region INPUT HANDLER
-		if (DialManager.isDialogueActive || scifiGuy && gameManager.fantasyworld || fantasyGuy && gameManager.scifiworld)
+		if (DialManager.isDialogueActive)
 		{
 			canMove = false;
 			_moveInput.x = 0;
-			_moveInput.y = 0;
-		}
+            _moveInput.y = 0;
+        }
 		else
 		{
 			canMove = true;
-			_moveInput.x = Input.GetAxisRaw("Horizontal");
-			_moveInput.y = Input.GetAxisRaw("Vertical");
-		}
+            _moveInput.x = Input.GetAxisRaw("Horizontal");
+            _moveInput.y = Input.GetAxisRaw("Vertical");
+        }
 
         if (_moveInput.x != 0 && canMove)
 			CheckDirectionToFace(_moveInput.x > 0);
 
 		if (Input.GetButtonDown("Jump") && canMove)
 		{
-			print(Input.inputString);
 			OnJumpInput();
 		}
 
@@ -543,68 +538,65 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region RUN METHODS
     private void Run(float lerpAmount)
 	{
-        if (canMove)
-        {
-            //Calculate the direction we want to move in and our desired velocity
-            float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-            //We can reduce are control using Lerp() this smooths changes to are direction and speed
-            targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
+		//Calculate the direction we want to move in and our desired velocity
+		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+		//We can reduce are control using Lerp() this smooths changes to are direction and speed
+		targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
 
-            #region Calculate AccelRate
-            float accelRate;
+		#region Calculate AccelRate
+		float accelRate;
 
-            //Gets an acceleration value based on if we are accelerating (includes turning) 
-            //or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-            if (LastOnGroundTime > 0)
-            {
-                accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
-            }
-            else
-            {
-                accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
-            }
-            #endregion
-
-            if (IsRunning)
-            {
-                targetSpeed = _moveInput.x * (Data.runMaxSpeed + 7);
-            }
-
-            #region Add Bonus Jump Apex Acceleration
-            //Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
-            if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
-            {
-                accelRate *= Data.jumpHangAccelerationMult;
-                targetSpeed *= Data.jumpHangMaxSpeedMult;
-            }
-            #endregion
-
-            #region Conserve Momentum
-            //We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
-            if (Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
-            {
-                //Prevent any deceleration from happening, or in other words conserve are current momentum
-                //You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
-                accelRate = 1;
-            }
-            #endregion
-
-            //Calculate difference between current velocity and desired velocity
-            float speedDif = targetSpeed - RB.linearVelocity.x;
-            //Calculate force along x-axis to apply to thr player
-
-            float movement = speedDif * accelRate;
-
-            //Convert this to a vector and apply to rigidbody
-            RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-            /*
-             * For those interested here is what AddForce() will do
-             * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
-             * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
-            */
+		//Gets an acceleration value based on if we are accelerating (includes turning) 
+		//or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
+		if (LastOnGroundTime > 0)
+		{
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
         }
-    }
+		else
+		{
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
+        }
+		#endregion
+
+		if (IsRunning)
+		{
+            targetSpeed = _moveInput.x * (Data.runMaxSpeed + 7);
+        }
+
+		#region Add Bonus Jump Apex Acceleration
+		//Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
+		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
+		{
+			accelRate *= Data.jumpHangAccelerationMult;
+			targetSpeed *= Data.jumpHangMaxSpeedMult;
+		}
+		#endregion
+
+		#region Conserve Momentum
+		//We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
+		if(Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+		{
+			//Prevent any deceleration from happening, or in other words conserve are current momentum
+			//You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+			accelRate = 1; 
+		}
+		#endregion
+
+		//Calculate difference between current velocity and desired velocity
+		float speedDif = targetSpeed - RB.linearVelocity.x;
+		//Calculate force along x-axis to apply to thr player
+
+		float movement = speedDif * accelRate;
+
+		//Convert this to a vector and apply to rigidbody
+		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+
+		/*
+		 * For those interested here is what AddForce() will do
+		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
+		 * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
+		*/
+	}
 
 	private void Turn()
 	{
@@ -620,31 +612,28 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region JUMP METHODS
     private void Jump()
 	{
-		if (canMove)
+		//Ensures we can't call Jump multiple times from one press
+		LastPressedJumpTime = 0;
+		LastOnGroundTime = 0;
+		Grounded = false;
+
+        //anim.SetFloat("Jumping", 1f);
+        #region Perform Jump
+        //We increase the force applied if we are falling
+        //This means we'll always feel like we jump the same amount 
+        //(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
+        float force = Data.jumpForce;
+		if (RB.linearVelocity.y < 0)
 		{
-            //Ensures we can't call Jump multiple times from one press
-            LastPressedJumpTime = 0;
-            LastOnGroundTime = 0;
-            Grounded = false;
-
-            //anim.SetFloat("Jumping", 1f);
-            #region Perform Jump
-            //We increase the force applied if we are falling
-            //This means we'll always feel like we jump the same amount 
-            //(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
-            float force = Data.jumpForce;
-            if (RB.linearVelocity.y < 0)
-            {
-                force -= RB.linearVelocity.y;
-            }
-            //anim.SetFloat("Jumping", 1f);
-            //JumpSFX.Play();
-
-
-            RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-            #endregion
+            force -= RB.linearVelocity.y;
         }
-    }
+        //anim.SetFloat("Jumping", 1f);
+		//JumpSFX.Play();
+
+
+        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+		#endregion
+	}
 
     private void WallJump(int dir)
 	{
