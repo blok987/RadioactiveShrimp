@@ -5,6 +5,7 @@ public class CollectableAmmo : MonoBehaviour
 {
     public Vector3 playerPos;
     public Transform player;
+    public GameManagerScript gameManager;
 
     public Rigidbody2D rb;
     public SpriteRenderer Sprite;
@@ -21,37 +22,59 @@ public class CollectableAmmo : MonoBehaviour
     void Start()
     {
         int randomAmmo = Random.Range(1, 4);
-        float alpha = 1.0f;
 
         if (randomAmmo == 1)
         {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isPistolAmmo = true;
             Sprite.color = Color.blue;
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.blue, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
             Trail.colorGradient = gradient;
             gameObject.tag = "PistolAmmo";
         }
 
-        if (randomAmmo == 2)
+        if (randomAmmo == 2 && gameManager.hasShotGun)
         {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isShells = true;
             Sprite.color = Color.red;
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.red, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
             Trail.colorGradient = gradient;
             gameObject.tag = "Shell";
         }
-
-        if (randomAmmo >= 3)
+        else
         {
+            randomAmmo = 1;
+        }
+
+        if (randomAmmo >= 3 && gameManager.hasRifle)
+        {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isRifleAmmo = true;
             Sprite.color = Color.yellow;
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.yellow, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
             Trail.colorGradient = gradient;
             gameObject.tag = "RifleAmmo";
 
+        }
+        else if (gameManager.hasShotGun)
+        {
+            randomAmmo = 2;
         }
     }
 

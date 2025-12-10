@@ -9,6 +9,9 @@ TagManager:
   - Melee
   - AmmoCollector
   - PistolAmmo
+  - EnemyBullets
+  - Shell
+  - RifleAmmo
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Ammo
+  - Enemy
   - 
   - 
   - 

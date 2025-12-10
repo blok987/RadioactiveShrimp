@@ -166,8 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da9755ec86c8484499a55d215b5c653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 6108135378159663819, guid: 00773aaea7b2c974096a7bf22ea5fab6, type: 3}
   playerPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 6904280035995596324, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+  player: {fileID: 0}
   rb: {fileID: 5520340717484401542}
   Sprite: {fileID: 4205465605798369925}
   Trail: {fileID: 7120237883438584393}
@@ -276,7 +277,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0

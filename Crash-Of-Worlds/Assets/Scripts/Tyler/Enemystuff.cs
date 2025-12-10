@@ -86,6 +86,11 @@ public class Enemystuff : MonoBehaviour
                 GameObject ammoDrop = Instantiate(ammoPrefab, transform.position, transform.rotation);
                 Rigidbody2D rb = ammoDrop.GetComponent<Rigidbody2D>();
 
+                if (!ammoDrop.GetComponent<CollectableAmmo>().isRifleAmmo && !ammoDrop.GetComponent<CollectableAmmo>().isShells && !ammoDrop.GetComponent<CollectableAmmo>().isPistolAmmo)
+                {
+                    Destroy(this.gameObject);
+                }
+
                 // Calculate the shoot direction from the fire point to the player position
                 Vector2 ammoDirection = new(0, 5);
 
@@ -96,7 +101,7 @@ public class Enemystuff : MonoBehaviour
 
                 // Set bullet velocity in the direction of the player position
                 rb.linearVelocity = ammoDirection * ammoSpeed;
-                Destroy(ammoDrop, 20f); // Destroy bullet after 2 seconds
+                Destroy(ammoDrop, 20f); // Destroy bullet after 20 seconds
             }
         }
         SFX.PlayOneShot(DeathPHolder, 0.7F);
