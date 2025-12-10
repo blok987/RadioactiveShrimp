@@ -13,14 +13,14 @@ public class EnemyManagerScript : MonoBehaviour
 
     void Update()
     {
-        EnemiesLeftMethod();
+        
     }
 
     public void TotalEnemiesMethod()
     {
         foreach (var abc in GetComponentsInChildren<Enemystuff>())
         {
-            totalEnemies -= 1;
+            totalEnemies += 1;
         }
     }
 

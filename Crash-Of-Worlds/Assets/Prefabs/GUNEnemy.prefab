@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4925862993217544534}
   - component: {fileID: 3486844400435202674}
   - component: {fileID: 3894294468797494377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GUNEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -255,15 +255,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e27daa9f25c7e40ac022a5a67e6eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 8829067706288492893}
+  gameManager: {fileID: 0}
   damagePrefab: {fileID: 261250000719469755, guid: 87f0e5aee34fed04cabdf1ba34114ada, type: 3}
   meleePrefab: {fileID: 0}
+  ammoPrefab: {fileID: 7096448982403750826, guid: a148d7e4d69a1304496e6be3f1b06e9a, type: 3}
   SFX: {fileID: 3486844400435202674}
   DeathPHolder: {fileID: 8300000, guid: 6789e42ec9b88a14eaf853a70dca1563, type: 3}
   health: 1
   damageTaken: 0
   atkDamage: 0
+  ammoSpread: 0.5
+  ammoSpeed: 8
   isDead: 0
   wasHit: 0
+  fantasyenemy: 0
+  scifienemy: 1
+  canMove: 0
 --- !u!61 &4925862993217544534
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class CollectableAmmo : MonoBehaviour
     public Transform player;
 
     public Rigidbody2D rb;
+    public SpriteRenderer Sprite;
+    public TrailRenderer Trail;
 
     public bool isPistolAmmo;
     public bool isShells;
@@ -18,24 +20,38 @@ public class CollectableAmmo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int randomAmmo = Random.Range(1, 3);
+        int randomAmmo = Random.Range(1, 4);
+        float alpha = 1.0f;
 
         if (randomAmmo == 1)
         {
             isPistolAmmo = true;
+            Sprite.color = Color.blue;
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            Trail.colorGradient = gradient;
             gameObject.tag = "PistolAmmo";
         }
 
         if (randomAmmo == 2)
         {
             isShells = true;
+            Sprite.color = Color.red;
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            Trail.colorGradient = gradient;
             gameObject.tag = "Shell";
         }
 
-        if (randomAmmo == 3)
+        if (randomAmmo >= 3)
         {
             isRifleAmmo = true;
+            Sprite.color = Color.yellow;
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) });
+            Trail.colorGradient = gradient;
             gameObject.tag = "RifleAmmo";
+
         }
     }
 
@@ -86,7 +102,7 @@ public class CollectableAmmo : MonoBehaviour
         }
         else
         {
-            rb.linearVelocityX = (playerPos.x + transform.position.x);
+            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
         }
         rb.linearVelocityY = (playerPos.y - transform.position.y) * 2;
 
