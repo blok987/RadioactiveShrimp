@@ -1,5 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: e9fcb99fe1831a54da9e03919f726c9f
+=======
 guid: f09fcced33b381240838f88affffa689
+>>>>>>> 5c121a7906c5e579efe11656e98cb105309eba3b
+=======
+<<<<<<< HEAD
+guid: f09fcced33b381240838f88affffa689
+=======
+guid: ce319252aaa438c44b9207f5e08e6dd4
+>>>>>>> 1549a73d762420c22cfcf075df61c8cf5a5d1f80
+=======
+guid: ce319252aaa438c44b9207f5e08e6dd4
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
+>>>>>>> 27e8484f016618a596287465908fd962639fe5ad
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +175,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fantasymenu-pixilart (1)_0: -4460775637939006895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

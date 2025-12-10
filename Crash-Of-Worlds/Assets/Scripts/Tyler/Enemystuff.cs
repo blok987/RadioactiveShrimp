@@ -4,15 +4,23 @@ using UnityEngine.Audio;
 
 public class Enemystuff : MonoBehaviour
 {
+    public Transform enemy;
+    public GameManagerScript gameManager;
     public GameObject damagePrefab; // Ranged weapons
     public GameObject meleePrefab; // Melee weapons
+    public GameObject ammoPrefab; // Ammo drops
     public AudioSource SFX; // Enemy sfx audio source
     public AudioClip DeathPHolder; // Enemy death sound effect
     public float health; // Current enemy health
     public float damageTaken = 0; // Amount of damage inflicted on the enemy
     public float atkDamage; // Amount of damage the enemy deals to the player
+    public float ammoSpread; // Spread of the ammo drops
+    public float ammoSpeed; // Speed of the ammo
     public bool isDead = false; // If the enemy is dead
     public bool wasHit = false; // If the enemy was just hit
+    public bool fantasyenemy;
+    public bool scifienemy;
+    public bool canMove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +31,15 @@ public class Enemystuff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (scifienemy && gameManager.scifiworld || fantasyenemy && gameManager.fantasyworld)
+        {
+            canMove = true;
+        }
+        else if (scifienemy && gameManager.fantasyworld || fantasyenemy && gameManager.scifiworld)
+        {
+            canMove = false;
+        }
+
         // If the enemies health is 0 and isn't dead, start the death coroutine and set isDead to true
         if (health <= 0 && isDead == false)
         {
@@ -61,6 +78,27 @@ public class Enemystuff : MonoBehaviour
     // Plays the death sfx, waits 1 second, before destroying the enemy
     public IEnumerator death()
     {
+        if (scifienemy)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                // Instantiate the bullet at the fire point
+                GameObject ammoDrop = Instantiate(ammoPrefab, transform.position, transform.rotation);
+                Rigidbody2D rb = ammoDrop.GetComponent<Rigidbody2D>();
+
+                // Calculate the shoot direction from the fire point to the player position
+                Vector2 ammoDirection = new(0, 5);
+
+                // Convert direction (x, y) to an angle, changes the angle, converts back
+                float angle = Mathf.Atan2(ammoDirection.y, ammoDirection.x);
+                angle += Random.Range(-ammoSpread, ammoSpread);
+                ammoDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                // Set bullet velocity in the direction of the player position
+                rb.linearVelocity = ammoDirection * ammoSpeed;
+                Destroy(ammoDrop, 20f); // Destroy bullet after 2 seconds
+            }
+        }
         SFX.PlayOneShot(DeathPHolder, 0.7F);
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
