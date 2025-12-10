@@ -7,6 +7,9 @@ public class GameManagerScript : MonoBehaviour
     public Bullet bullet;
     public Enemystuff enemy;
 
+    public bool scifiworld;
+    public bool fantasyworld;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

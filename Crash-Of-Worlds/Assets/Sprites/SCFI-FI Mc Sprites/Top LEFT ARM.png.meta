@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 7d7efb6bfb8a8d0489f1141abb30e16e
 =======
 guid: 38577de502865bf4e8deec45354cf489
@@ -11,6 +12,9 @@ guid: c0ad74e3deacbce45ae8431ed472b3bf
 guid: 38577de502865bf4e8deec45354cf489
 >>>>>>> cb2dc3e2f2210f187f40c295511b2c17c048f534
 >>>>>>> 071f7adc5271d1f225b24bbc1fe327cf8d36eb27
+=======
+guid: eec47f6d85c2a9d488fff30cf569581d
+>>>>>>> 27e8484f016618a596287465908fd962639fe5ad
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -48,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -86,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,8 +148,8 @@ TextureImporter:
         y: 39
         width: 20
         height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.969697}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c7d6b30494bef8f48a2c86f0393746d8
     internalID: 0
     vertices: []
     indices: 
@@ -171,7 +175,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Top LEFT ARM_0: -7990188137998044630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
