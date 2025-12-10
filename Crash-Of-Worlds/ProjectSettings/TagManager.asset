@@ -15,8 +15,13 @@ TagManager:
   - Ground
   - Water
   - UI
+<<<<<<< HEAD
   - Player
   - Enemy
+=======
+  - Weapon
+  - 
+>>>>>>> parent of 8e9e286 (Merge branch 'main' of https://github.com/blok987/RadioactiveShrimp)
   - 
   - 
   - 
