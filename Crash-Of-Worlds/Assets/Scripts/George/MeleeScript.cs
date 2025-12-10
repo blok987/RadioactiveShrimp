@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,10 +7,6 @@ using UnityEngine.UIElements;
 public class MeleeScript : MonoBehaviour
 {
     public float AtkDMG = 5;
-    public Boolean Rapier;
-    public Boolean Zweihander;
-    public Boolean Buckler;
-    public Boolean BluntWeapon;
     public Vector2 WeaponType;
     public LayerMask WeaponLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,11 +30,6 @@ public class MeleeScript : MonoBehaviour
                 }
             }
         }
-    }
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(1f);
-
     }
     private void OnDrawGizmos()
     {
@@ -69,7 +59,11 @@ public class MeleeScript : MonoBehaviour
     //#endregion
 
     ////Timer for 
-   
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(1f);
+
+    //}
 
 
     //private void OnTriggerEnter2D(Collider2D collision)

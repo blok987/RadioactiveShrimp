@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f42d9df23a3c89a4e9b4f51ed5504ca0
+=======
+guid: 32e3502ae9d9460468c0c123bec273b3
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -37,7 +41,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +83,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
+=======
+    textureCompression: 1
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,10 +141,17 @@ TextureImporter:
       name: BuildingSprites_0
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 77
         y: 173
         width: 24
         height: 24
+=======
+        x: 0
+        y: 8
+        width: 150
+        height: 190
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,6 +166,7 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+<<<<<<< HEAD
     - serializedVersion: 2
       name: BuildingSprites_1
       rect:
@@ -653,11 +673,17 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     outline: []
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: 217deb6fa7978b647af6f6e2a56b0f13
+=======
+    spriteID: 
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
     internalID: 0
     vertices: []
     indices: 
@@ -666,6 +692,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       BuildingSprites_0: 8117479566272641674
       BuildingSprites_1: -545229343
@@ -691,6 +718,9 @@ TextureImporter:
       BuildingSprites_7: -1319271043
       BuildingSprites_8: -1464081458
       BuildingSprites_9: -737867021
+=======
+    nameFileIdTable: {}
+>>>>>>> 100b15b5cf812eeffab609ccf0c1938c822b9061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
