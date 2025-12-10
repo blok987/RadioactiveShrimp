@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: BuildingSprites_19
+  m_Name: BuildingSprites_31
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 269246602, guid: 32e3502ae9d9460468c0c123bec273b3, type: 3}
+  m_Sprite: {fileID: 193296502, guid: 32e3502ae9d9460468c0c123bec273b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
