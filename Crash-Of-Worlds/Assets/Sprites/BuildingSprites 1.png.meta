@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,33 +126,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BuildingSprites_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 9
-        width: 77
-        height: 188
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8a3c2348a417a070800000000000000
-      internalID: 8117479566272641674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: BuildingSprites_1
       rect:
         serializedVersion: 2
         x: 101
-        y: 173
+        y: 176
         width: 24
         height: 24
       alignment: 0
@@ -174,11 +152,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 173
+        y: 176
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51028824, y: 0.59259224}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,7 +174,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 149
+        y: 152
         width: 24
         height: 24
       alignment: 0
@@ -218,7 +196,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 149
+        y: 152
         width: 24
         height: 24
       alignment: 0
@@ -240,7 +218,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 149
+        y: 152
         width: 24
         height: 24
       alignment: 0
@@ -262,7 +240,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 125
+        y: 128
         width: 24
         height: 24
       alignment: 0
@@ -284,7 +262,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 125
+        y: 128
         width: 24
         height: 24
       alignment: 0
@@ -306,11 +284,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 125
+        y: 128
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42798296}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,7 +306,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 101
+        y: 104
         width: 24
         height: 24
       alignment: 0
@@ -350,7 +328,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 101
+        y: 104
         width: 24
         height: 24
       alignment: 0
@@ -372,11 +350,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 101
+        y: 104
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3971192}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,7 +372,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 77
+        y: 80
         width: 24
         height: 24
       alignment: 0
@@ -416,11 +394,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 77
+        y: 80
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5863409}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -438,7 +416,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 77
+        y: 80
         width: 24
         height: 24
       alignment: 0
@@ -460,7 +438,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 53
+        y: 56
         width: 24
         height: 24
       alignment: 0
@@ -482,7 +460,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 53
+        y: 56
         width: 24
         height: 24
       alignment: 0
@@ -504,7 +482,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 53
+        y: 56
         width: 24
         height: 24
       alignment: 0
@@ -526,7 +504,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 29
+        y: 32
         width: 24
         height: 24
       alignment: 0
@@ -548,7 +526,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 29
+        y: 32
         width: 24
         height: 24
       alignment: 0
@@ -570,11 +548,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 29
+        y: 32
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48081335, y: 0.5191876}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -592,7 +570,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 5
+        y: 8
         width: 24
         height: 24
       alignment: 0
@@ -614,7 +592,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 5
+        y: 8
         width: 24
         height: 24
       alignment: 0
@@ -636,7 +614,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 5
+        y: 8
         width: 24
         height: 24
       alignment: 0
@@ -649,6 +627,28 @@ TextureImporter:
       bones: []
       spriteID: 386f375fdaab0d745bd772ceb8bb5621
       internalID: -396816320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingSprites 1_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 176
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7afbab5f05a0741bb32e32648a1139
+      internalID: 343314659
       vertices: []
       indices: 
       edges: []
@@ -667,6 +667,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      BuildingSprites 1_0: 343314659
       BuildingSprites_0: 8117479566272641674
       BuildingSprites_1: -545229343
       BuildingSprites_10: 1214474970

@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 38
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,12 +129,12 @@ TextureImporter:
       name: BuildingSprites_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 173
-        width: 24
-        height: 24
+        x: 1
+        y: 161
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,12 +151,12 @@ TextureImporter:
       name: BuildingSprites_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 173
-        width: 24
-        height: 24
+        x: 39
+        y: 161
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,37 +170,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingSprites_2
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 173
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b78df0da00bd4f04fb905eeafeea72d0
-      internalID: -220782605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: BuildingSprites_3
       rect:
         serializedVersion: 2
-        x: 77
-        y: 149
-        width: 24
-        height: 24
+        x: 1
+        y: 123
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -217,12 +195,12 @@ TextureImporter:
       name: BuildingSprites_4
       rect:
         serializedVersion: 2
-        x: 101
-        y: 149
-        width: 24
-        height: 24
+        x: 39
+        y: 123
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -236,37 +214,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingSprites_5
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 149
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6fbfdb6fcf82754bbeea3152ad192fc
-      internalID: -1505079021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: BuildingSprites_6
       rect:
         serializedVersion: 2
-        x: 77
-        y: 125
-        width: 24
-        height: 24
+        x: 1
+        y: 85
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -283,12 +239,12 @@ TextureImporter:
       name: BuildingSprites_7
       rect:
         serializedVersion: 2
-        x: 101
-        y: 125
-        width: 24
-        height: 24
+        x: 39
+        y: 85
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,37 +258,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingSprites_8
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 125
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47adb0dae7186f244bcb9e3b0e70f158
-      internalID: -1464081458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: BuildingSprites_9
       rect:
         serializedVersion: 2
-        x: 77
-        y: 101
-        width: 24
-        height: 24
+        x: 1
+        y: 47
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,22 +280,88 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BuildingSprites_10
+      name: BuildingSprites_2
       rect:
         serializedVersion: 2
-        x: 101
-        y: 101
-        width: 24
-        height: 24
+        x: 77
+        y: 161
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb87860c83557a9448335c59af4948a7
+      spriteID: 09b827b44c9aa8c468882985a85ef80d
+      internalID: -220782605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingSprites_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 123
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b62079b8aa43843a497fe8c02e6773
+      internalID: -1505079021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingSprites_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 85
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad00b543ebad4342834f4726382455b
+      internalID: -1464081458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingSprites_10
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 47
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c6eb4668ac5eb448ae14df3aae1bf0
       internalID: 1214474970
       vertices: []
       indices: 
@@ -371,19 +371,19 @@ TextureImporter:
       name: BuildingSprites_11
       rect:
         serializedVersion: 2
-        x: 125
-        y: 101
-        width: 24
-        height: 24
+        x: 77
+        y: 47
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dab36b0530228541acd38ba24da6cf5
+      spriteID: 771ca74130e2a93468121f35082f9fe6
       internalID: -1226564862
       vertices: []
       indices: 
@@ -393,19 +393,19 @@ TextureImporter:
       name: BuildingSprites_12
       rect:
         serializedVersion: 2
-        x: 77
-        y: 77
-        width: 24
-        height: 24
+        x: 1
+        y: 9
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 999231f4b95d228489feb8b41b8ccd98
+      spriteID: 6cf4f6cd2aaee65469287ae863776533
       internalID: 959110391
       vertices: []
       indices: 
@@ -415,19 +415,19 @@ TextureImporter:
       name: BuildingSprites_13
       rect:
         serializedVersion: 2
-        x: 101
-        y: 77
-        width: 24
-        height: 24
+        x: 39
+        y: 9
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a1cae810f5b6ae49bd11d8355f0d068
+      spriteID: 025ba50fe2a6eda418e8c9f5048cc7ee
       internalID: -1458716680
       vertices: []
       indices: 
@@ -437,218 +437,20 @@ TextureImporter:
       name: BuildingSprites_14
       rect:
         serializedVersion: 2
-        x: 125
-        y: 77
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0057dae81bdaf1841b0a66ff505a4107
-      internalID: 1027860313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_15
-      rect:
-        serializedVersion: 2
         x: 77
-        y: 53
-        width: 24
-        height: 24
+        y: 9
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4abdaedfa8f60a64db2f492a1da59bba
-      internalID: -894513170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_16
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 53
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8a3a6c19f16556448364192190dbdcb
-      internalID: 564772042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_17
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 53
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2312054f7222a8a489e11bf460bad865
-      internalID: -1187070693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_18
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 29
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2e468145dab3d846bd1a6ed0a213835
-      internalID: -504672899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_19
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 29
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af1b73c834248545a248869f621b141
-      internalID: 1076855059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_20
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 29
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9dc77a374257c0f49bac61c4078209bd
-      internalID: -1036453004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_21
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 5
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f946cc5be12c49e4799efd5c98ed4c87
-      internalID: 841748911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_22
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 5
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c194fea6280bb240b2945182ed2ca26
-      internalID: -625165648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BuildingSprites_23
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 5
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 386f375fdaab0d745bd772ceb8bb5621
-      internalID: -396816320
+      spriteID: 48522d8ae043ea94eab7eb9148626727
+      internalID: -1284282101
       vertices: []
       indices: 
       edges: []
@@ -673,17 +475,8 @@ TextureImporter:
       BuildingSprites_11: -1226564862
       BuildingSprites_12: 959110391
       BuildingSprites_13: -1458716680
-      BuildingSprites_14: 1027860313
-      BuildingSprites_15: -894513170
-      BuildingSprites_16: 564772042
-      BuildingSprites_17: -1187070693
-      BuildingSprites_18: -504672899
-      BuildingSprites_19: 1076855059
+      BuildingSprites_14: -1284282101
       BuildingSprites_2: -220782605
-      BuildingSprites_20: -1036453004
-      BuildingSprites_21: 841748911
-      BuildingSprites_22: -625165648
-      BuildingSprites_23: -396816320
       BuildingSprites_3: 4080991
       BuildingSprites_4: -1156985063
       BuildingSprites_5: -1505079021
