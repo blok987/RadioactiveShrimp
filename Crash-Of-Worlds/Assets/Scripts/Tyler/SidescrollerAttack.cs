@@ -72,8 +72,8 @@ public class GunController : MonoBehaviour
     public AudioClip ShotGunFire; // ShotGun fire sound effect
 
 
-    public float maxWeapon = 1;
-    public float weaponSelected = 1;
+    public int maxWeapon = 1;
+    public int weaponSelected = 1;
 
     private void Awake()
     {

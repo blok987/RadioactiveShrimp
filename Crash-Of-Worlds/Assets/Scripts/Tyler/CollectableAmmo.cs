@@ -5,8 +5,11 @@ public class CollectableAmmo : MonoBehaviour
 {
     public Vector3 playerPos;
     public Transform player;
+    public GameManagerScript gameManager;
 
     public Rigidbody2D rb;
+    public SpriteRenderer Sprite;
+    public TrailRenderer Trail;
 
     public bool isPistolAmmo;
     public bool isShells;
@@ -18,24 +21,60 @@ public class CollectableAmmo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int randomAmmo = Random.Range(1, 3);
+        int randomAmmo = Random.Range(1, 4);
 
         if (randomAmmo == 1)
         {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isPistolAmmo = true;
+            Sprite.color = Color.blue;
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.blue, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
+            Trail.colorGradient = gradient;
             gameObject.tag = "PistolAmmo";
         }
 
-        if (randomAmmo == 2)
+        if (randomAmmo == 2 && gameManager.hasShotGun)
         {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isShells = true;
+            Sprite.color = Color.red;
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.red, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
+            Trail.colorGradient = gradient;
             gameObject.tag = "Shell";
         }
-
-        if (randomAmmo == 3)
+        else
         {
+            randomAmmo = 1;
+        }
+
+        if (randomAmmo >= 3 && gameManager.hasRifle)
+        {
+            var gradient = new Gradient();
+            var alphas = new GradientAlphaKey[2];
             isRifleAmmo = true;
+            Sprite.color = Color.yellow;
+            var colors = new GradientColorKey[1];
+            colors[0] = new GradientColorKey(Color.yellow, 0.0f);
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(0.0f, 0.5f);
+            gradient.SetKeys(colors, alphas);
+            Trail.colorGradient = gradient;
             gameObject.tag = "RifleAmmo";
+
+        }
+        else if (gameManager.hasShotGun)
+        {
+            randomAmmo = 2;
         }
     }
 
@@ -86,7 +125,7 @@ public class CollectableAmmo : MonoBehaviour
         }
         else
         {
-            rb.linearVelocityX = (playerPos.x + transform.position.x);
+            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
         }
         rb.linearVelocityY = (playerPos.y - transform.position.y) * 2;
 
