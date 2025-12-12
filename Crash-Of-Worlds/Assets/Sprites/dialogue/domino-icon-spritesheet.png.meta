@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ca336ea8f6a6a6346896cb261b3ece9f
+guid: afe401967652b514a853e32349a8a8e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5513050994037168576
-    second: pixil-frame-0 (3)_0
+      213: -5618073357601022808
+    second: domino-icon-spritesheet_0
+  - first:
+      213: -6861583317822494528
+    second: domino-icon-spritesheet_1
+  - first:
+      213: 988320662890325633
+    second: domino-icon-spritesheet_2
+  - first:
+      213: -467471330678805129
+    second: domino-icon-spritesheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixil-frame-0 (3)_0
+      name: domino-icon-spritesheet_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 46
-        width: 92
-        height: 56
+        x: 14
+        y: 7
+        width: 73
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 046eccf8455bd73b0800000000000000
-      internalID: -5513050994037168576
+      spriteID: 8acda1e0c089802b0800000000000000
+      internalID: -5618073357601022808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-icon-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 7
+        width: 73
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8a170a352c6c0a0800000000000000
+      internalID: -6861583317822494528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-icon-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 7
+        width: 73
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186a1c3186837bd00800000000000000
+      internalID: 988320662890325633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-icon-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 7
+        width: 73
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77de5303d453389f0800000000000000
+      internalID: -467471330678805129
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pixil-frame-0 (3)_0: -5513050994037168576
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
