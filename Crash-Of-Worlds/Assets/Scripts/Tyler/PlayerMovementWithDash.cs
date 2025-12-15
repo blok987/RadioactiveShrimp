@@ -23,6 +23,8 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
     //public Animator anim { get; private set; }
+
+    public GunController GUN;
     #endregion
 
     #region STATE PARAMETERS
@@ -42,6 +44,9 @@ public class PlayerMovementWithDash : MonoBehaviour
     public bool IsRunning { get; private set; }
     public bool IsSlamming { get; private set; }
     public bool IsSlideAttacking { get; private set; }
+
+	public bool scifiGuy;
+	public bool fantasyGuy;
 
 	public bool canMove { get; private set; }
 
@@ -119,7 +124,16 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
-        #endregion
+		#endregion
+
+		if (GUN.aimdirection.x > 0 && scifiGuy)
+		{
+			IsFacingRight = true;
+		}
+		else if (GUN.aimdirection.x < 0 && scifiGuy)
+		{
+			IsFacingRight = false;
+		}
 
 		#region INPUT HANDLER
 		if (DialManager.isDialogueActive)
