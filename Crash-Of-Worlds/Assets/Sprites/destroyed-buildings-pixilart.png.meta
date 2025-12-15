@@ -40,7 +40,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
+    filterMode: 0
+=======
     filterMode: 1
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +58,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  spritePixelsToUnits: 38
+=======
   spritePixelsToUnits: 100
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +86,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
+    textureCompression: 0
+=======
     textureCompression: 1
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,28 +141,145 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: destroyed-buildings-pixilart_0
+<<<<<<< HEAD
+      name: destroyed-buildings-pixilart_2
       rect:
         serializedVersion: 2
         x: 1
-        y: 0
-        width: 76
-        height: 113
+        y: 76
+        width: 38
+        height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 80e625a4c31d98360800000000000000
-      internalID: 7172493938439384584
+      spriteID: 1c5d8217924cb6348b7f5257330fefd8
+      internalID: -1201025393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+      name: destroyed-buildings-pixilart_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 76
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbda45fd4573b546a301dc376fea5b3
+      internalID: -1587753597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed-buildings-pixilart_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 38
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823db00c646952b4eb57103b3e1f7cb9
+      internalID: -225836981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed-buildings-pixilart_6
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 38
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e92787b03cef2844a7db22a9fe5bffc
+      internalID: -2099665194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destroyed-buildings-pixilart_8
+=======
+      name: destroyed-buildings-pixilart_0
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+<<<<<<< HEAD
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+=======
+        width: 76
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+<<<<<<< HEAD
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9017f5a2a0a384f48b9be14885d87dbd
+      internalID: -1019586153
+=======
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e625a4c31d98360800000000000000
+      internalID: 7172493938439384584
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+<<<<<<< HEAD
+      name: destroyed-buildings-pixilart_9
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+=======
       name: destroyed-buildings-pixilart_1
       rect:
         serializedVersion: 2
@@ -160,14 +289,22 @@ TextureImporter:
         height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
+<<<<<<< HEAD
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a4bed3b6071a349bfe3e18195057aa
+      internalID: -1922504376
+=======
       tessellationDetail: -1
       bones: []
       spriteID: d2223ff631d3b28e0800000000000000
       internalID: -1717211679219834323
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
       vertices: []
       indices: 
       edges: []
@@ -176,7 +313,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD
+    spriteID: 35eb40777cad2c84f9de011f3ba59e92
+=======
     spriteID: 
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
     internalID: 0
     vertices: []
     indices: 
@@ -185,7 +326,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
+    nameFileIdTable:
+      destroyed-buildings-pixilart_0: 7172493938439384584
+      destroyed-buildings-pixilart_1: -1717211679219834323
+      destroyed-buildings-pixilart_10: 825862953
+      destroyed-buildings-pixilart_2: -1201025393
+      destroyed-buildings-pixilart_3: -1587753597
+      destroyed-buildings-pixilart_4: -1556626432
+      destroyed-buildings-pixilart_5: -225836981
+      destroyed-buildings-pixilart_6: -2099665194
+      destroyed-buildings-pixilart_7: -334971250
+      destroyed-buildings-pixilart_8: -1019586153
+      destroyed-buildings-pixilart_9: -1922504376
+=======
     nameFileIdTable: {}
+>>>>>>> 211cec2f8261748643908d6806189283c61bfec0
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
