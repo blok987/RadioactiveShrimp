@@ -30,31 +30,7 @@ public class PauseMenu1 : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    public void MenuSwitch()
-    {
-        if (player1Active)
-        {
-            // Switch from avatar1 -> avatar2
-            if (avatar1 != null) avatar1.SetActive(false);
-            if (avatar2 != null) avatar2.SetActive(true);
-
-            player1Active = false;
-
-            
-        }
-        else
-        {
-            // Switch from avatar2 -> avatar1
-            if (avatar1 != null) avatar1.SetActive(true);
-            if (avatar2 != null) avatar2.SetActive(false);
-
-           
-
-            player1Active = true;
-
-           
-        }
-    }
+    
     public void Home()
     {
         SceneManager.LoadScene("StartScene");

@@ -41,8 +41,23 @@ public class ForcedPlayerSwitch : MonoBehaviour
                 SwitchPlayer();
                 // Set the next trigger time
                 nextTriggerTime = Time.time + cooldownTime;
+                avatar2.transform.position = avatar1.transform.position;
             }
         }
+        if (other.CompareTag("Player2"))
+        {
+            if (Time.time >= nextTriggerTime)
+            {
+                // Trigger the player switch
+                SwitchPlayer();
+                // Set the next trigger time
+                nextTriggerTime = Time.time + cooldownTime;
+                avatar1.transform.position = avatar2.transform.position;
+            }
+        }
+
+
+
     }
 
     public void SwitchPlayer()
@@ -60,6 +75,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
             
             player1Active = false;
             whichAvatarIsOn = 2;
+            
         }
         else
         {
