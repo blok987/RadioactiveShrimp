@@ -904,7 +904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &352510256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1421,8 +1421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7094e95c9f2bdfd418baa19e3ec6fd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashingVelocity: 14
-  dashingTime: 0.5
+  dashCooldown: 1
+  dashSpeed: 10
 --- !u!1 &519968169
 GameObject:
   m_ObjectHideFlags: 0
