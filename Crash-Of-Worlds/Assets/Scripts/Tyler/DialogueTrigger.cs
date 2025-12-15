@@ -7,6 +7,8 @@ public class DialogueCharacter
     public string name;
     public Sprite icon;
     public AudioClip CharacterVoice;
+
+    [UnityEngine.Range(0f, 0.75f)] public float typingSpeed;
 }
 
 [System.Serializable]
@@ -14,6 +16,7 @@ public class DialogueLine
 {
     public DialogueCharacter character;
     [TextArea(3, 10)]
+    
     public string line;
 }
 
