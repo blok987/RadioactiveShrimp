@@ -17,11 +17,13 @@ public class CollectableAmmo : MonoBehaviour
 
     public bool isBeingCollected = false;
 
+    public int randomAmmo;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int randomAmmo = Random.Range(1, Gun.maxWeapon);
+        randomAmmo = Random.Range(1, gameManager.gun.maxWeapon + 1);
 
         if (randomAmmo == 1)
         {

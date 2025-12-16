@@ -374,7 +374,11 @@ public class GunController : MonoBehaviour
 
             if ((handGunSelected && currentPistolStorage == 0 && pistolAmmoLeft == 0) || (shotGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (shotototoGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (rifleSelected && currentRifleStorage == 0 && rifleAmmoLeft == 0))
             {
-
+                OOAMessage.alpha = 1;
+            }
+            else
+            {
+                OOAMessage.alpha = 0;
             }
         }
     }
