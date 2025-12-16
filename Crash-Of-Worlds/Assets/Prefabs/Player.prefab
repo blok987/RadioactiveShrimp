@@ -799,6 +799,7 @@ MonoBehaviour:
   HandGunFire: {fileID: 8300000, guid: 67f926bcecd03bb4fb3cb1afb7ad84f4, type: 3}
   ShotGunReload: {fileID: 8300000, guid: 45e303266bbe3a54690e4286c624148b, type: 3}
   ShotGunFire: {fileID: 8300000, guid: 6f3bfb27db92b3a4ab3b54287eed0e25, type: 3}
+  OOAMessage: {fileID: 0}
   maxWeapon: 1
   weaponSelected: 1
 --- !u!50 &1319703264488020538
