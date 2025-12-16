@@ -795,7 +795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -51480001, guid: 1b97fe08d64ebdf4e9eb107a9518a9a5, type: 3}
+  m_Sprite: {fileID: 2052666560, guid: 1b97fe08d64ebdf4e9eb107a9518a9a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1213824770, guid: 1b97fe08d64ebdf4e9eb107a9518a9a5, type: 3}
+  m_Sprite: {fileID: 225875602, guid: 1b97fe08d64ebdf4e9eb107a9518a9a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1950,7 +1950,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &676581260
@@ -3228,7 +3228,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1342151566
@@ -3493,7 +3493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 352510255}
   pauseMenu2: {fileID: 1563417335}
-  player1Active: 1
   avatar1: {fileID: 837130366}
   avatar2: {fileID: 449350696}
 --- !u!1 &1821364524
@@ -3575,29 +3574,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1945143297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6777772580517710102, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-  m_PrefabInstance: {fileID: 6597821427600071731}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1945143306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945143297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6909dcaf63557f4db68efd503dc4545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 837130372}
-  player2Controller: {fileID: 449350704}
-  player1Active: 1
-  avatar1: {fileID: 837130366}
-  avatar2: {fileID: 449350696}
-  cooldownTime: 1
 --- !u!1 &1993006590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,51 +3900,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: avatar1
-      value: 
-      objectReference: {fileID: 837130366}
-    - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: avatar2
-      value: 
-      objectReference: {fileID: 449350696}
-    - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 837130372}
-    - target: {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: player2Controller
-      value: 
-      objectReference: {fileID: 449350704}
-    - target: {fileID: 4536825527797372355, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: avatar1
-      value: 
-      objectReference: {fileID: 837130366}
-    - target: {fileID: 4536825527797372355, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: avatar2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536825527797372355, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 837130372}
-    - target: {fileID: 4536825527797372355, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      propertyPath: player2Controller
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6777772580517710102, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
       propertyPath: m_Name
       value: Player Switcher
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4536825527797372355, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-    - {fileID: 4195538130599893339, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+    - target: {fileID: 8488373476093559643, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+      propertyPath: avatar1
+      value: 
+      objectReference: {fileID: 837130366}
+    - target: {fileID: 8488373476093559643, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+      propertyPath: avatar2
+      value: 
+      objectReference: {fileID: 449350696}
+    - target: {fileID: 8488373476093559643, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 837130372}
+    - target: {fileID: 8488373476093559643, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
+      propertyPath: player2Controller
+      value: 
+      objectReference: {fileID: 449350704}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6777772580517710102, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1945143306}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9a94893434d9e4cbb6bb983fe8a57c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

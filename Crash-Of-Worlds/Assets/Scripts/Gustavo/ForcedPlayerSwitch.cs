@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class ForcedPlayerSwitch : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    // Rename "PlayerMovement and PlayerMovement2" to the actual names of your player controller scripts, do not change the "playerController" and "player2Controller" variable names.
+    // Changing the "Cooldown Time" via the inspector will alow you to set how often the player can be switched when entering the trigger, you most likely want to set it relatively high to avoid rapid switching.
     public PlayerMovement playerController;
     public PlayerMovement2 player2Controller;
     public bool player1Active = true;
@@ -33,6 +33,8 @@ public class ForcedPlayerSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(UnityEngine.Collider2D other)
     {
+        // Add the Player tag and Player2 tag to both of the characters for this part to work.
+        
         if (other.CompareTag("Player"))
         {
             if (Time.time >= nextTriggerTime)
@@ -92,5 +94,6 @@ public class ForcedPlayerSwitch : MonoBehaviour
         }
     }
 
-    
+    // This script has a prefab which is a trigger, clicking on it will show where the trigger area is.
+    // If you have any questions lmk on discord.
 }

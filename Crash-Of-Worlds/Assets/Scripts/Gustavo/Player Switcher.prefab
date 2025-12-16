@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3185145893962713441}
-  - component: {fileID: 4195538130599893339}
   - component: {fileID: 6866094845570872427}
-  - component: {fileID: 4536825527797372355}
+  - component: {fileID: 8488373476093559643}
   m_Layer: 0
   m_Name: Player Switcher
   m_TagString: GameController
@@ -28,29 +27,12 @@ Transform:
   m_GameObject: {fileID: 6777772580517710102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.28, y: -3.9310586, z: -10.0364}
+  m_LocalPosition: {x: -4.74, y: -4.02, z: -10.0364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4195538130599893339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6777772580517710102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9ff5c56da1541d45826cef2a6f85db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  player2Controller: {fileID: 0}
-  player1Active: 1
-  avatar1: {fileID: 0}
-  avatar2: {fileID: 0}
 --- !u!61 &6866094845570872427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2.566612}
   m_EdgeRadius: 0
---- !u!114 &4536825527797372355
+--- !u!114 &8488373476093559643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,4 +96,4 @@ MonoBehaviour:
   player1Active: 1
   avatar1: {fileID: 0}
   avatar2: {fileID: 0}
-  cooldownTime: 10
+  cooldownTime: 1

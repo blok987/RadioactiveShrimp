@@ -335,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wiredeye-enemy-attackanim_0: 1838924389536242059
+      wiredeye-enemy-attackanim_1: 5400273111728442503
+      wiredeye-enemy-attackanim_2: 120045489427314146
+      wiredeye-enemy-attackanim_3: -4013559841790254059
+      wiredeye-enemy-attackanim_4: -4244779057088606633
+      wiredeye-enemy-attackanim_5: -4283058093049276124
+      wiredeye-enemy-attackanim_6: -4610411203978756926
+      wiredeye-enemy-attackanim_7: 164458926083246165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,7 +8,6 @@ public class PauseMenu1 : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject pauseMenu2;
-    public bool player1Active;
     public GameObject avatar1, avatar2;
    
 
@@ -19,12 +18,12 @@ public class PauseMenu1 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && player1Active == true)
+        if (Input.GetKeyDown(KeyCode.Tab) && avatar1)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             Time.timeScale = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && player1Active == false)
+        else if (Input.GetKeyDown(KeyCode.Tab) && avatar2)
         {
             pauseMenu2.SetActive(!pauseMenu2.activeSelf);
             Time.timeScale = 0;
