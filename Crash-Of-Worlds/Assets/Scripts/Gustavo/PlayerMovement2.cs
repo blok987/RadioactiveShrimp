@@ -7,7 +7,7 @@ public class PlayerMovement2 : MonoBehaviour
     float horizontalInput;
     float moveSpeed = 9f;
     bool isFacingRight = false;
-    float jumpPower = 7f;
+    public float jumpPower = 7f;
     bool isJumping = false;
     Rigidbody2D rb;
     [SerializeField] private float dashCooldown = 1f;
