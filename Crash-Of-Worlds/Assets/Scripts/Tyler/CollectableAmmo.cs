@@ -6,6 +6,7 @@ public class CollectableAmmo : MonoBehaviour
     public Vector3 playerPos;
     public Transform player;
     public GameManagerScript gameManager;
+    public GunController Gun;
 
     public Rigidbody2D rb;
     public SpriteRenderer Sprite;
@@ -21,7 +22,7 @@ public class CollectableAmmo : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int randomAmmo = Random.Range(1, 4);
+        int randomAmmo = Random.Range(1, Gun.maxWeapon);
 
         if (randomAmmo == 1)
         {
@@ -72,9 +73,13 @@ public class CollectableAmmo : MonoBehaviour
             gameObject.tag = "RifleAmmo";
 
         }
-        else if (gameManager.hasShotGun)
+        else if (randomAmmo > 3 && gameManager.hasShotGun)
         {
             randomAmmo = 2;
+        }
+        else if (randomAmmo > 3 && !gameManager.hasShotGun)
+        {
+            randomAmmo = 1;
         }
     }
 
@@ -119,22 +124,14 @@ public class CollectableAmmo : MonoBehaviour
 
     public IEnumerator AmmoCollection()
     {
-        if (playerPos.x > transform.position.x)
+        if (playerPos.x > transform.position.x || playerPos.x < transform.position.x)
         {
-            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
-        }
-        else
-        {
-            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
+            rb.linearVelocityX = (playerPos.x + transform.position.x) * 1;
         }
         rb.linearVelocityY = (playerPos.y - transform.position.y) * 2;
 
         yield return new WaitForSeconds(0.2f);
-        if (playerPos.x > transform.position.x)
-        {
-            rb.linearVelocityX = (playerPos.x - transform.position.x) * -5;
-        }
-        else
+        if (playerPos.x > transform.position.x || playerPos.x < transform.position.x)
         {
             rb.linearVelocityX = (playerPos.x - transform.position.x) * 5;
         }
