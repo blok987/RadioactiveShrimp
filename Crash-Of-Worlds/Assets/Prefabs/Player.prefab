@@ -1698,7 +1698,7 @@ GameObject:
   - component: {fileID: 6907927362656815506}
   - component: {fileID: 3767390183597967637}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BTimeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1805,7 +1805,7 @@ GameObject:
   - component: {fileID: 435078315021352335}
   - component: {fileID: 7430658051073344811}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BTimeBarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
