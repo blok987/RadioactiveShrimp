@@ -18,12 +18,12 @@ public class PauseMenu1 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && avatar1)
+        if (Input.GetKeyDown(KeyCode.Tab) && avatar1.activeSelf)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             Time.timeScale = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && avatar2)
+        else if (Input.GetKeyDown(KeyCode.Tab) && avatar2.activeSelf)
         {
             pauseMenu2.SetActive(!pauseMenu2.activeSelf);
             Time.timeScale = 0;
