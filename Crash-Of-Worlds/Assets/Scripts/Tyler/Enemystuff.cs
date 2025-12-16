@@ -22,15 +22,47 @@ public class Enemystuff : MonoBehaviour
     public bool scifienemy;
     public bool canMove;
 
+    public bool Grounded;
+    public bool IsFacingRight;
+
+    public float LastOnGroundTime { get; set; }
+    public float LastOnWallTime { get; private set; }
+    public float LastOnWallRightTime { get; private set; }
+    public float LastOnWallLeftTime { get; private set; }
+
+    #region CHECK PARAMETERS
+    //Set all of these up in the inspector
+    [Header("Checks")]
+    [SerializeField] private Transform HeadCheckPoint;
+    //Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
+    [SerializeField] private Vector2 HeadCheckSize = new Vector2(0.49f, 0.03f);
+    [SerializeField] private Transform GroundCheckPoint;
+    //Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
+    [SerializeField] private Vector2 GroundCheckSize = new Vector2(0.49f, 0.03f);
+    [Space(5)]
+    [SerializeField] private Transform _frontWallCheckPoint;
+    [SerializeField] private Transform _backWallCheckPoint;
+    [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+    #endregion
+
+    [SerializeField] public LayerMask _groundLayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        IsFacingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        #region TIMERS
+        LastOnGroundTime -= Time.deltaTime;
+        LastOnWallTime -= Time.deltaTime;
+        LastOnWallRightTime -= Time.deltaTime;
+        LastOnWallLeftTime -= Time.deltaTime;
+        #endregion
+
         if (scifienemy && gameManager.scifiworld || fantasyenemy && gameManager.fantasyworld)
         {
             canMove = true;
@@ -46,6 +78,32 @@ public class Enemystuff : MonoBehaviour
             StartCoroutine(death());
             isDead = true;
         }
+
+        #region COLLISION CHECKS
+        //if (Physics2D.OverlapBox(HeadCheckPoint.position, HeadCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
+        //{
+        //    Grounded = true;
+        //}
+
+        if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
+        {
+            Grounded = true;
+        }
+
+        ////Right Wall Check
+        //if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight) || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)))
+        //{
+        //    LastOnWallRightTime = 0;
+        //}
+
+        ////Left Wall Check
+        //if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight) || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)))
+        //{
+        //    LastOnWallLeftTime = 0;
+        //}
+        ////Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
+        //LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
+        #endregion
     }
 
     #region RANGED DAMAGE TRIGGER
