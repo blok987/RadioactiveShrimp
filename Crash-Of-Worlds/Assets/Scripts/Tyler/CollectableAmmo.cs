@@ -6,7 +6,6 @@ public class CollectableAmmo : MonoBehaviour
     public Vector3 playerPos;
     public Transform player;
     public GameManagerScript gameManager;
-    public GunController Gun;
 
     public Rigidbody2D rb;
     public SpriteRenderer Sprite;
