@@ -116,6 +116,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	private void Update()
 	{
+
 		#region TIMERS
 		LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
