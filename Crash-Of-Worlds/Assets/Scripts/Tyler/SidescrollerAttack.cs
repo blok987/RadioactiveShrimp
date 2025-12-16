@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -70,6 +71,8 @@ public class GunController : MonoBehaviour
     public AudioClip HandGunFire; // HandGun fire sound effect
     public AudioClip ShotGunReload; // ShotGun reload sound effect
     public AudioClip ShotGunFire; // ShotGun fire sound effect
+
+    public TextMeshProUGUI OOAMessage;
 
 
     public int maxWeapon = 1;

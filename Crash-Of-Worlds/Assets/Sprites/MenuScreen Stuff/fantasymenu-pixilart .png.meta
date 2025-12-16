@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d44a1c2725b3e1243aefec0d17a95deb
+guid: e658aa57a73c01d45a59f719132a3350
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fantasymenu-pixilart _0: -526870564672882569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
