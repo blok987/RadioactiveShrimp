@@ -1,11 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.UI.Image;
+
 
 public class GunController : MonoBehaviour
 {

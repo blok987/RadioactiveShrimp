@@ -46,6 +46,7 @@ public class Enemystuff : MonoBehaviour
     #endregion
 
     [SerializeField] public LayerMask _groundLayer;
+    [SerializeField] public LayerMask PlayerAttackLayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,17 +74,20 @@ public class Enemystuff : MonoBehaviour
         }
 
         // If the enemies health is 0 and isn't dead, start the death coroutine and set isDead to true
-        if (health <= 0 && isDead == false)
+        if (health < 1 && !wasHit)
         {
+            wasHit = true;
             StartCoroutine(death());
-            isDead = true;
         }
 
         #region COLLISION CHECKS
-        //if (Physics2D.OverlapBox(HeadCheckPoint.position, HeadCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
-        //{
-        //    Grounded = true;
-        //}
+        if (Physics2D.OverlapBox(HeadCheckPoint.position, HeadCheckSize, 0, PlayerAttackLayer)) //checks if set box overlaps with ground
+        {
+            wasHit = true;
+            health -= 1;
+            damageTaken += 1;
+            wasHit = false;
+        }
 
         if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
         {
@@ -117,6 +121,14 @@ public class Enemystuff : MonoBehaviour
             damageTaken += damagePrefab.GetComponent<Bullet>().damage;
             wasHit = false;
         }
+
+        if (col.gameObject.layer == 8)
+        {
+            wasHit = true;
+            health -= 1;
+            damageTaken += 1;
+            wasHit = false;
+        }
     }
     #endregion
 
@@ -136,7 +148,7 @@ public class Enemystuff : MonoBehaviour
     // Plays the death sfx, waits 1 second, before destroying the enemy
     public IEnumerator death()
     {
-        if (scifienemy)
+        if (scifienemy && !isDead)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -162,6 +174,7 @@ public class Enemystuff : MonoBehaviour
                 Destroy(ammoDrop, 20f); // Destroy bullet after 20 seconds
             }
         }
+        isDead = true;
         SFX.PlayOneShot(DeathPHolder, 0.7F);
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);

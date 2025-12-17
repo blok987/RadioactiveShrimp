@@ -55,6 +55,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
+    public float LastOnEnemyTime { get; private set; }
     public float LastPressedSlamTime { get; private set; }
 	public float LastPressedSlideTime { get; private set; }
 
@@ -100,6 +101,7 @@ public class PlayerMovementWithDash : MonoBehaviour
     [Header("Layers & Tags")]
 	[SerializeField] public LayerMask _groundLayer;
     [SerializeField] private LayerMask DeathLayer;
+    [SerializeField] private LayerMask EnemyHeadLayer;
     #endregion
 
     private void Awake()
@@ -122,8 +124,9 @@ public class PlayerMovementWithDash : MonoBehaviour
 		LastOnWallTime -= Time.deltaTime;
 		LastOnWallRightTime -= Time.deltaTime;
 		LastOnWallLeftTime -= Time.deltaTime;
+        LastOnEnemyTime -= Time.deltaTime;
 
-		LastPressedJumpTime -= Time.deltaTime;
+        LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
 		#endregion
 
@@ -270,11 +273,17 @@ public class PlayerMovementWithDash : MonoBehaviour
 			}
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
-		}
-		#endregion
 
-		#region JUMP CHECKS
-		if (IsJumping && RB.linearVelocity.y < 0)
+            if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, EnemyHeadLayer) && _isJumpFalling) //checks if set box overlaps with ground
+            {
+				LastOnEnemyTime = Data.coyoteTime;
+				EnemyBounce();
+            }
+        }
+        #endregion
+
+        #region JUMP CHECKS
+        if (IsJumping && RB.linearVelocity.y < 0)
 		{
 			IsJumping = false;
 
@@ -824,6 +833,18 @@ public class PlayerMovementWithDash : MonoBehaviour
 
         RB.AddForce(movement * Vector2.up);
     }
+
+	private void EnemyBounce()
+	{
+		LastOnEnemyTime = 0;
+
+		float force = 3;
+        //anim.SetFloat("Jumping", 1f);
+        //JumpSFX.Play();
+
+
+        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+    }
     #endregion
 
 
@@ -838,7 +859,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
     private bool CanJump()
     {
-		return LastOnGroundTime > 0 && !IsJumping;
+		return LastOnGroundTime > 0 && !IsJumping || LastOnEnemyTime > 0;
     }
 
 	private bool CanWallJump()
@@ -883,6 +904,11 @@ public class PlayerMovementWithDash : MonoBehaviour
 	{
 		return LastPressedSlideTime > 0;
     }
+
+	public bool CanEnemyBounce()
+	{
+		return LastOnEnemyTime > 0;
+	}
         #endregion
 
     void OnTriggerEnter2D(Collider2D col)
