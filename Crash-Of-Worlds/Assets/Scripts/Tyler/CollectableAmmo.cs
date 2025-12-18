@@ -92,7 +92,7 @@ public class CollectableAmmo : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("AmmoCollector") && !isBeingCollected)
+        if (col.gameObject.CompareTag("AmmoCollector") && !isBeingCollected )
         {
             isBeingCollected = true;
             StartCoroutine(nameof(AmmoCollection));
@@ -104,20 +104,21 @@ public class CollectableAmmo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
-
-            if (isPistolAmmo)
+            if (isPistolAmmo && collision.gameObject.GetComponentInChildren<GunController>().currentPistolStorage != collision.gameObject.GetComponentInChildren<GunController>().maxPistolAmmo)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentPistolStorage += 4;
             }
 
-            if (isShells)
+            if (isShells && collision.gameObject.GetComponentInChildren<GunController>().currentShellStorage != collision.gameObject.GetComponentInChildren<GunController>().maxShells)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentShellStorage += 1;
             }
 
-            if (isRifleAmmo)
+            if (isRifleAmmo && collision.gameObject.GetComponentInChildren<GunController>().currentRifleStorage != collision.gameObject.GetComponentInChildren<GunController>().maxRifleAmmo)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentRifleStorage += 15;
             }
         }

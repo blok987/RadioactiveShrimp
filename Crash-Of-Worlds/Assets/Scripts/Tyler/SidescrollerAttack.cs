@@ -248,6 +248,21 @@ public class GunController : MonoBehaviour
                 StartCoroutine(nameof(reload));
             }
         }
+
+        if (currentPistolStorage >= maxPistolAmmo)
+        {
+            currentPistolStorage = maxPistolAmmo;
+        }
+
+        if (currentShellStorage >= maxShells)
+        {
+            currentShellStorage = maxShells;
+        }
+
+        if (currentRifleStorage >= maxRifleAmmo)
+        {
+            currentRifleStorage = maxRifleAmmo;
+        }
     }
 
     void AimGun()

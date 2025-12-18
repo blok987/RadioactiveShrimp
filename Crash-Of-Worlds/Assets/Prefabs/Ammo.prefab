@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
-  gameManager: {fileID: 0}
+  player: {fileID: 3251735415423750418, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+  gameManager: {fileID: 44034667308175215, guid: c404b6f672b2d3945aa93d8a2ab10d4e, type: 3}
   rb: {fileID: 3244312374757224702}
   Sprite: {fileID: 5720848853637454149}
   Trail: {fileID: 5109193608254505382}
