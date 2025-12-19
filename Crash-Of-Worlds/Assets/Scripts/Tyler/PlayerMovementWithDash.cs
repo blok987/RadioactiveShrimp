@@ -59,6 +59,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	private float slopeDownAngle;
 	private float slopeDownAngleOld;
+	private float slopeSideAngle;
 
 	private bool isOnSlope;
 
@@ -137,12 +138,30 @@ public class PlayerMovementWithDash : MonoBehaviour
 	{
 		Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
 
+		slopeCheckHorizontal(checkPos);
 		slopeCheckVertical(checkPos);
 	}
 
 	private void slopeCheckHorizontal(Vector2 checkPos)
 	{
+		RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, _groundLayer);
+		RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, _groundLayer);
 
+		if (slopeHitFront)
+		{
+			isOnSlope = true;
+			slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+		}
+		else if (slopeHitBack)
+		{
+			isOnSlope = true;
+			slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+		}
+		else
+		{
+			slopeSideAngle = 0.0f;
+			isOnSlope = false;
+		}
 	}
 
     private void slopeCheckVertical(Vector2 checkPos)
@@ -151,7 +170,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 		if (hit)
 		{
-			slopeNormalPerp = Vector2.Perpendicular(hit.normal);
+			slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
 
 			slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
 
