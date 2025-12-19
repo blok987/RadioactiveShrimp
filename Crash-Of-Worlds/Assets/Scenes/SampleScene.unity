@@ -2357,6 +2357,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1703622345937769963, guid: c404b6f672b2d3945aa93d8a2ab10d4e, type: 3}
+      propertyPath: scifiGuy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2213234167637082191, guid: c404b6f672b2d3945aa93d8a2ab10d4e, type: 3}
       propertyPath: m_Name
       value: GameManager

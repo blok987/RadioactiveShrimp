@@ -2017,9 +2017,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: e8e524e294606ed42a1ddaa9d768d455, type: 2}
   DialManager: {fileID: 2306011842053622798}
+  CC: {fileID: 3928761972735641620}
   GUN: {fileID: 7922351412089427082}
   scifiGuy: 0
   fantasyGuy: 0
+  slopeCheckDistance: 0.5
   enableDash: 0
   _isDashAttacking: 0
   _groundCheckPoint: {fileID: 7266343542138652126}
