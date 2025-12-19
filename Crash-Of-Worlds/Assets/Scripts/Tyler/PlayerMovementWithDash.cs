@@ -22,6 +22,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+	public CapsuleCollider2D CC;
     //public Animator anim { get; private set; }
 
     public GunController GUN;
@@ -49,6 +50,17 @@ public class PlayerMovementWithDash : MonoBehaviour
 	public bool fantasyGuy;
 
 	public bool canMove { get; private set; }
+
+	private Vector2 colliderSize;
+	private Vector2 slopeNormalPerp;
+
+	[SerializeField]
+	private float slopeCheckDistance;
+
+	private float slopeDownAngle;
+	private float slopeDownAngleOld;
+
+	private bool isOnSlope;
 
     //Timers (also all fields, could be private and a method returning a bool could be used)
     public float LastOnGroundTime { get; set; }
@@ -107,16 +119,56 @@ public class PlayerMovementWithDash : MonoBehaviour
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
+		
 		//anim = GetComponent<Animator>();
 	}
 
 	private void Start()
 	{
+        CC = GetComponent<CapsuleCollider2D>();
+
+		colliderSize = CC.size;
+
         SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 	}
 
-	private void Update()
+	private void slopeCheck()
+	{
+		Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
+
+		slopeCheckVertical(checkPos);
+	}
+
+	private void slopeCheckHorizontal(Vector2 checkPos)
+	{
+
+	}
+
+    private void slopeCheckVertical(Vector2 checkPos)
+	{
+		RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, _groundLayer);
+
+		if (hit)
+		{
+			slopeNormalPerp = Vector2.Perpendicular(hit.normal);
+
+			slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+			if (slopeDownAngle != slopeDownAngleOld)
+			{
+				isOnSlope = true;
+			}
+
+			slopeDownAngleOld = slopeDownAngle;
+
+			Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
+			Debug.DrawRay(hit.point, hit.normal, Color.green);
+		}
+	}
+
+
+    private void Update()
 	{
 
 		#region TIMERS
@@ -469,6 +521,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 
     private void FixedUpdate()
 	{
+		slopeCheck();
+
 		//Handle Run
 		if (!IsDashing)
 		{
@@ -550,64 +604,70 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region RUN METHODS
     private void Run(float lerpAmount)
 	{
-		//Calculate the direction we want to move in and our desired velocity
-		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-		//We can reduce are control using Lerp() this smooths changes to are direction and speed
-		targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
+        //Calculate the direction we want to move in and our desired velocity
+        float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+        //We can reduce are control using Lerp() this smooths changes to are direction and speed
+        targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
 
-		#region Calculate AccelRate
-		float accelRate;
+        #region Calculate AccelRate
+        float accelRate;
 
-		//Gets an acceleration value based on if we are accelerating (includes turning) 
-		//or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-		if (LastOnGroundTime > 0)
-		{
+        //Gets an acceleration value based on if we are accelerating (includes turning) 
+        //or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
+        if (LastOnGroundTime > 0)
+        {
             accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
         }
-		else
-		{
+        else
+        {
             accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
         }
-		#endregion
+        #endregion
 
-		if (IsRunning)
-		{
+        if (IsRunning)
+        {
             targetSpeed = _moveInput.x * (Data.runMaxSpeed + 7);
         }
 
-		#region Add Bonus Jump Apex Acceleration
-		//Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
-		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
+        #region Add Bonus Jump Apex Acceleration
+        //Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
+        if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
+        {
+            accelRate *= Data.jumpHangAccelerationMult;
+            targetSpeed *= Data.jumpHangMaxSpeedMult;
+        }
+        #endregion
+
+        #region Conserve Momentum
+        //We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
+        if (Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+        {
+            //Prevent any deceleration from happening, or in other words conserve are current momentum
+            //You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+            accelRate = 1;
+        }
+        #endregion
+
+        //Calculate difference between current velocity and desired velocity
+        float speedDif = targetSpeed - RB.linearVelocity.x;
+        //Calculate force along x-axis to apply to thr player
+
+        float movement = speedDif * accelRate;
+
+        //Convert this to a vector and apply to rigidbody
+        RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+
+        /*
+         * For those interested here is what AddForce() will do
+         * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
+         * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
+        */
+
+        if (Grounded && isOnSlope)
 		{
-			accelRate *= Data.jumpHangAccelerationMult;
-			targetSpeed *= Data.jumpHangMaxSpeedMult;
-		}
-		#endregion
-
-		#region Conserve Momentum
-		//We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
-		if(Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
-		{
-			//Prevent any deceleration from happening, or in other words conserve are current momentum
-			//You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
-			accelRate = 1; 
-		}
-		#endregion
-
-		//Calculate difference between current velocity and desired velocity
-		float speedDif = targetSpeed - RB.linearVelocity.x;
-		//Calculate force along x-axis to apply to thr player
-
-		float movement = speedDif * accelRate;
-
-		//Convert this to a vector and apply to rigidbody
-		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-		/*
-		 * For those interested here is what AddForce() will do
-		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
-		 * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
-		*/
+            //Convert this to a vector and apply to rigidbody
+            RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        }
 	}
 
 	private void Turn()
