@@ -1,10 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.UI.Image;
+
 
 public class GunController : MonoBehaviour
 {
@@ -55,7 +52,7 @@ public class GunController : MonoBehaviour
     public float lastShellShot;
     public float lastPistolShot;
 
-    public Vector3 aimdirection;
+    public Vector2 aimdirection;
 
     public LayerMask layerMask;
     public LayerMask worldLayer;
@@ -70,6 +67,8 @@ public class GunController : MonoBehaviour
     public AudioClip HandGunFire; // HandGun fire sound effect
     public AudioClip ShotGunReload; // ShotGun reload sound effect
     public AudioClip ShotGunFire; // ShotGun fire sound effect
+
+    public TextMeshProUGUI OOAMessage;
 
 
     public int maxWeapon = 1;
@@ -249,6 +248,21 @@ public class GunController : MonoBehaviour
                 StartCoroutine(nameof(reload));
             }
         }
+
+        if (currentPistolStorage >= maxPistolAmmo)
+        {
+            currentPistolStorage = maxPistolAmmo;
+        }
+
+        if (currentShellStorage >= maxShells)
+        {
+            currentShellStorage = maxShells;
+        }
+
+        if (currentRifleStorage >= maxRifleAmmo)
+        {
+            currentRifleStorage = maxRifleAmmo;
+        }
     }
 
     void AimGun()
@@ -282,7 +296,6 @@ public class GunController : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.gravityScale = 0; // Disable gravity for the bullet
-
 
                 // Calculate the shoot direction from the fire point to the mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -371,7 +384,11 @@ public class GunController : MonoBehaviour
 
             if ((handGunSelected && currentPistolStorage == 0 && pistolAmmoLeft == 0) || (shotGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (shotototoGunSelected && currentShellStorage == 0 && shellsLeft == 0) || (rifleSelected && currentRifleStorage == 0 && rifleAmmoLeft == 0))
             {
-
+                OOAMessage.alpha = 1;
+            }
+            else
+            {
+                OOAMessage.alpha = 0;
             }
         }
     }

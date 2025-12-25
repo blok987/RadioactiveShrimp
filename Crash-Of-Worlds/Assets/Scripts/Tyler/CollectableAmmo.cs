@@ -17,11 +17,13 @@ public class CollectableAmmo : MonoBehaviour
 
     public bool isBeingCollected = false;
 
+    public int randomAmmo;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int randomAmmo = Random.Range(1, 4);
+        randomAmmo = Random.Range(1, gameManager.gun.maxWeapon + 1);
 
         if (randomAmmo == 1)
         {
@@ -72,9 +74,13 @@ public class CollectableAmmo : MonoBehaviour
             gameObject.tag = "RifleAmmo";
 
         }
-        else if (gameManager.hasShotGun)
+        else if (randomAmmo > 3 && gameManager.hasShotGun)
         {
             randomAmmo = 2;
+        }
+        else if (randomAmmo > 3 && !gameManager.hasShotGun)
+        {
+            randomAmmo = 1;
         }
     }
 
@@ -86,7 +92,7 @@ public class CollectableAmmo : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("AmmoCollector") && !isBeingCollected)
+        if (col.gameObject.CompareTag("AmmoCollector") && !isBeingCollected )
         {
             isBeingCollected = true;
             StartCoroutine(nameof(AmmoCollection));
@@ -98,20 +104,21 @@ public class CollectableAmmo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
-
-            if (isPistolAmmo)
+            if (isPistolAmmo && collision.gameObject.GetComponentInChildren<GunController>().currentPistolStorage != collision.gameObject.GetComponentInChildren<GunController>().maxPistolAmmo)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentPistolStorage += 4;
             }
 
-            if (isShells)
+            if (isShells && collision.gameObject.GetComponentInChildren<GunController>().currentShellStorage != collision.gameObject.GetComponentInChildren<GunController>().maxShells)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentShellStorage += 1;
             }
 
-            if (isRifleAmmo)
+            if (isRifleAmmo && collision.gameObject.GetComponentInChildren<GunController>().currentRifleStorage != collision.gameObject.GetComponentInChildren<GunController>().maxRifleAmmo)
             {
+                Destroy(this.gameObject);
                 collision.gameObject.GetComponentInChildren<GunController>().currentRifleStorage += 15;
             }
         }
@@ -119,22 +126,14 @@ public class CollectableAmmo : MonoBehaviour
 
     public IEnumerator AmmoCollection()
     {
-        if (playerPos.x > transform.position.x)
+        if (playerPos.x > transform.position.x || playerPos.x < transform.position.x)
         {
-            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
-        }
-        else
-        {
-            rb.linearVelocityX = (playerPos.x + transform.position.x) * -1;
+            rb.linearVelocityX = (playerPos.x + transform.position.x) * 1;
         }
         rb.linearVelocityY = (playerPos.y - transform.position.y) * 2;
 
         yield return new WaitForSeconds(0.2f);
-        if (playerPos.x > transform.position.x)
-        {
-            rb.linearVelocityX = (playerPos.x - transform.position.x) * -5;
-        }
-        else
+        if (playerPos.x > transform.position.x || playerPos.x < transform.position.x)
         {
             rb.linearVelocityX = (playerPos.x - transform.position.x) * 5;
         }
