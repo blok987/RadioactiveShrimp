@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f794aa27139ae5541ba5eb7a3a76e371
+guid: 9c0c209f58276384686b6f1d8cbad78f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clouds-pixilart_0: 7381123800343169016
+      clouds-pixilart_1: 5244964409651076632
+      clouds-pixilart_2: 8628122288351097506
+      clouds-pixilart_3: 1981106911696830057
+      clouds-pixilart_4: -1177486288842252084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bdfaff3d7373c745a2fafd97ebf936c
+guid: c7ecb4240d5b27e45808c3063f158625
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background-fantasy-world-pixilart_0: 5272670467106863578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
