@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,37 +132,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackgroundVegitation_Fantasy_0
+      name: BackgroundVegitation_Fantasy_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 337
+        width: 2000
         height: 273
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec4b295b581a8a9b0800000000000000
-      internalID: -5068623784956480306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BackgroundVegitation_Fantasy_1
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 0
-        width: 706
-        height: 273
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,33 +153,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: BackgroundVegitation_Fantasy_2
-      rect:
-        serializedVersion: 2
-        x: 1199
-        y: 0
-        width: 794
-        height: 249
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0b7d7305adec9970800000000000000
-      internalID: 8763140267940084492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cbc93cbc0d2cc40419b0f46fbd4aefaf
     internalID: 0
     vertices: []
     indices: 
@@ -210,7 +166,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackgroundVegitation_Fantasy_1: -1045744527869044914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

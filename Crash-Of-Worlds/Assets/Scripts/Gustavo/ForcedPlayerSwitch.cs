@@ -6,8 +6,8 @@ public class ForcedPlayerSwitch : MonoBehaviour
 {
     // Rename "PlayerMovement and PlayerMovement2" to the actual names of your player controller scripts, do not change the "playerController" and "player2Controller" variable names.
     // Changing the "Cooldown Time" via the inspector will alow you to set how often the player can be switched when entering the trigger, you most likely want to set it relatively high to avoid rapid switching.
-    public PlayerMovement playerController;
-    public PlayerMovement2 player2Controller;
+    public PlayerMovementWithDash playerController;
+    public PlayerMovementWithDash2 player2Controller;
     public bool player1Active = true;
     public GameObject avatar1, avatar2;
     private int whichAvatarIsOn = 1;
@@ -43,7 +43,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
                 SwitchPlayer();
                 // Set the next trigger time
                 nextTriggerTime = Time.time + cooldownTime;
-                avatar2.transform.position = avatar1.transform.position;
+                
             }
         }
         if (other.CompareTag("Player2"))
@@ -54,7 +54,7 @@ public class ForcedPlayerSwitch : MonoBehaviour
                 SwitchPlayer();
                 // Set the next trigger time
                 nextTriggerTime = Time.time + cooldownTime;
-                avatar1.transform.position = avatar2.transform.position;
+                
             }
         }
 
