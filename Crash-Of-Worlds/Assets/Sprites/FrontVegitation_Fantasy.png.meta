@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FrontVegitation_Fantasy_0: 2213409058687295883
+      FrontVegitation_Fantasy_1: -3967888892464609168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
