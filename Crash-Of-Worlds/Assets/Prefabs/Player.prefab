@@ -559,7 +559,7 @@ Transform:
   m_GameObject: {fileID: 1510772588523408086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.55, z: -10}
+  m_LocalPosition: {x: 0.08, y: 0.06, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -683,13 +683,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OrthographicCamera: {fileID: 8555984498672697834}
   bTimeTint: {fileID: 8560855748153138678}
-  bTimeBar: {fileID: 0}
-  bTimeBarFill: {fileID: 0}
+  bTimeBar: {fileID: 3767390183597967637}
+  bTimeBarFill: {fileID: 435078315021352335}
   smoothTime: 0.26
   btimecamsize: 5.7
   bTimeSpeed: 0.3
   bulletTime: 0
-  maxBTimeLength: 0
+  maxBTimeLength: 3
   bTimeLength: 0
   minBTimeLength: 0
   fillamount: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
   justDashed: 0
   a: {r: 0.45786586, g: 0.4575472, b: 1, a: 0}
   b: {r: 0.45882356, g: 0.45882356, b: 1, a: 0.29411766}
-  player: {fileID: 0}
+  player: {fileID: 7315441043208970625}
 --- !u!1 &1685219751243113899
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
   player: {fileID: 8749818872272393974}
   playerMove: {fileID: 7315441043208970625}
   gameManager: {fileID: 0}
-  dialManager: {fileID: 0}
+  dialManager: {fileID: 2306011842053622798}
   bulletSpeed: 40
   shotGunSpread: 0.3
   rifleFireRate: 0.0804
@@ -783,13 +783,13 @@ MonoBehaviour:
   isReloading: 0
   lastShellShot: 0
   lastPistolShot: 0
-  aimdirection: {x: 0, y: 0, z: 0}
+  aimdirection: {x: 0, y: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
   worldLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   buttonPressed: 0
   canShoot: 1
   SFX: {fileID: 2689275622625599410}
@@ -799,7 +799,7 @@ MonoBehaviour:
   HandGunFire: {fileID: 8300000, guid: 67f926bcecd03bb4fb3cb1afb7ad84f4, type: 3}
   ShotGunReload: {fileID: 8300000, guid: 45e303266bbe3a54690e4286c624148b, type: 3}
   ShotGunFire: {fileID: 8300000, guid: 6f3bfb27db92b3a4ab3b54287eed0e25, type: 3}
-  OOAMessage: {fileID: 0}
+  OOAMessage: {fileID: 7653371637374068486}
   maxWeapon: 1
   weaponSelected: 1
 --- !u!50 &1319703264488020538
@@ -2016,10 +2016,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: e8e524e294606ed42a1ddaa9d768d455, type: 2}
-  DialManager: {fileID: 0}
-  GUN: {fileID: 0}
+  DialManager: {fileID: 2306011842053622798}
+  CC: {fileID: 3928761972735641620}
+  GUN: {fileID: 7922351412089427082}
   scifiGuy: 0
   fantasyGuy: 0
+  slopeCheckDistance: 0.5
   enableDash: 0
   _isDashAttacking: 0
   _groundCheckPoint: {fileID: 7266343542138652126}
@@ -2033,6 +2035,9 @@ MonoBehaviour:
   DeathLayer:
     serializedVersion: 2
     m_Bits: 0
+  EnemyHeadLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!70 &3928761972735641620
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

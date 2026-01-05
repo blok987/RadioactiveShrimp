@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7096448982403750826
+--- !u!1 &7616242469399219943
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4647464661613947772}
-  - component: {fileID: 4205465605798369925}
-  - component: {fileID: 7248650882371900342}
-  - component: {fileID: 5520340717484401542}
-  - component: {fileID: 6339670781255349590}
-  - component: {fileID: 7120237883438584393}
+  - component: {fileID: 8108233768454367281}
+  - component: {fileID: 5720848853637454149}
+  - component: {fileID: 1682265131125601475}
+  - component: {fileID: 3244312374757224702}
+  - component: {fileID: 4511532800722810449}
+  - component: {fileID: 5109193608254505382}
   m_Layer: 6
-  m_Name: Ammo 1
+  m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4647464661613947772
+--- !u!4 &8108233768454367281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.32, y: -0.63, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.610001, y: 1.0799999, z: 0}
   m_LocalScale: {x: 0.3465, y: 0.3465, z: 0.3465}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4205465605798369925
+--- !u!212 &5720848853637454149
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -91,13 +91,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7248650882371900342
+--- !u!58 &1682265131125601475
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -127,14 +127,14 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.50000006
---- !u!50 &5520340717484401542
+--- !u!50 &3244312374757224702
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -154,36 +154,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6339670781255349590
+--- !u!114 &4511532800722810449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da9755ec86c8484499a55d215b5c653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 6108135378159663819, guid: 00773aaea7b2c974096a7bf22ea5fab6, type: 3}
   playerPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
-  rb: {fileID: 5520340717484401542}
-  Sprite: {fileID: 4205465605798369925}
-  Trail: {fileID: 7120237883438584393}
+  player: {fileID: 3251735415423750418, guid: 6b403efabd609974fbf4d45d82871646, type: 3}
+  gameManager: {fileID: 44034667308175215, guid: c404b6f672b2d3945aa93d8a2ab10d4e, type: 3}
+  rb: {fileID: 3244312374757224702}
+  Sprite: {fileID: 5720848853637454149}
+  Trail: {fileID: 5109193608254505382}
   isPistolAmmo: 0
   isShells: 0
   isRifleAmmo: 0
   isBeingCollected: 0
---- !u!96 &7120237883438584393
+  randomAmmo: 0
+--- !u!96 &5109193608254505382
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7096448982403750826}
+  m_GameObject: {fileID: 7616242469399219943}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
