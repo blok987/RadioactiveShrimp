@@ -22,6 +22,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 	//public PauseMenu Pause;
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+	public CapsuleCollider2D CC;
     //public Animator anim { get; private set; }
 
     public GunController GUN;
@@ -50,11 +51,24 @@ public class PlayerMovementWithDash : MonoBehaviour
 
 	public bool canMove { get; private set; }
 
+	private Vector2 colliderSize;
+	private Vector2 slopeNormalPerp;
+
+	[SerializeField]
+	private float slopeCheckDistance;
+
+	private float slopeDownAngle;
+	private float slopeDownAngleOld;
+	private float slopeSideAngle;
+
+	private bool isOnSlope;
+
     //Timers (also all fields, could be private and a method returning a bool could be used)
     public float LastOnGroundTime { get; set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
+    public float LastOnEnemyTime { get; private set; }
     public float LastPressedSlamTime { get; private set; }
 	public float LastPressedSlideTime { get; private set; }
 
@@ -100,29 +114,90 @@ public class PlayerMovementWithDash : MonoBehaviour
     [Header("Layers & Tags")]
 	[SerializeField] public LayerMask _groundLayer;
     [SerializeField] private LayerMask DeathLayer;
+    [SerializeField] private LayerMask EnemyHeadLayer;
     #endregion
 
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
+		
 		//anim = GetComponent<Animator>();
 	}
 
 	private void Start()
 	{
+        CC = GetComponent<CapsuleCollider2D>();
+
+		colliderSize = CC.size;
+
         SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 	}
 
-	private void Update()
+	private void slopeCheck()
 	{
+		Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
+
+		slopeCheckHorizontal(checkPos);
+		slopeCheckVertical(checkPos);
+	}
+
+	private void slopeCheckHorizontal(Vector2 checkPos)
+	{
+		RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, _groundLayer);
+		RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, _groundLayer);
+
+		if (slopeHitFront)
+		{
+			isOnSlope = true;
+			slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+		}
+		else if (slopeHitBack)
+		{
+			isOnSlope = true;
+			slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+		}
+		else
+		{
+			slopeSideAngle = 0.0f;
+			isOnSlope = false;
+		}
+	}
+
+    private void slopeCheckVertical(Vector2 checkPos)
+	{
+		RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, _groundLayer);
+
+		if (hit)
+		{
+			slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
+
+			slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+			if (slopeDownAngle != slopeDownAngleOld)
+			{
+				isOnSlope = true;
+			}
+
+			slopeDownAngleOld = slopeDownAngle;
+
+			Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
+			Debug.DrawRay(hit.point, hit.normal, Color.green);
+		}
+	}
+
+
+    private void Update()
+	{
+
 		#region TIMERS
 		LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
 		LastOnWallRightTime -= Time.deltaTime;
 		LastOnWallLeftTime -= Time.deltaTime;
+        LastOnEnemyTime -= Time.deltaTime;
 
-		LastPressedJumpTime -= Time.deltaTime;
+        LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
 		#endregion
 
@@ -269,11 +344,17 @@ public class PlayerMovementWithDash : MonoBehaviour
 			}
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
-		}
-		#endregion
 
-		#region JUMP CHECKS
-		if (IsJumping && RB.linearVelocity.y < 0)
+            if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, EnemyHeadLayer) && _isJumpFalling) //checks if set box overlaps with ground
+            {
+				LastOnEnemyTime = Data.coyoteTime;
+				EnemyBounce();
+            }
+        }
+        #endregion
+
+        #region JUMP CHECKS
+        if (IsJumping && RB.linearVelocity.y < 0)
 		{
 			IsJumping = false;
 
@@ -459,6 +540,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 
     private void FixedUpdate()
 	{
+		slopeCheck();
+
 		//Handle Run
 		if (!IsDashing)
 		{
@@ -540,64 +623,70 @@ public class PlayerMovementWithDash : MonoBehaviour
     #region RUN METHODS
     private void Run(float lerpAmount)
 	{
-		//Calculate the direction we want to move in and our desired velocity
-		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-		//We can reduce are control using Lerp() this smooths changes to are direction and speed
-		targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
+        //Calculate the direction we want to move in and our desired velocity
+        float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+        //We can reduce are control using Lerp() this smooths changes to are direction and speed
+        targetSpeed = Mathf.Lerp(RB.linearVelocity.x, targetSpeed, lerpAmount);
 
-		#region Calculate AccelRate
-		float accelRate;
+        #region Calculate AccelRate
+        float accelRate;
 
-		//Gets an acceleration value based on if we are accelerating (includes turning) 
-		//or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-		if (LastOnGroundTime > 0)
-		{
+        //Gets an acceleration value based on if we are accelerating (includes turning) 
+        //or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
+        if (LastOnGroundTime > 0)
+        {
             accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
         }
-		else
-		{
+        else
+        {
             accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
         }
-		#endregion
+        #endregion
 
-		if (IsRunning)
-		{
+        if (IsRunning)
+        {
             targetSpeed = _moveInput.x * (Data.runMaxSpeed + 7);
         }
 
-		#region Add Bonus Jump Apex Acceleration
-		//Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
-		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
+        #region Add Bonus Jump Apex Acceleration
+        //Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
+        if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.linearVelocity.y) < Data.jumpHangTimeThreshold)
+        {
+            accelRate *= Data.jumpHangAccelerationMult;
+            targetSpeed *= Data.jumpHangMaxSpeedMult;
+        }
+        #endregion
+
+        #region Conserve Momentum
+        //We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
+        if (Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+        {
+            //Prevent any deceleration from happening, or in other words conserve are current momentum
+            //You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+            accelRate = 1;
+        }
+        #endregion
+
+        //Calculate difference between current velocity and desired velocity
+        float speedDif = targetSpeed - RB.linearVelocity.x;
+        //Calculate force along x-axis to apply to thr player
+
+        float movement = speedDif * accelRate;
+
+        //Convert this to a vector and apply to rigidbody
+        RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+
+        /*
+         * For those interested here is what AddForce() will do
+         * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
+         * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
+        */
+
+        if (Grounded && isOnSlope)
 		{
-			accelRate *= Data.jumpHangAccelerationMult;
-			targetSpeed *= Data.jumpHangMaxSpeedMult;
-		}
-		#endregion
-
-		#region Conserve Momentum
-		//We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
-		if(Data.doConserveMomentum && Mathf.Abs(RB.linearVelocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.linearVelocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
-		{
-			//Prevent any deceleration from happening, or in other words conserve are current momentum
-			//You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
-			accelRate = 1; 
-		}
-		#endregion
-
-		//Calculate difference between current velocity and desired velocity
-		float speedDif = targetSpeed - RB.linearVelocity.x;
-		//Calculate force along x-axis to apply to thr player
-
-		float movement = speedDif * accelRate;
-
-		//Convert this to a vector and apply to rigidbody
-		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-		/*
-		 * For those interested here is what AddForce() will do
-		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
-		 * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
-		*/
+            //Convert this to a vector and apply to rigidbody
+            RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        }
 	}
 
 	private void Turn()
@@ -823,6 +912,18 @@ public class PlayerMovementWithDash : MonoBehaviour
 
         RB.AddForce(movement * Vector2.up);
     }
+
+	private void EnemyBounce()
+	{
+		LastOnEnemyTime = 0;
+
+		float force = 3;
+        //anim.SetFloat("Jumping", 1f);
+        //JumpSFX.Play();
+
+
+        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+    }
     #endregion
 
 
@@ -837,7 +938,7 @@ public class PlayerMovementWithDash : MonoBehaviour
 
     private bool CanJump()
     {
-		return LastOnGroundTime > 0 && !IsJumping;
+		return LastOnGroundTime > 0 && !IsJumping || LastOnEnemyTime > 0;
     }
 
 	private bool CanWallJump()
@@ -882,6 +983,11 @@ public class PlayerMovementWithDash : MonoBehaviour
 	{
 		return LastPressedSlideTime > 0;
     }
+
+	public bool CanEnemyBounce()
+	{
+		return LastOnEnemyTime > 0;
+	}
         #endregion
 
     void OnTriggerEnter2D(Collider2D col)
