@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    public PlayerMovementWithDash playerMove;
+    public GameObject PlayerScifi;
+    public GameObject PlayerFantacy;
     public GunController gun;
     public DialogueManager dialManager;
     public Bullet bullet;

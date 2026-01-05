@@ -12,6 +12,7 @@ TagManager:
   - EnemyBullets
   - Shell
   - RifleAmmo
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Enemy
   - PlayerAttack
   - EnemyHead
-  - 
+  - Death
   - 
   - 
   - 
