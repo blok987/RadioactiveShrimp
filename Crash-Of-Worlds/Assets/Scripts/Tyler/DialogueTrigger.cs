@@ -75,15 +75,6 @@ public class DialogueTrigger : MonoBehaviour
         yield return new WaitForSeconds(3);
         Intro.audioS.PlayOneShot(Intro.Explosion, 1f);
         Destroy(Intro.BlackScreen);
-        yield return new WaitForSeconds(0f);
         TriggerDialogue();
-        yield return new WaitForSeconds(1f);
-        DialogueManager.instance.DisplayNextDialogueLine();
-        yield return new WaitForSeconds(1f);
-        DialogueManager.instance.DisplayNextDialogueLine();
-        yield return new WaitForSeconds(1f);
-        DialogueManager.instance.EndDialogue();
-        yield return new WaitForSeconds(0f);
-        Destroy(DialogueManager.instance);
     }
 }

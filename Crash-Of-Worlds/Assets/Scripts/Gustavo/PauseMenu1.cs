@@ -21,12 +21,12 @@ public class PauseMenu1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && avatar1.activeSelf)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-            Time.timeScale = 0;
+            Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && avatar2.activeSelf)
         {
             pauseMenu2.SetActive(!pauseMenu2.activeSelf);
-            Time.timeScale = 0;
+            Time.timeScale = pauseMenu2.activeSelf ? 0 : 1;
         }
     }
     
