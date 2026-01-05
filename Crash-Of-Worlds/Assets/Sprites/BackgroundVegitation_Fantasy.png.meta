@@ -210,7 +210,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackgroundVegitation_Fantasy_0: -5068623784956480306
+      BackgroundVegitation_Fantasy_1: -1045744527869044914
+      BackgroundVegitation_Fantasy_2: 8763140267940084492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
