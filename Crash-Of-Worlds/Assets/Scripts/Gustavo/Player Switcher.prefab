@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3185145893962713441}
   - component: {fileID: 6866094845570872427}
-  - component: {fileID: 8488373476093559643}
+  - component: {fileID: 6576549295999433342}
   m_Layer: 0
   m_Name: Player Switcher
   m_TagString: GameController
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2.566612}
   m_EdgeRadius: 0
---- !u!114 &8488373476093559643
+--- !u!114 &6576549295999433342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,4 +96,4 @@ MonoBehaviour:
   player1Active: 1
   avatar1: {fileID: 0}
   avatar2: {fileID: 0}
-  cooldownTime: 1
+  cooldownTime: 10

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe51b5483c3d32e4798f377c0c11d80e
+guid: 67863f0ef0424e04f81343d7043bb103
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixilart-drawing (1)_0: -4586428514890812713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

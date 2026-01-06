@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    public PlayerMovementWithDash playerMove;
+    public GameObject PlayerScifi;
+    public GameObject PlayerFantasy;
     public GunController gun;
     public DialogueManager dialManager;
     public Bullet bullet;
@@ -31,6 +32,17 @@ public class GameManagerScript : MonoBehaviour
         if (gun.hasRifle)
         {
             hasRifle = true;
+        }
+
+        if (fantasyworld && !scifiworld)
+        {
+            PlayerScifi.SetActive(false);
+            PlayerFantasy.SetActive(true);
+        }
+        else if (!fantasyworld && scifiworld)
+        {
+            PlayerScifi.SetActive(true);
+            PlayerFantasy.SetActive(false);
         }
     }
 }

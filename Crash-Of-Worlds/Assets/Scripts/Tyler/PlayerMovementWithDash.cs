@@ -26,6 +26,9 @@ public class PlayerMovementWithDash : MonoBehaviour
     //public Animator anim { get; private set; }
 
     public GunController GUN;
+	public GameObject GunObject;
+
+	public GameObject meleeWeapon;
     #endregion
 
     #region STATE PARAMETERS
@@ -62,6 +65,8 @@ public class PlayerMovementWithDash : MonoBehaviour
 	private float slopeSideAngle;
 
 	private bool isOnSlope;
+
+	private Transform respawnPos;
 
     //Timers (also all fields, could be private and a method returning a bool could be used)
     public float LastOnGroundTime { get; set; }
@@ -381,38 +386,49 @@ public class PlayerMovementWithDash : MonoBehaviour
 				
 		}
 
-		//if (!IsDashing)
-		//{
+		if (fantasyGuy && !scifiGuy)
+		{
+			GunObject.SetActive(false);
+			meleeWeapon.SetActive(true);
+		}
+		else if (!fantasyGuy && scifiGuy)
+		{
+			GunObject.SetActive(true);
+            meleeWeapon.SetActive(false);
+        }
+
+			//if (!IsDashing)
+			//{
 			//Jump
 			if (CanJump() && LastPressedJumpTime > 0)
-			{
-				//anim.SetFloat("Walking", 0f);
-				//anim.SetFloat("Running", 0f);
-				//anim.SetFloat("Idle", 0f);
-				//anim.SetFloat("Jumping", 1f);
-				IsJumping = true;
-				IsWallJumping = false;
-				_isJumpCut = false;
-				_isJumpFalling = false;
-				Jump();
-			}
-			//WALL JUMP
-			else if (CanWallJump() && LastPressedJumpTime > 0)
-			{
-				//anim.SetFloat("Walking", 0f);
-				//anim.SetFloat("Running", 0f);
-				//anim.SetFloat("Idle", 0f);
-				//anim.SetFloat("Jumping", 1f);
-				IsWallJumping = true;
-				IsJumping = false;
-				_isJumpCut = false;
-				_isJumpFalling = false;
+		{
+			//anim.SetFloat("Walking", 0f);
+			//anim.SetFloat("Running", 0f);
+			//anim.SetFloat("Idle", 0f);
+			//anim.SetFloat("Jumping", 1f);
+			IsJumping = true;
+			IsWallJumping = false;
+			_isJumpCut = false;
+			_isJumpFalling = false;
+			Jump();
+		}
+		//WALL JUMP
+		else if (CanWallJump() && LastPressedJumpTime > 0)
+		{
+			//anim.SetFloat("Walking", 0f);
+			//anim.SetFloat("Running", 0f);
+			//anim.SetFloat("Idle", 0f);
+			//anim.SetFloat("Jumping", 1f);
+			IsWallJumping = true;
+			IsJumping = false;
+			_isJumpCut = false;
+			_isJumpFalling = false;
 
-				_wallJumpStartTime = Time.time;
-				_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
+			_wallJumpStartTime = Time.time;
+			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
-				WallJump(_lastWallJumpDir);
-			}
+			WallJump(_lastWallJumpDir);
+		}
 		//}
 		#endregion
 
@@ -992,18 +1008,21 @@ public class PlayerMovementWithDash : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.tag == "CheckPoint")
+        {
+            if (!col.GetComponent<CheckpointScript>().CheckpointHit)
+            {
+                respawnPos = col.GetComponent<CheckpointScript>().CheckpointPos;
+                col.GetComponent<CheckpointScript>().CheckpointHit = true;
+            }
+        }
+
         if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, DeathLayer))
         {
-            //DeathSFX.Play();
-            //anim.SetFloat("Jumping", 0f);
-            //anim.SetFloat("DashJumping", 0f);
-            //anim.SetFloat("Slaming", 0f);
-            //anim.SetFloat("Dashing", 0f);
-            //anim.SetFloat("Walking", 0f);
-            //anim.SetFloat("Running", 0f);
-            //anim.SetFloat("Idle", 0f);
-            //anim.SetFloat("Death", 1f);
+			transform.position = respawnPos.position;
         }
+
+		
     }
 
     #region EDITOR METHODS
